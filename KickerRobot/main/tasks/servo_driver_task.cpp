@@ -1,0 +1,72 @@
+#include "../../include/tasks/servo_driver_task.h"
+
+void servoDriver(void *pv){
+    ledc_channel_config_t servoAChannel = {
+        .gpio_num = servoAPin,
+        .speed_mode = LEDC_LOW_SPEED_MODE,
+        .channel = LEDC_CHANNEL_0,
+        .intr_type = LEDC_INTR_DISABLE,
+        .timer_sel = LEDC_TIMER_0,
+        .duty = 0,
+        .hpoint = 0
+    };
+
+    ledc_timer_config_t servoATimer = {
+    .speed_mode = LEDC_LOW_SPEED_MODE,
+    .duty_resolution = LEDC_TIMER_12_BIT,
+    .timer_num  = LEDC_TIMER_0,
+    .freq_hz    = servo_frequency,              
+    };
+
+    ledc_channel_config_t servoBChannel = {
+        .gpio_num = servoBPin,
+        .speed_mode = LEDC_LOW_SPEED_MODE,
+        .channel = LEDC_CHANNEL_1,
+        .intr_type = LEDC_INTR_DISABLE,
+        .timer_sel = LEDC_TIMER_1,
+        .duty = 0,
+        .hpoint = 0
+    };
+
+    ledc_timer_config_t servoBTimer = {
+    .speed_mode = LEDC_LOW_SPEED_MODE,
+    .duty_resolution = LEDC_TIMER_12_BIT,
+    .timer_num  = LEDC_TIMER_1,
+    .freq_hz    = servo_frequency,              
+    };
+
+    ledc_timer_config(&servoATimer);
+    ledc_channel_config(&servoAChannel);
+
+    ledc_timer_config(&servoBTimer);
+    ledc_channel_config(&servoBChannel);
+
+    servo servoMotorA(LEDC_CHANNEL_0,(uint16_t)servo_min_pwm,(uint16_t)servo_max_pwm,(bool)true,(int8_t)0);
+    servo servoMotorB(LEDC_CHANNEL_1,(uint16_t)servo_min_pwm,(uint16_t)servo_max_pwm,(bool)false,(int8_t)0);
+
+    for(;;){
+        if(xSemaphoreTake(servo_status_mutex, portMAX_DELAY)){
+            switch (servo_status)
+            {
+            case (LATCHED):{
+                servoMotorA.setDegree(servo_latched_angle);
+                servoMotorB.setDegree(servo_latched_angle);
+                break;
+            }
+            case (RELEASED):{
+                servoMotorA.setDegree(servo_released_angle);
+                servoMotorB.setDegree(servo_released_angle);
+                break;
+            }
+            case (DETACHED):{
+                servoMotorA.setDegree(servo_detached_angle);
+                servoMotorB.setDegree(servo_detached_angle);
+                break;
+            }
+            }
+        xSemaphoreGive(servo_status_mutex);
+        }
+    vTaskDelay(pdMS_TO_TICKS(100));
+    }
+}
+
