@@ -1,7 +1,7 @@
 #ifndef __font__
 #define __font__
 
-#include "all_includes.h"
+#include "../all_includes.h"
 
 
 class font{

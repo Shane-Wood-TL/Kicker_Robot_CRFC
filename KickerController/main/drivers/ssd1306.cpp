@@ -1,6 +1,6 @@
-#include "../include/ssd1306.h"
-#include "../include/all_includes.h"
-#include "../include/pinout.h"
+#include "../../include/drivers/ssd1306.h"
+#include "../../include/all_includes.h"
+#include "../../include/pinout.h"
 
 //display inputs
 extern QueueHandle_t displayBatteryQueue;

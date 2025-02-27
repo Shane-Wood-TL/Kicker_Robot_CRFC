@@ -1,4 +1,4 @@
-#include "../include/edge_dector.h"
+#include "../../include/supporting/edge_dector.h"
 
 edge_dector::edge_dector(bool current_state) : old_state(current_state) {}
 

@@ -49,9 +49,8 @@ typedef struct {
 #include "driver/i2c_master.h"
 
 #include "pinout.h"
-//our includes
-#include "ps4.h"
-#include "ssd1306.h"
+
+
 
 enum motor_status_list{ENABLED, DISABLED, ERRORLESS,CALIBRATING, IDLE};
 enum servo_status_list{LATCHED, RELEASED, DETACHED};

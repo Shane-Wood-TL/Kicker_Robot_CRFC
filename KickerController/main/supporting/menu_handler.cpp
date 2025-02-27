@@ -1,20 +1,20 @@
-#include "../include/menu_handler.h"
+#include "../../include/supporting/menu_handler.h"
 
 menu_handler::menu_handler(ssd1306 *display, menu<std::string> *status_screen, menu<changeable_values<uint8_t>> *motor_speed_menu, menu<changeable_values<float>> *ramped_velocity_menu, 
-            menu<uint8_t> *servo_latched_menu, menu<uint8_t> *servo_released_menu, menu<uint8_t> *motors_calibrating_menu,
-            menu<uint8_t> *motors_enable_menu, menu<uint8_t> *motors_disable_menu, menu<uint8_t> *errors_clear_menu) : option_state(false), r2_state(false), 
-            l2_state(false), square_state(false), triangle_state(false), circle_state(false), dpad_up_state(false), dpad_down_state(false), dpad_left_state(false),
-            dpad_right_state(false){
-                this->display = display;
-                this->status_screen = status_screen;
-                this->motor_speed_menu = motor_speed_menu;
-                this->ramped_velocity_menu = ramped_velocity_menu;
-                this->servo_latched_menu = servo_latched_menu;
-                this->servo_released_menu = servo_released_menu;
-                this->motors_calibrating_menu = motors_calibrating_menu;
-                this->motors_enable_menu = motors_enable_menu;
-                this->motors_disable_menu = motors_disable_menu;
-                this->errors_clear_menu = errors_clear_menu;
+    menu<uint8_t> *servo_latched_menu, menu<uint8_t> *servo_released_menu, menu<uint8_t> *motors_calibrating_menu,
+    menu<uint8_t> *motors_enable_menu, menu<uint8_t> *motors_disable_menu, menu<uint8_t> *errors_clear_menu) : option_state(false), r2_state(false), 
+    l2_state(false), square_state(false), triangle_state(false), circle_state(false), dpad_up_state(false), dpad_down_state(false), dpad_left_state(false),
+    dpad_right_state(false){
+        this->display = display;
+        this->status_screen = status_screen;
+        this->motor_speed_menu = motor_speed_menu;
+        this->ramped_velocity_menu = ramped_velocity_menu;
+        this->servo_latched_menu = servo_latched_menu;
+        this->servo_released_menu = servo_released_menu;
+        this->motors_calibrating_menu = motors_calibrating_menu;
+        this->motors_enable_menu = motors_enable_menu;
+        this->motors_disable_menu = motors_disable_menu;
+        this->errors_clear_menu = errors_clear_menu;
 }
 
 void menu_handler::draw_status_display(){

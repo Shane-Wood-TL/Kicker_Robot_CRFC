@@ -1,2 +1,4 @@
-idf_component_register(SRCS "menu_handler.cpp" "font.cpp" "ssd1306.cpp" "menus.cpp" "edge_dector.cpp" "ps4.cpp" "main.cpp"
-                    INCLUDE_DIRS ".")
+idf_component_register(SRCS "./drivers/ps4.cpp" "./drivers/ssd1306.cpp"
+                            "./supporting/edge_dector.cpp" "./supporting/font.cpp" "./supporting/menu_handler.cpp" "./supporting/menus.cpp"
+                            "main.cpp"
+                            INCLUDE_DIRS "." "./drivers" "./setup" "./supporting")

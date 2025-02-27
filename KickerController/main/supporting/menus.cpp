@@ -1,5 +1,5 @@
 
-#include "../include/menus.h"
+#include "../../include/supporting/menus.h"
 
 template <typename T>
 menu<T>::menu(uint8_t lines, bool *have_values, std::string *words, T **values, ssd1306 *display, bool *selectable_values){
@@ -53,7 +53,7 @@ void menu<changeable_values<float>>::draw_to_display(){
             uint8_t current_length=0;
             std::string value_as_string = "";
             char temp_buffer[5];
-            sprintf(temp_buffer,"%.2f",*((**values[i]).value));
+            sprintf(temp_buffer,"%.2f",(*values[i])->get_value());
             value_as_string = temp_buffer;
             current_length = words[i].length() + value_as_string.length()+1;
             current_length *=12;
@@ -80,7 +80,7 @@ void menu<changeable_values<uint8_t>>::draw_to_display(){
         if(have_values[i]==true){
             uint8_t current_length=0;
             std::string value_as_string = "";
-            value_as_string = std::to_string(*((**values[i]).value));                
+            value_as_string = std::to_string((*values[i])->get_value());                
             current_length = words[i].length() + value_as_string.length()+1;
             current_length *=12;
             x_positions = (SSD1306HorizontalRes-current_length)/2;
@@ -96,6 +96,7 @@ void menu<changeable_values<uint8_t>>::draw_to_display(){
     }
     change_selected(0); 
 }
+
 
 template <>
 void menu<uint8_t>::draw_to_display(){
@@ -121,6 +122,8 @@ void menu<uint8_t>::draw_to_display(){
     }
     change_selected(0); 
 }
+
+
 
 template <>
 void menu<std::string>::draw_to_display(){
@@ -178,46 +181,26 @@ void menu<T>::change_selected(int8_t direction){
 template <>
 void menu<changeable_values<float>>::increase_selected_value(){
     if(selectable_values[currently_selected]){
-        if(*((**values[currently_selected]).value) < ((**values[currently_selected]).max_value)){
-            *((**values[currently_selected]).value) += ((**values[currently_selected]).change_by);
-        }
-
-        //check output to fix some floating point issues
-        if (*((**values[currently_selected]).value) > (**values[currently_selected]).max_value) {
-            *((**values[currently_selected]).value) = (**values[currently_selected]).max_value;
-        }
+        (*values[currently_selected])->increase_value();
     }
 }
 
 template <>
 void menu<changeable_values<float>>::decrease_selected_value(){
-    if(selectable_values[currently_selected]){
-        if(*((**values[currently_selected]).value) > ((**values[currently_selected]).min_value)){
-            *((**values[currently_selected]).value) -= ((**values[currently_selected]).change_by);
-        }
-
-        //check output to fix some floating point issues
-        if (*((**values[currently_selected]).value) < (**values[currently_selected]).min_value) {
-            *((**values[currently_selected]).value) = (**values[currently_selected]).min_value;
-        }
-    }
+    (*values[currently_selected])->decrease_value();
 }
 
 template <>
 void menu<changeable_values<uint8_t>>::increase_selected_value(){
     if(selectable_values[currently_selected]){
-        if(*((**values[currently_selected]).value) < ((**values[currently_selected]).max_value)){
-            *((**values[currently_selected]).value) += ((**values[currently_selected]).change_by);
-        }
+        (*values[currently_selected])->increase_value();
     }
 }
 
 template <>
 void menu<changeable_values<uint8_t>>::decrease_selected_value(){
     if(selectable_values[currently_selected]){
-        if(*((**values[currently_selected]).value) > ((**values[currently_selected]).min_value)){
-            *((**values[currently_selected]).value) -= ((**values[currently_selected]).change_by);
-        }
+        (*values[currently_selected])->decrease_value();
     }
 }
 

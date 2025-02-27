@@ -1,8 +1,8 @@
 #ifndef __ssd1306__
 #define __ssd1306__
 
-#include "font.h"
-#include "all_includes.h"
+#include "../supporting/font.h"
+#include "../all_includes.h"
 
 
 

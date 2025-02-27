@@ -1,8 +1,12 @@
 #include "../include/all_includes.h"
-#include "../include/menus.h"
-#include "../include/edge_dector.h"
-#include "../include/menu_handler.h"
-#include "../include/changeable_values.h"
+
+#include "../include/drivers/ps4.h"
+#include "../include/drivers/ssd1306.h"
+
+#include "../include/supporting/menus.h"
+#include "../include/supporting/edge_dector.h"
+#include "../include/supporting/menu_handler.h"
+#include "../include/supporting/changeable_values.h"
 
 #include "esp_timer.h"
 
@@ -72,7 +76,7 @@ i2c_master_bus_handle_t bus_handle;
 
 //esp now config
 //static uint8_t robotMacAddress[6] = {0xD8, 0x3B, 0xDA, 0xA0, 0xC5, 0xE0};
-static uint8_t robotMacAddress[6] = {0x68,0xB6,0xB3,0x52,0xB1,0xAC};
+static uint8_t robotMacAddress[6] = {0xD8,0x3B,0xDA,0xA1,0x06,0x30};
 //static uint8_t controller_mac_address[6] = {0xF0,0x9E,0x9E,0x12,0xA8,0xA4}; this devices mac address
 
 
@@ -143,6 +147,7 @@ void on_send(const uint8_t *mac_addr, esp_now_send_status_t status) {
                 if (xSemaphoreTake(main_menu_values_mutex, portMAX_DELAY)){
                     robot_connected = "DisCon";
                     xSemaphoreGive(main_menu_values_mutex);
+                    battery_voltage_string = "0";
                     if(xSemaphoreTake(update_main_display_mutex, portMAX_DELAY)){
                         update_main_display = true;
                         xSemaphoreGive(update_main_display_mutex);
@@ -422,23 +427,22 @@ void display_task(void *pv){
     status_screen.draw_to_display();
     display.write_buffer_SSD1306();
 
-    changeable_values<uint8_t> left_motor_speed_values = {&left_motor_speed,0,15,1};
-    changeable_values<uint8_t> right_motor_speed_values = {&right_motor_speed,0,15,1};
+    changeable_values<uint8_t> left_motor_speed_values(&left_motor_speed,0,15,1);
+    changeable_values<uint8_t> right_motor_speed_values(&right_motor_speed,0,15,1);
     changeable_values<uint8_t> *motor_speeds[3] = {nullptr,&left_motor_speed_values,&right_motor_speed_values};
     std::string motor_speed_text[3] = {"Speeds", "Left","Right"};
     
     menu<changeable_values<uint8_t>> motor_speed_menu(3,one_false_two_true,motor_speed_text,motor_speeds,&display,one_false_two_true);
 
-    changeable_values<float> velocity_ramp_limit = {&pid_kp,0.0f,50.0f,0.5f};
-    changeable_values<float> velocity_gain = {&pid_ki,0.0f,0.7f,0.01f};
-    changeable_values<float> velocity_integrator_gain = {&pid_kd,0.0f,25.0f,0.01f};
+    changeable_values<float> velocity_ramp_limit(&pid_kp,0.0f,50.0f,0.5f);
+    changeable_values<float> velocity_gain(&pid_ki,0.0f,0.7f,0.01f);
+    changeable_values<float> velocity_integrator_gain(&pid_kd,0.0f,25.0f,0.01f);
 
 
     changeable_values<float> *ramped_velocity_settings[4] = {nullptr,&velocity_ramp_limit,&velocity_gain,&velocity_integrator_gain};
     std::string pid_text[4] = {"Ramp Velo","RL", "VG", "VIG"};
     bool pid_varible_settings[4] = {false,true,true,true};
     menu<changeable_values<float>> ramped_velocity_menu(4,pid_varible_settings,pid_text,ramped_velocity_settings,&display,pid_varible_settings);
-
 
 
 
@@ -464,9 +468,8 @@ void display_task(void *pv){
     menu<uint8_t> errors_clear_menu(2,all_false,errors_clear_text,nullptr,&display,all_false);
 
 
-
     menu_handler main_menu_handler(&display, &status_screen, &motor_speed_menu, &ramped_velocity_menu, &servo_latched_menu, &servo_released_menu, &motors_calibrating_menu,
-    &motors_enable_menu, &motors_disable_menu, &errors_clear_menu);
+        &motors_enable_menu, &motors_disable_menu, &errors_clear_menu);
 
     for(;;){
         main_menu_handler.update();

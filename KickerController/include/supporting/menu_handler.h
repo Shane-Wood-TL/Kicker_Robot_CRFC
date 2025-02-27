@@ -9,7 +9,7 @@
 #define __menu_handler__
 #include "edge_dector.h"
 #include "menus.h"
-#include "all_includes.h"
+#include "../all_includes.h"
 
 extern QueueHandle_t other_controller_data_queue;
 
@@ -156,7 +156,6 @@ class menu_handler{
         menu_handler(ssd1306 *display, menu<std::string> *status_screen, menu<changeable_values<uint8_t>> *motor_speed_menu, menu<changeable_values<float>> *ramped_velocity_menu, 
             menu<uint8_t> *servo_latched_menu, menu<uint8_t> *servo_released_menu, menu<uint8_t> *motors_calibrating_menu,
             menu<uint8_t> *motors_enable_menu, menu<uint8_t> *motors_disable_menu, menu<uint8_t> *errors_clear_menu);
-
         /**
          * @brief This function will update the menu handler
          * @details This function will check the state of the inputs and update the display
