@@ -22,6 +22,6 @@ void servo::setDegree(uint16_t nDegree){
     }
 
     uint32_t duty = (pulseWidth * (1 << LEDC_TIMER_12_BIT)) / 20000; //20,000 us is the period
-    ledc_set_duty(LEDC_LOW_SPEED_MODE, ledCTimer, duty);
-    ledc_update_duty(LEDC_LOW_SPEED_MODE, ledCTimer);
+    (void)ledc_set_duty(LEDC_LOW_SPEED_MODE, ledCTimer, duty);
+    (void)ledc_update_duty(LEDC_LOW_SPEED_MODE, ledCTimer);
 }

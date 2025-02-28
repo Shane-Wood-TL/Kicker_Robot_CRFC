@@ -1,3 +1,10 @@
+/**
+ * @file ssh1306.h
+ * @brief Contains the code for ssd1306 display, setting it up, and writing text to it
+ * @author Shane Wood
+ * @date 10/2/2025
+ */
+
 #ifndef __ssd1306__
 #define __ssd1306__
 

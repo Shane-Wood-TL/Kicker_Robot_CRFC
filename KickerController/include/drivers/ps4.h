@@ -25,7 +25,7 @@ extern bool update_main_display;
  * @ref https://www.psdevwiki.com/ps4/DS4-USB
  */
 class ps4{
-    static QueueHandle_t app_event_queue;
+    static QueueHandle_t app_event_queue; ///< queue used for sending data inbetween the usb callbacks and task
 
     /**
      * @brief APP event group

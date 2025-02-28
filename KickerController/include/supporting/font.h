@@ -4,6 +4,12 @@
 #include "../all_includes.h"
 
 
+/**
+ * @class font
+ * @brief 12x16 pixel font.
+ * 
+ * @details Contains the data for all used letters and symbols and has the ability to retrive the pixel data
+ */
 class font{
     private:
         const uint16_t *font_map[128] = {0};///< ASCII table

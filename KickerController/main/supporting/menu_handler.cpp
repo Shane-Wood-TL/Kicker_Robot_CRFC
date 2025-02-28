@@ -148,9 +148,9 @@ void menu_handler::options_pressed(){
     }
     case(2):{
         display->clear_buffer();
-        if(xSemaphoreTake(pid_mutex, portMAX_DELAY)){
+        if(xSemaphoreTake(ramped_velocity_mutex, portMAX_DELAY)){
             ramped_velocity_menu->draw_to_display();
-            xSemaphoreGive(pid_mutex);
+            xSemaphoreGive(ramped_velocity_mutex);
         }
         display->write_buffer_SSD1306();
         break;
@@ -204,10 +204,10 @@ void menu_handler::dpad_left_pressed(){
         display->write_buffer_SSD1306();
     }else if(current_state == 2){
         display->clear_buffer();
-        if(xSemaphoreTake(pid_mutex, portMAX_DELAY)){
+        if(xSemaphoreTake(ramped_velocity_mutex, portMAX_DELAY)){
             ramped_velocity_menu->decrease_selected_value();
             ramped_velocity_menu->draw_to_display();
-            xSemaphoreGive(pid_mutex);
+            xSemaphoreGive(ramped_velocity_mutex);
         }
         display->write_buffer_SSD1306();
     }
@@ -225,10 +225,10 @@ void menu_handler::dpad_right_pressed(){
         display->write_buffer_SSD1306();
     }else if(current_state == 2){
         display->clear_buffer();
-        if(xSemaphoreTake(pid_mutex, portMAX_DELAY)){
+        if(xSemaphoreTake(ramped_velocity_mutex, portMAX_DELAY)){
             ramped_velocity_menu->increase_selected_value();
             ramped_velocity_menu->draw_to_display();
-            xSemaphoreGive(pid_mutex);
+            xSemaphoreGive(ramped_velocity_mutex);
         }
         display->write_buffer_SSD1306();
     }

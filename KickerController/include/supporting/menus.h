@@ -58,6 +58,9 @@ class menu{
          */
         void increase_selected_value();
 
+        /**
+         * @brief This function modifies the selected value in the menu (if modifiable)
+         */
         void decrease_selected_value();
 };
 #endif

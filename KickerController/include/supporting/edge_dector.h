@@ -18,14 +18,16 @@ class edge_dector{
         /**
          * @brief Construct a new edge dector object
          * 
-         * @param current_state The current state of the edge detector
+         * @param current_state : bool The current state of the edge detector
          */
         edge_dector(bool current_state);
 
         /**
          * @brief This function updates the edge detector
+         * 
+         * @param new_state bool : The new state of the edge detector
+         * 
          * @return bool returns true if the edge detector has detected a rising edge
-         * @param new_state The new state of the edge detector
          */
         bool update(bool new_state);
 };

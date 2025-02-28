@@ -13,11 +13,10 @@
 
 extern QueueHandle_t other_controller_data_queue;
 
-
-extern SemaphoreHandle_t pid_mutex;
-extern float pid_kp;
-extern float pid_ki;  
-extern float pid_kd;  
+extern SemaphoreHandle_t ramped_velocity_mutex;
+extern float velocity_ramp_limit;
+extern float velocity_gain;  
+extern float velocity_integrator_gain;  
 
 extern SemaphoreHandle_t main_menu_values_mutex;
 extern std::string contoller_connected; 
@@ -71,7 +70,7 @@ class menu_handler{
         //list of all menu pointers
         menu<std::string> *status_screen; ///< The status screen menu
         menu<changeable_values<uint8_t>> *motor_speed_menu; ///< The motor speed menu
-        menu<changeable_values<float>> *ramped_velocity_menu; ///< The pid menu
+        menu<changeable_values<float>> *ramped_velocity_menu; ///< The ramped velocity menu menu
         menu<uint8_t> *servo_latched_menu;  ///< The servo latched menu
         menu<uint8_t> *servo_released_menu; ///< The servo released menu
         menu<uint8_t> *motors_calibrating_menu; ///< The motors calibrating menu
@@ -110,7 +109,7 @@ class menu_handler{
         void l2_pressed();
 
         /**
-         * @brief This function cycles throught the status, motor speed, and pid menus
+         * @brief This function cycles throught the status, motor speed, and ramped velocity menu menus
          */
         void options_pressed();
 
@@ -142,10 +141,10 @@ class menu_handler{
     public:
         /**
          * @brief This is the constructor for the menu handler
-         * @param display The display that the menus will be displayed on
-         * @param status_screen The status screen menu
-         * @param motor_speed_menu The motor speed menu
-         * @param pid_menu The pid menu
+         * @param display : The display that the menus will be displayed on
+         * @param status_screen : The status screen menu
+         * @param motor_speed_menu : The motor speed menu
+         * @param ramped_velocity_menu : The ramped velocity menu menu
          * @param servo_latched_menu The servo latched menu
          * @param servo_released_menu The servo released menu
          * @param motors_calibrating_menu The motors calibrating menu

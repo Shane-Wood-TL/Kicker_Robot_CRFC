@@ -6,22 +6,18 @@
 // extern float battery_voltage;
 extern bool connected;
 
-esp_err_t ssd1306::send_command_SSD1306(uint8_t command)
+void ssd1306::send_command_SSD1306(uint8_t command)
 {
     uint8_t data[2] = {0x00, command}; // 0x00 is for command
-    esp_err_t ret = i2c_master_transmit(ssd1306_handle, data, 2,100);
-    //ret = i2c_master_transmit(ssd1306_handle, &command, 1,100);
-    return ret;
+    (void)i2c_master_transmit(ssd1306_handle, data, 2,100);
 }
 
-esp_err_t ssd1306::send_data_SSD1306(uint8_t *data, size_t len)
+void ssd1306::send_data_SSD1306(uint8_t *data, size_t len)
 {
     uint8_t data_to_send[len+1] = {0};
     data[0] = 0x40;  // 0x40 is for data
     memcpy(&(data_to_send[1]), data, len);
-    esp_err_t ret = i2c_master_transmit(ssd1306_handle, &data[0], 1, 100);
-    ret = i2c_master_transmit(ssd1306_handle, data, len, 100);
-    return ret; // return if the writing was sucessful
+    (void)i2c_master_transmit(ssd1306_handle, &data[0], 1, 100);
 }
 
 void ssd1306::init_SSD1306()
@@ -92,7 +88,6 @@ void ssd1306::write_buffer_SSD1306()
         send_command_SSD1306(0x10);     // Set higher column address
 
         send_data_SSD1306(&buffer[128 * i], 128);
-        //vTaskDelay(pdMS_TO_TICKS(1));
     }
 }
 
@@ -100,13 +95,15 @@ void ssd1306::write_letter_SSD1306(uint8_t letter, uint8_t x_pos, uint8_t y_pos)
 {
 
     const uint16_t *matrix = font_instance.get_letter(letter);//get the pixel data for one font char
-    for (int i = 0; i < 16; i++)
-    { // 16 tall
-        for (int j = 0; j < 12; j++)
-        { // 12 wide
-            if ((matrix[i]) & (1 << (12 - j)))
-            {
-                draw_pixel_SSD1306(x_pos + j, y_pos + i); //draw the pixel to buffer if on
+    if(matrix != nullptr){
+        for (int i = 0; i < 16; i++)
+        { // 16 tall
+            for (int j = 0; j < 12; j++)
+            { // 12 wide
+                if ((matrix[i]) & (1 << (12 - j)))
+                {
+                    draw_pixel_SSD1306(x_pos + j, y_pos + i); //draw the pixel to buffer if on
+                }
             }
         }
     }

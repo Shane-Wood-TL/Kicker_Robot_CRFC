@@ -10,20 +10,6 @@
 
 #include "esp_timer.h"
 
-
-#define CONFIG_ESPNOW_CHANNEL 11
-#define CONFIG_ESPNOW_LMK "lmk1234567890123"
-#define CONFIG_ESPNOW_PMK "pmk1234567890123"
-
-
-
-#define CONFIG_ESPNOW_SEND_COUNT 100
-#define CONFIG_ESPNOW_SEND_DELAY 1000
-#define CONFIG_ESPNOW_SEND_LEN 10
-
-#define SETABLE_PID
-
-
 //rtos entry functions for tasksk
 void ps4_task(void *pv);
 void display_task(void *pv);
@@ -51,10 +37,10 @@ uint8_t motor_status;
 
 
 
-SemaphoreHandle_t pid_mutex;
-float pid_kp=10.0f;
-float pid_ki=0.07f;  
-float pid_kd=0.05f;
+SemaphoreHandle_t ramped_velocity_mutex;
+float velocity_ramp_limit = 10.0f;
+float velocity_gain = 0.07f;  
+float velocity_integrator_gain = 0.05f;
 
 
 SemaphoreHandle_t joystick_mutex;
@@ -76,7 +62,7 @@ i2c_master_bus_handle_t bus_handle;
 
 //esp now config
 //static uint8_t robotMacAddress[6] = {0xD8, 0x3B, 0xDA, 0xA0, 0xC5, 0xE0};
-static uint8_t robotMacAddress[6] = {0xD8,0x3B,0xDA,0xA1,0x06,0x30};
+
 //static uint8_t controller_mac_address[6] = {0xF0,0x9E,0x9E,0x12,0xA8,0xA4}; this devices mac address
 
 
@@ -85,45 +71,12 @@ static uint8_t robotMacAddress[6] = {0xD8,0x3B,0xDA,0xA1,0x06,0x30};
 QueueHandle_t other_controller_data_queue;
 
 
-
-
-
-
-//struct for the data to be sent
-
-typedef struct {
-    uint8_t left_motor_speed;
-    uint8_t right_motor_speed;
-    #ifdef SETABLE_PID
-    float kp; //top 8 bits = ones + tens, bottom 8 bits = decimal
-    float ki;
-    float kd;
-    #endif
-    uint8_t servo_and_motor_state;
-    uint8_t motor_speed_setting;
-} esp_now_data_to_send;
-
-
-typedef struct {
-    float battery_voltage; 
-} esp_now_data_to_receive;
-
-
 SemaphoreHandle_t new_controller_data;
 
 std::atomic<uint8_t> controller_byte_2 = 0;
 std::atomic<uint8_t> controller_byte_4 = 0;
 std::atomic<uint8_t> controller_byte_5 = 0;
 std::atomic<uint8_t> controller_byte_6 = 0;
-
-
-
-
-
-
-
-
-
 
 
 //call back function for when data is sent
@@ -198,14 +151,12 @@ void send_data_task(void *pvParameter) {
             current_transmission.left_motor_speed = controller_byte_2;
             current_transmission.right_motor_speed = controller_byte_4;
 
-            #ifdef SETABLE_PID
-            if(xSemaphoreTake(pid_mutex, portMAX_DELAY)){
-                current_transmission.kp = pid_kp;
-                current_transmission.ki = pid_ki;
-                current_transmission.kd = pid_kd;
-                xSemaphoreGive(pid_mutex);
+            if(xSemaphoreTake(ramped_velocity_mutex, portMAX_DELAY)){
+                current_transmission.velocity_ramp_limit = velocity_ramp_limit;
+                current_transmission.velocity_gain = velocity_gain;
+                current_transmission.velocity_integrator_gain = velocity_integrator_gain;
+                xSemaphoreGive(ramped_velocity_mutex);
             }
-            #endif
             if(xSemaphoreTake(servo_status_mutex, portMAX_DELAY)){
                 current_transmission.servo_and_motor_state = ((servo_status & 0x0F));
                 xSemaphoreGive(servo_status_mutex);
@@ -294,7 +245,7 @@ extern "C" void app_main(void)
     //create semaphores/mutuexes (espidf does not have mutexes directly)
     update_main_display_mutex = xSemaphoreCreateMutex();
     main_menu_values_mutex = xSemaphoreCreateMutex();
-    pid_mutex = xSemaphoreCreateMutex();
+    ramped_velocity_mutex = xSemaphoreCreateMutex();
     motor_speeds_mutex = xSemaphoreCreateMutex();
     servo_status_mutex = xSemaphoreCreateMutex();
     joystick_mutex = xSemaphoreCreateMutex();
@@ -344,7 +295,7 @@ void ps4_data_processor(void *pv){
 
 
             if(controller_byte_5 & 0x80){
-                temp_buttons |= (1<<4);//up //triangle
+                temp_buttons |= (1<<4);//triangle
             }else if(controller_byte_5 & 0x10){
                 temp_buttons |= (1<<5);//square
             }else if(controller_byte_5 & 0x40){
@@ -434,15 +385,15 @@ void display_task(void *pv){
     
     menu<changeable_values<uint8_t>> motor_speed_menu(3,one_false_two_true,motor_speed_text,motor_speeds,&display,one_false_two_true);
 
-    changeable_values<float> velocity_ramp_limit(&pid_kp,0.0f,50.0f,0.5f);
-    changeable_values<float> velocity_gain(&pid_ki,0.0f,0.7f,0.01f);
-    changeable_values<float> velocity_integrator_gain(&pid_kd,0.0f,25.0f,0.01f);
+    changeable_values<float> velocity_ramp_limit_value(&velocity_ramp_limit,0.0f,50.0f,0.5f);
+    changeable_values<float> velocity_gain_value(&velocity_gain,0.0f,0.7f,0.01f);
+    changeable_values<float> velocity_integrator_gain_value(&velocity_integrator_gain,0.0f,25.0f,0.01f);
 
 
-    changeable_values<float> *ramped_velocity_settings[4] = {nullptr,&velocity_ramp_limit,&velocity_gain,&velocity_integrator_gain};
-    std::string pid_text[4] = {"Ramp Velo","RL", "VG", "VIG"};
-    bool pid_varible_settings[4] = {false,true,true,true};
-    menu<changeable_values<float>> ramped_velocity_menu(4,pid_varible_settings,pid_text,ramped_velocity_settings,&display,pid_varible_settings);
+    changeable_values<float> *ramped_velocity_settings[4] = {nullptr,&velocity_ramp_limit_value,&velocity_gain_value,&velocity_integrator_gain_value};
+    std::string ramped_velocity_text[4] = {"Ramp Velo","RL", "VG", "VIG"};
+    bool ramped_velocity_varible_settings[4] = {false,true,true,true};
+    menu<changeable_values<float>> ramped_velocity_menu(4,ramped_velocity_varible_settings,ramped_velocity_text,ramped_velocity_settings,&display,ramped_velocity_varible_settings);
 
 
 

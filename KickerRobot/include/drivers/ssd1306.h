@@ -17,20 +17,16 @@ class ssd1306{
          * @brief Sends a command to the SSD1306
          * 
          * @param command : uint8_t The command to send
-         * 
-         * @return esp_err_t ESP_OK if successful, ESP_FAIL otherwise
          */
-        esp_err_t send_command_SSD1306(uint8_t command);
+        void send_command_SSD1306(uint8_t command);
 
         /**
          * @brief Sends data to the SSD1306
          * 
          * @param data : uint8_t* The data to send
          * @param len : size_t The length of the data
-         * 
-         * @return esp_err_t ESP_OK if successful, ESP_FAIL otherwise
          */
-        esp_err_t send_data_SSD1306(uint8_t *data, size_t len);
+        void send_data_SSD1306(uint8_t *data, size_t len);
 
         /**
          * @brief Initializes the SSD1306

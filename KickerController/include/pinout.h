@@ -27,4 +27,6 @@
 #define SSD1306Pages SSD1306VerticalRes/8 ///< each page is a vertical 8 bits and goes across the entire display
 
 
+const uint8_t robotMacAddress[6] = {0xD8,0x3B,0xDA,0xA1,0x06,0x30};
+
 #endif
