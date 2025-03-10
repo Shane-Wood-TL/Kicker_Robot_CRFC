@@ -1,7 +1,7 @@
 #ifndef __esp_now_callback_setup__
 #define __esp_now_callback_setup__
 #include "../all_includes.h"
-
+#include "../pinout.h"
 
 //controller connected status value + mutex
 extern SemaphoreHandle_t controller_connected_mutex;

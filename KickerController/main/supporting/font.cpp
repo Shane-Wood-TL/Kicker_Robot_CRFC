@@ -74,7 +74,7 @@ font::font(){
 }
 
 const uint16_t* font::get_letter(const uint8_t letter){
-    if((letter < 20) || (letter > 124)){
+    if((letter < lowest_defined_ascii_value) || (letter > highest_defined_ascii_value)){
         return font_map[' '];
     }else{
         return font_map[letter];

@@ -11,6 +11,16 @@
 #include "changeable_values.h"
 #include <string>
 
+
+#define float_display_length 4
+#define divide_by_two /2
+#define max_line_count SSD1306Pages divide_by_two
+#define vertical_font_row_0 0
+#define vertical_font_row_1 15
+#define vertical_font_row_2 31
+#define vertical_font_row_3 47
+
+
 /**
  * @class menu
  * @brief This class is for creating menus
@@ -20,15 +30,16 @@
  */
 template <typename T>
 class menu{
-    uint8_t lines; ///< The amount of lines for this menu (max 4 for 128x64 display, or 2 for 128x32 display)
-    std::string words[SSD1306Pages/2]; ///< The (constant) words that are displayed on the menu
-    bool have_values[SSD1306Pages/2]; ///< If the words have an associated value to be displayed
-    T **values[SSD1306Pages/2]; ///< The values that are displayed on the menu
-    ssd1306 *display;  ///< The display that the menu is displayed on
-    int8_t currently_selected; ///< The currently selected value (shown as an X on the display) 
-    const uint8_t font_rows[4] = {0,15,31,47}; ///< The rows that the text is displayed on 0-63 split evenly 
-    bool has_selectable_values = false; ///< If the menu has selectable values
-    bool selectable_values[SSD1306Pages/2]; ///< If the values can be modified
+    private:
+        uint8_t lines; ///< The amount of lines for this menu (max 4 for 128x64 display, or 2 for 128x32 display)
+        std::string words[SSD1306Pages/2]; ///< The (constant) words that are displayed on the menu
+        bool have_values[SSD1306Pages/2]; ///< If the words have an associated value to be displayed
+        T **values[SSD1306Pages/2]; ///< The values that are displayed on the menu
+        ssd1306 *display;  ///< The display that the menu is displayed on
+        int8_t currently_selected; ///< The currently selected value (shown as an X on the display) 
+        const uint8_t font_rows[4] = {0,15,31,47}; ///< The rows that the text is displayed on 0-63 split evenly 
+        bool has_selectable_values = false; ///< If the menu has selectable values
+        bool selectable_values[SSD1306Pages/2]; ///< If the values can be modified
     
     public:
         /**
@@ -54,10 +65,13 @@ class menu{
         void draw_to_display();
 
         /**
-         * @brief This function modifies the selected value in the menu (if modifiable)
+         * @brief This function increases the selected value in the menu (if modifiable)
          */
         void increase_selected_value();
 
+        /**
+         * @brief This function decreases the selected value in the menu (if modifiable)
+         */
         void decrease_selected_value();
 };
 #endif

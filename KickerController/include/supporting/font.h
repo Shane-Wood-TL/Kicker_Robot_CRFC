@@ -3,7 +3,9 @@
 
 #include "../all_includes.h"
 
-
+#define lowest_defined_ascii_value 20
+#define highest_defined_ascii_value 124
+#define font_map_size 128
 /**
  * @class font
  * @brief 12x16 pixel font.
@@ -12,9 +14,9 @@
  */
 class font{
     private:
-        const uint16_t *font_map[128] = {0};///< ASCII table
+        const uint16_t *font_map[font_map_size] = {0};///< ASCII table
 
-        const uint16_t zero[16] = {
+        const uint16_t zero[font_height] = {
         0x03F0, //001111110000,
         0x03F0, //001111110000,
         0x0C0C, //110000001100,
@@ -33,7 +35,7 @@ class font{
         0x0000  //000000000000,
         }; ///< pixel data for 0
 
-        const uint16_t one[16] = {
+        const uint16_t one[font_height] = {
         0x00C0, //000011000000
         0x00C0, //000011000000
         0x03C0, //001111000000
@@ -52,7 +54,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for 1
 
-        const uint16_t two[16] = {
+        const uint16_t two[font_height] = {
         0x03F0, //001111110000
         0x03F0, //001111110000
         0x0C0C, //110000001100
@@ -71,7 +73,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for 2
 
-        const uint16_t three[16] = {
+        const uint16_t three[font_height] = {
         0x0FFC, //111111111100
         0x0FFC, //111111111100
         0x0030, //000000110000
@@ -90,7 +92,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for 3
 
-        const uint16_t four[16] = {
+        const uint16_t four[font_height] = {
         0x0030, //000000110000
         0x0030, //000000110000
         0x00F0, //000011110000
@@ -109,7 +111,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for 4
 
-        const uint16_t five[16] = {
+        const uint16_t five[font_height] = {
         0x0FFC, //111111111100
         0x0FFC, //111111111100
         0x0C00, //110000000000
@@ -128,7 +130,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for 5
 
-        const uint16_t six[16] = {
+        const uint16_t six[font_height] = {
         0x00F0, //000011110000
         0x00F0, //000011110000
         0x0300, //001100000000
@@ -147,7 +149,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for 6
 
-        const uint16_t seven[16] = {
+        const uint16_t seven[font_height] = {
         0x0FFC, //111111111100
         0x0FFC, //111111111100
         0x000C, //000000001100
@@ -166,7 +168,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for 7
 
-        const uint16_t eight[16] = {
+        const uint16_t eight[font_height] = {
         0x03F0, //001111110000
         0x03F0, //001111110000
         0x0C0C, //110000001100
@@ -185,7 +187,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for 8
 
-        const uint16_t nine[16] = {
+        const uint16_t nine[font_height] = {
         0x03F0, //001111110000
         0x03F0, //001111110000
         0x0C0C, //110000001100
@@ -204,7 +206,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for 9
 
-        const uint16_t hash[16] = {
+        const uint16_t hash[font_height] = {
         0x0330, //001100110000
         0x0330, //001100110000
         0x0330, //001100110000
@@ -223,7 +225,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for #
 
-        const uint16_t cap_A[16] = {
+        const uint16_t cap_A[font_height] = {
         0x03F0, //001111110000
         0x03F0, //001111110000
         0x0C0C, //110000001100
@@ -242,7 +244,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for A
 
-        const uint16_t cap_B[16] = {
+        const uint16_t cap_B[font_height] = {
         0x0FF0, //111111110000
         0x0FF0, //111111110000
         0x0C0C, //110000001100
@@ -261,7 +263,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for B
 
-        const uint16_t cap_C[16] = {
+        const uint16_t cap_C[font_height] = {
         0x03F0, //001111110000
         0x03F0, //001111110000
         0x0C0C, //110000001100
@@ -280,7 +282,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for C
 
-        const uint16_t cap_D[16] = {
+        const uint16_t cap_D[font_height] = {
         0x0FC0, //111111000000
         0x0FC0, //111111000000
         0x0C30, //110000110000
@@ -299,7 +301,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for D
 
-        const uint16_t cap_E[16] = {
+        const uint16_t cap_E[font_height] = {
         0x0FFC, //111111111100
         0x0FFC, //111111111100
         0x0C00, //110000000000
@@ -318,7 +320,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for E
 
-        const uint16_t cap_F[16] = {
+        const uint16_t cap_F[font_height] = {
         0x0FFC, //111111111100
         0x0FFC, //111111111100
         0x0C00, //110000000000
@@ -337,7 +339,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for F
 
-        const uint16_t cap_G[16] = {
+        const uint16_t cap_G[font_height] = {
         0x03F0, //001111110000
         0x03F0, //001111110000
         0x0C0C, //110000001100
@@ -356,7 +358,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for G
 
-        const uint16_t cap_H[16] = {
+        const uint16_t cap_H[font_height] = {
         0x0C0C, //110000001100
         0x0C0C, //110000001100
         0x0C0C, //110000001100
@@ -375,7 +377,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for H
 
-        const uint16_t cap_I[16] = {
+        const uint16_t cap_I[font_height] = {
         0x03F0, //001111110000
         0x03F0, //001111110000
         0x00C0, //000011000000
@@ -394,7 +396,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for I
 
-        const uint16_t cap_J[16] = {
+        const uint16_t cap_J[font_height] = {
         0x00FC, //000011111100
         0x00FC, //000011111100
         0x0030, //000000110000
@@ -413,7 +415,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for J
 
-        const uint16_t cap_K[16] = {
+        const uint16_t cap_K[font_height] = {
         0x0C0C, //110000001100
         0x0C0C, //110000001100
         0x0C30, //110000110000
@@ -432,7 +434,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for K
 
-        const uint16_t cap_L[16] = {
+        const uint16_t cap_L[font_height] = {
         0x0C00, //110000000000
         0x0C00, //110000000000
         0x0C00, //110000000000
@@ -451,7 +453,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for L
 
-        const uint16_t cap_M[16] = {
+        const uint16_t cap_M[font_height] = {
         0x0C0C, //110000001100
         0x0C0C, //110000001100
         0x0F3C, //111100111100
@@ -470,7 +472,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for M
 
-        const uint16_t cap_N[16] = {
+        const uint16_t cap_N[font_height] = {
         0x0C0C, //110000001100
         0x0C0C, //110000001100
         0x0C0C, //110000001100
@@ -489,7 +491,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for N
 
-        const uint16_t cap_O[16] = {
+        const uint16_t cap_O[font_height] = {
         0x03F0, //001111110000
         0x03F0, //001111110000
         0x0C0C, //110000001100
@@ -508,7 +510,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for O
 
-        const uint16_t cap_P[16] = {
+        const uint16_t cap_P[font_height] = {
         0x0FF0, //111111110000
         0x0FF0, //111111110000
         0x0C0C, //110000001100
@@ -527,7 +529,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for P
 
-        const uint16_t cap_Q[16] = {
+        const uint16_t cap_Q[font_height] = {
         0x03F0, //001111110000
         0x03F0, //001111110000
         0x0C0C, //110000001100
@@ -546,7 +548,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for Q
 
-        const uint16_t cap_R[16] = {
+        const uint16_t cap_R[font_height] = {
         0x0FF0, //111111110000
         0x0FF0, //111111110000
         0x0C0C, //110000001100
@@ -565,7 +567,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for R
 
-        const uint16_t cap_S[16] = {
+        const uint16_t cap_S[font_height] = {
         0x03FC, //001111111100
         0x03FC, //001111111100
         0x0C00, //110000000000
@@ -584,7 +586,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for S
 
-        const uint16_t cap_T[16] = {
+        const uint16_t cap_T[font_height] = {
         0x0FFC, //111111111100
         0x0FFC, //111111111100
         0x00C0, //000011000000
@@ -603,7 +605,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for T
 
-        const uint16_t cap_U[16] = {
+        const uint16_t cap_U[font_height] = {
         0x0C0C, //110000001100
         0x0C0C, //110000001100
         0x0C0C, //110000001100
@@ -622,7 +624,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for U
 
-        const uint16_t cap_V[16] = {
+        const uint16_t cap_V[font_height] = {
         0x0C0C, //110000001100
         0x0C0C, //110000001100
         0x0C0C, //110000001100
@@ -641,7 +643,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for V
 
-        const uint16_t cap_W[16] = {
+        const uint16_t cap_W[font_height] = {
         0x0C0C, //110000001100
         0x0C0C, //110000001100
         0x0C0C, //110000001100
@@ -660,7 +662,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for W
 
-        const uint16_t cap_X[16] = {
+        const uint16_t cap_X[font_height] = {
         0x0C0C, //110000001100
         0x0C0C, //110000001100
         0x0C0C, //110000001100
@@ -679,7 +681,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for X
 
-        const uint16_t cap_Y[16] = {
+        const uint16_t cap_Y[font_height] = {
         0x0C0C, //110000001100
         0x0C0C, //110000001100
         0x0C0C, //110000001100
@@ -698,7 +700,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for Y
 
-        const uint16_t cap_Z[16] = {
+        const uint16_t cap_Z[font_height] = {
         0x0FFC, //111111111100
         0x0FFC, //111111111100
         0x000C, //000000001100
@@ -717,7 +719,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for Z
 
-        const uint16_t low_A[16] = {
+        const uint16_t low_A[font_height] = {
         0x0000, //000000000000
         0x0000, //000000000000
         0x0000, //000000000000
@@ -736,7 +738,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for a
 
-        const uint16_t low_B[16] = {
+        const uint16_t low_B[font_height] = {
         0x0C00, //110000000000
         0x0C00, //110000000000
         0x0C00, //110000000000
@@ -755,7 +757,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for b
 
-        const uint16_t low_C[16] = {
+        const uint16_t low_C[font_height] = {
         0x0000, //000000000000
         0x0000, //000000000000
         0x0000, //000000000000
@@ -774,7 +776,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for c
 
-        const uint16_t low_D[16] = {
+        const uint16_t low_D[font_height] = {
         0x000C, //000000001100
         0x000C, //000000001100
         0x000C, //000000001100
@@ -793,7 +795,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for d
 
-        const uint16_t low_E[16] = {
+        const uint16_t low_E[font_height] = {
         0x0000, //000000000000
         0x0000, //000000000000
         0x0000, //000000000000
@@ -812,7 +814,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for e
 
-        const uint16_t low_F[16] = {
+        const uint16_t low_F[font_height] = {
         0x00F0, //000011110000
         0x00F0, //000011110000
         0x030C, //001100001100
@@ -831,7 +833,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for f
 
-        const uint16_t low_G[16] = {
+        const uint16_t low_G[font_height] = {
         0x0000, //000000000000
         0x0000, //000000000000
         0x03FC, //001111111100
@@ -850,7 +852,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for g
 
-        const uint16_t low_H[16] = {
+        const uint16_t low_H[font_height] = {
         0x0C00, //110000000000
         0x0C00, //110000000000
         0x0C00, //110000000000
@@ -869,7 +871,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for h
 
-        const uint16_t low_I[16] = {
+        const uint16_t low_I[font_height] = {
         0x00C0, //000011000000
         0x00C0, //000011000000
         0x0000, //000000000000
@@ -888,7 +890,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for i
 
-        const uint16_t low_J[16] = {
+        const uint16_t low_J[font_height] = {
         0x0030, //000000110000
         0x0030, //000000110000
         0x0000, //000000000000
@@ -907,7 +909,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for j
 
-        const uint16_t low_K[16] = {
+        const uint16_t low_K[font_height] = {
         0x0C00, //110000000000
         0x0C00, //110000000000
         0x0C00, //110000000000
@@ -926,7 +928,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for k
 
-        const uint16_t low_L[16] = {
+        const uint16_t low_L[font_height] = {
         0x03C0, //001111000000
         0x03C0, //001111000000
         0x00C0, //000011000000
@@ -945,7 +947,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for l
 
-        const uint16_t low_M[16] = {
+        const uint16_t low_M[font_height] = {
         0x0000, //000000000000
         0x0000, //000000000000
         0x0000, //000000000000
@@ -964,7 +966,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for m
 
-        const uint16_t low_N[16] = {
+        const uint16_t low_N[font_height] = {
         0x0000, //000000000000
         0x0000, //000000000000
         0x0000, //000000000000
@@ -983,7 +985,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for n
 
-        const uint16_t low_O[16] = {
+        const uint16_t low_O[font_height] = {
         0x0000, //000000000000
         0x0000, //000000000000
         0x0000, //000000000000
@@ -1002,7 +1004,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for o
 
-        const uint16_t low_P[16] = {
+        const uint16_t low_P[font_height] = {
         0x0000, //000000000000
         0x0000, //000000000000
         0x0000, //000000000000
@@ -1021,7 +1023,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for p
 
-        const uint16_t low_Q[16] = {
+        const uint16_t low_Q[font_height] = {
         0x0000, //000000000000
         0x0000, //000000000000
         0x0000, //000000000000
@@ -1040,7 +1042,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for q
 
-        const uint16_t low_R[16] = {
+        const uint16_t low_R[font_height] = {
         0x0000, //000000000000
         0x0000, //000000000000
         0x0000, //000000000000
@@ -1059,7 +1061,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for r
 
-        const uint16_t low_S[16] = {
+        const uint16_t low_S[font_height] = {
         0x0000, //000000000000
         0x0000, //000000000000
         0x0000, //000000000000
@@ -1078,7 +1080,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for s
 
-        const uint16_t low_T[16] = {
+        const uint16_t low_T[font_height] = {
         0x0300, //001100000000
         0x0300, //001100000000
         0x0300, //001100000000
@@ -1098,7 +1100,7 @@ class font{
         }; ///< pixel data for t
 
 
-        const uint16_t low_U[16] = {
+        const uint16_t low_U[font_height] = {
         0x0000, //000000000000
         0x0000, //000000000000
         0x0000, //000000000000
@@ -1118,7 +1120,7 @@ class font{
         }; ///< pixel data for u
 
 
-        const uint16_t low_V[16] = {
+        const uint16_t low_V[font_height] = {
         0x0000, //000000000000
         0x0000, //000000000000
         0x0000, //000000000000
@@ -1137,7 +1139,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for v
 
-        const uint16_t low_W[16] = {
+        const uint16_t low_W[font_height] = {
         0x0000, //000000000000
         0x0000, //000000000000
         0x0000, //000000000000
@@ -1156,7 +1158,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for w
 
-        const uint16_t low_X[16] = {
+        const uint16_t low_X[font_height] = {
         0x0000, //000000000000
         0x0000, //000000000000
         0x0000, //000000000000
@@ -1175,7 +1177,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for x
 
-        const uint16_t low_Y[16] = {
+        const uint16_t low_Y[font_height] = {
         0x0000, //000000000000
         0x0000, //000000000000
         0x0000, //000000000000
@@ -1194,7 +1196,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for y
 
-        const uint16_t low_Z[16] = {
+        const uint16_t low_Z[font_height] = {
         0x0000, //000000000000
         0x0000, //000000000000
         0x0000, //000000000000
@@ -1213,7 +1215,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for z
 
-        const uint16_t Dash[16] = {
+        const uint16_t Dash[font_height] = {
         0x0000, //000000000000
         0x0000, //000000000000
         0x0000, //000000000000
@@ -1232,7 +1234,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for -
 
-        const uint16_t Decimal[16] = {
+        const uint16_t Decimal[font_height] = {
         0x0000, //000000000000
         0x0000, //000000000000
         0x0000, //000000000000
@@ -1251,7 +1253,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for .
 
-        const uint16_t percent[16] = {
+        const uint16_t percent[font_height] = {
         0x0F00, //111100000000
         0x0F0C, //111100001100
         0x0F0C, //111100001100
@@ -1270,7 +1272,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for %
 
-        const uint16_t verticalBar[16] = {
+        const uint16_t verticalBar[font_height] = {
         0x00C0, //000011000000
         0x00C0, //000011000000
         0x00C0, //000011000000
@@ -1289,7 +1291,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for |
 
-        const uint16_t space[16] = {
+        const uint16_t space[font_height] = {
         0x0000,  //000000000000
         0x0000,  //000000000000
         0x0000,  //000000000000

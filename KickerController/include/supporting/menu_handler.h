@@ -11,6 +11,12 @@
 #include "menus.h"
 #include "../all_includes.h"
 
+#define motor_status_changed_display_time 500
+#define servo_status_changed_display_time 250
+#define motor_calibrating_display_time 14000
+
+#define cyclic_menu_count 2
+
 extern QueueHandle_t other_controller_data_queue;
 
 extern SemaphoreHandle_t ramped_velocity_mutex;

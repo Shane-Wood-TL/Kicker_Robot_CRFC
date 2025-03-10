@@ -5,6 +5,8 @@
 #include "../pinout.h"
 #include "../drivers/servo.h"
 
+#define servo_driver_wait_time 100
+
 //servo status + mutex
 extern SemaphoreHandle_t servo_status_mutex;
 extern uint8_t servo_status;

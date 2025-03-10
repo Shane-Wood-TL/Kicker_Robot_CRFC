@@ -21,9 +21,9 @@ void esp_now_setup(){
      ESP_ERROR_CHECK(esp_now_init());
      (void)esp_now_register_send_cb(on_send);
      (void)esp_now_register_recv_cb(on_receive);
- 
+
      esp_now_peer_info_t peer_info = {};
-     memcpy(peer_info.peer_addr, controller_mac_address, 6);
+     memcpy(peer_info.peer_addr, controller_mac_address, mac_address_length);
      peer_info.channel = 0;
      peer_info.encrypt = false;
      ESP_ERROR_CHECK(esp_now_add_peer(&peer_info));

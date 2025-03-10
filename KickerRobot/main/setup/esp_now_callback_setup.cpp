@@ -6,9 +6,15 @@
 // function that is called, when data is received
 void on_receive(const esp_now_recv_info_t *recv_info, const uint8_t *data, int len)
 {
+
     esp_now_data_to_receive received_data;
     if (len == sizeof(received_data))
     {
+        #ifdef TIME_BETWEEN_MESSAGES
+            static bool toggle = false;
+            gpio_set_level(C0_4Pin,toggle);
+            toggle = !toggle;
+        #endif
         memcpy(&received_data, data, sizeof(received_data));
         if (xSemaphoreTake(motor_speeds, portMAX_DELAY))
         {

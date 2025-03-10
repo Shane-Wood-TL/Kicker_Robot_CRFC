@@ -8,6 +8,7 @@
 #include "esp_now.h"
 #include "esp_wifi.h"
 #include "esp_log.h"
+#include "esp_mac.h"
 
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
@@ -31,26 +32,102 @@
 #include "esp_timer.h"
 #include "led_strip.h"
 
+#define TIME_BETWEEN_MESSAGES
+
 #define assertS(x) while((x)){}
 #define map(a,b,c,w,q) ((w)+(((a) - (b)) * ((q) - (w)))/((c)-(b)))
 
 
+/**
+ * @enum motor_status_list
+ * @brief Contains the different types of states for the Odrive motor controllers
+ *
+ * @details motor_status_list has the following options: ENABLED, DISABLED, ERRORLESS, CALIBRATING, IDLE
+ * ENABLED = motor working as normal
+ * DISABLED = motor set to idle (not by choice, this state happens when something wrong has occured, such as controller disconnect)
+ * ERRORLESS = clears motor errors
+ * CALIBRATING = motor is running it's calibration sequence
+ * IDLE = motor is not moving / has no power going through it
+ * 
+ */
 enum motor_status_list{ENABLED, DISABLED, ERRORLESS,CALIBRATING, IDLE};
+
+/**
+ * @enum servo_status_list
+ * @brief Contains the different types of states for the servo motors
+ *
+ * @details servo_status_list has the following options: LATCHED, RELEASED, DETACHED
+ * LATCHED = servo is in position to keep the kicking leg from moving
+ * RELEASED = servo is in position to release the kicking leg
+ * DETACHED = state servo is in on boot, will update to the expected state when controller connects
+ */
 enum servo_status_list{LATCHED, RELEASED, DETACHED};
+
 enum controller_status_list{CONNECTED, DISCONNECTED};
 
+
+/**
+ * @struct esp_now_data_to_receive
+ * @brief Contains the data that the controller is expecting from the robot
+ */
 typedef struct {
+    /**
+     * @brief battery_voltage : float
+     * The battery voltage as a float
+     */
     float battery_voltage; 
 } esp_now_data_to_send;
 
 
+/**
+ * @struct esp_now_data_to_receive
+ * @brief Contains the data that is sent to the robot from the controller
+ */
 typedef struct {
+    /**
+     * @brief left_motor_speed : uint8_t
+     * Data from the left joystick on the ps4 controller
+     */
     uint8_t left_motor_speed;
+
+    /**
+     * @brief right_motor_speed : uint8_t
+     * Data from the right joystick on the ps4 controller
+     */
     uint8_t right_motor_speed;
-    float kp;
-    float ki;
-    float kd;
+
+    /**
+     * @brief velocity_ramp_limit : float
+     * Max value at which the velocity will increase by, as set in the controller menu
+     */
+    float velocity_ramp_limit;
+
+    /**
+     * @brief velocity_gain : float
+     * Acts as a proportional gain for the ramped velocity mode, as set in the controller menu
+     */
+    float velocity_gain;
+
+    /**
+     * @brief velocity_integrator_gain : float
+     * Acts as a integral gain for the ramped velocity mode, as set in the controller menu
+     */
+    float velocity_integrator_gain;
+
+    /**
+     * @brief servo_and_motor_state : uint8_t
+     * Contains the data for the servo and Odrive motor controllers current state
+     * The servo status is the lower 4 bits
+     * The motor status is the upper 4 bits
+     */
     uint8_t servo_and_motor_state;
+
+    /**
+     * @brief motor_speed_setting : uint8_t
+     * Contains the data for the speed settings for the left and right motor
+     * The right speed is the lower 4 bits
+     * The left speed is the upper 4 bits
+     */
     uint8_t motor_speed_setting;
 } esp_now_data_to_receive;
 

@@ -8,6 +8,16 @@
 #ifndef __ps4__
 #define __ps4__ 
 #include "../all_includes.h"
+#include "../pinout.h"
+
+#define usb_events_stack_size 4096
+#define usb_events_priority 15
+#define usb_events_queue_size 10
+#define hid_host_drvier_priority 5
+#define usb_lib_task_wait_time 1000
+#define usb_lib_disconnect_wait_time 10
+#define usb_data_read_size 64
+
 
 extern SemaphoreHandle_t main_menu_values_mutex;
 extern std::string contoller_connected;

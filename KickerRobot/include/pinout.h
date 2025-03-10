@@ -44,10 +44,17 @@
 
 
 //SSD1306 setup
-#define SSD1306Address 0x3C           // SSD1306 I2C address
-#define SSD1306VerticalRes 32           //32 pixels tall
-#define SSD1306HorizontalRes 128    //128 pixels across
-#define SSD1306Pages SSD1306VerticalRes/8 //each page is a vertical 8 bits
+#define SSD1306Address 0x3C ///< SSD1306 (display) I2C address
+#define SSD1306VerticalRes 32 ///< vertical resolution of display, 64 pixels tall
+#define SSD1306HorizontalRes 128 ///< Horizontal resolution of display, 128 pixels across
+
+#define SSD1306_page_height 8
+//see SSD1306 datasheet for more information
+#define SSD1306Pages (SSD1306VerticalRes/SSD1306_page_height) ///< each page is a vertical 8 bits and goes across the entire display
+
+
+#define font_width 12
+#define font_height 16
 
 
 
@@ -59,7 +66,8 @@
 #define servo_min_pwm 1000
 
 
-const uint8_t controller_mac_address[6] = {0xF0,0x9E,0x9E,0x12,0xA8,0xA4};
+#define mac_address_length 6
+const uint8_t controller_mac_address[mac_address_length] = {0xF0,0x9E,0x9E,0x12,0xA8,0xA4};
 
 
 #define oDrive0ID 2
@@ -67,5 +75,15 @@ const uint8_t controller_mac_address[6] = {0xF0,0x9E,0x9E,0x12,0xA8,0xA4};
 
 #define number_of_leds 16
 #define led_color_blue 0,0,255
+
+#define values_8 8
+#define values_7 7
+#define values_6 6
+#define values_5 5
+#define values_4 4
+#define values_3 3
+#define values_2 2
+#define values_1 1
+#define values_0 0
 
 #endif

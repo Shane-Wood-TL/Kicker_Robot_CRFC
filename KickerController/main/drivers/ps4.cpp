@@ -1,5 +1,5 @@
 #include "../../include/drivers/ps4.h"
-#define TAG "ps4"
+
 QueueHandle_t ps4::app_event_queue = nullptr;
 
 extern std::atomic<uint8_t> controller_byte_2;
@@ -9,14 +9,15 @@ extern std::atomic<uint8_t> controller_byte_6;
 
 
 
+
 extern SemaphoreHandle_t new_controller_data;
 
 void ps4::hid_host_generic_report_callback(const uint8_t *const data, const int length)
 {
-    controller_byte_2 = data[2];
-    controller_byte_4 = data[4];
-    controller_byte_5 = data[5];
-    controller_byte_6 = data[6];
+    controller_byte_2 = data[values_2];
+    controller_byte_4 = data[values_4];
+    controller_byte_5 = data[values_5];
+    controller_byte_6 = data[values_6];
     xSemaphoreGive(new_controller_data);
 }
 
@@ -67,7 +68,7 @@ void ps4::hid_host_interface_callback(hid_host_device_handle_t hid_device_handle
                                  const hid_host_interface_event_t event,
                                  void *arg)
 {
-    uint8_t data[64] = { 0 };
+    uint8_t data[usb_data_read_size] = {0};
     size_t data_length = 0;
     hid_host_dev_params_t dev_params;
     ESP_ERROR_CHECK(hid_host_device_get_params(hid_device_handle, &dev_params));
@@ -76,7 +77,7 @@ void ps4::hid_host_interface_callback(hid_host_device_handle_t hid_device_handle
     case HID_HOST_INTERFACE_EVENT_INPUT_REPORT:
         ESP_ERROR_CHECK(hid_host_device_get_raw_input_report_data(hid_device_handle,
                                                                   data,
-                                                                  64,
+                                                                  usb_data_read_size,
                                                                   &data_length));
 
         if (HID_SUBCLASS_BOOT_INTERFACE == dev_params.sub_class) {
@@ -87,7 +88,7 @@ void ps4::hid_host_interface_callback(hid_host_device_handle_t hid_device_handle
 
         break;
     case HID_HOST_INTERFACE_EVENT_DISCONNECTED:
-        ESP_LOGI(TAG, "HID Device, protocol DISCONNECTED");
+        ESP_LOGI("USB", "HID Device, protocol DISCONNECTED");
         ESP_ERROR_CHECK(hid_host_device_close(hid_device_handle));
         if(xSemaphoreTake(main_menu_values_mutex, portMAX_DELAY)){
             contoller_connected = "DisCon";
@@ -99,10 +100,10 @@ void ps4::hid_host_interface_callback(hid_host_device_handle_t hid_device_handle
         }
         break;
     case HID_HOST_INTERFACE_EVENT_TRANSFER_ERROR:
-        ESP_LOGI(TAG, "HID Device, protocol TRANSFER_ERROR");
+        ESP_LOGI("USB", "HID Device, protocol TRANSFER_ERROR");
         break;
     default:
-        ESP_LOGE(TAG, "HID Device, protocol Unhandled event");
+        ESP_LOGE("USB", "HID Device, protocol Unhandled event");
         break;
     }
 }
@@ -119,7 +120,7 @@ void ps4::hid_host_device_event(hid_host_device_handle_t hid_device_handle,
 
     switch (event) {
         case HID_HOST_DRIVER_EVENT_CONNECTED:{
-            ESP_LOGI(TAG, "HID Device, protocol CONNECTED");
+            ESP_LOGI("USB", "HID Device, protocol CONNECTED");
             if(xSemaphoreTake(main_menu_values_mutex, portMAX_DELAY)){
                 contoller_connected = "Conn";
                 xSemaphoreGive(main_menu_values_mutex); 
@@ -173,9 +174,9 @@ void ps4::usb_lib_task(void *arg){
         }
     }
 
-    ESP_LOGI(TAG, "USB shutdown");
+    ESP_LOGI("USB", "USB shutdown");
     // Clean up USB Host
-    vTaskDelay(10); // Short delay to allow clients clean-up
+    vTaskDelay(usb_lib_disconnect_wait_time); // Short delay to allow clients clean-up
     ESP_ERROR_CHECK(usb_host_uninstall());
     vTaskDelete(NULL);
 }
@@ -198,20 +199,19 @@ void ps4::hid_host_device_callback(hid_host_device_handle_t hid_device_handle,
     }
 }
 
-
 ps4::ps4(){
     BaseType_t task_created;
-   app_event_queue_t evt_queue;
-   task_created = xTaskCreatePinnedToCore(usb_lib_task,
+    app_event_queue_t evt_queue;
+    task_created = xTaskCreatePinnedToCore(usb_lib_task,
                                            "usb_events",
-                                           4096,
+                                           usb_events_stack_size,
                                            xTaskGetCurrentTaskHandle(),
-                                           15, NULL, 0);
+                                           usb_events_priority, NULL, 0);
     assert(task_created == pdTRUE);
 
-    //xTaskCreate(usb_lib_task, "usb_events",4096,2,NULL,0);
+
     // Wait for notification from usb_lib_task to proceed
-    ulTaskNotifyTake(false, 1000);
+    ulTaskNotifyTake(false, usb_lib_task_wait_time);
 
     /*
     * HID host driver configuration
@@ -220,8 +220,8 @@ ps4::ps4(){
     */
     const hid_host_driver_config_t hid_host_driver_config = {
         .create_background_task = true,
-        .task_priority = 5,
-        .stack_size = 4096,
+        .task_priority = hid_host_drvier_priority,
+        .stack_size = usb_events_stack_size,
         .core_id = 0,
         .callback = hid_host_device_callback,
         .callback_arg = NULL
@@ -230,9 +230,9 @@ ps4::ps4(){
     ESP_ERROR_CHECK(hid_host_install(&hid_host_driver_config));
 
     // Create queue
-    app_event_queue = xQueueCreate(10, sizeof(app_event_queue_t));
+    app_event_queue = xQueueCreate(usb_events_queue_size, sizeof(app_event_queue_t));
 
-    ESP_LOGI(TAG, "Waiting for HID Device to be connected");
+    ESP_LOGI("USB", "Waiting for HID Device to be connected");
     for(;;){
         if (xQueueReceive(app_event_queue, &evt_queue, portMAX_DELAY)) {
             if (APP_EVENT == evt_queue.event_group) {
@@ -243,7 +243,7 @@ ps4::ps4(){
                     // End while cycle
                     break;
                 } else {
-                    ESP_LOGW(TAG, "To shutdown example, remove all USB devices and press button again.");
+                    ESP_LOGW("USB", "To shutdown example, remove all USB devices and press button again.");
                     // Keep polling
                 }
             }

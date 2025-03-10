@@ -2,9 +2,8 @@
 #define __odrive_driver_task__
 #include "../all_includes.h"
 #include "../pinout.h"
-
-#include "../supporting/odrive_commands.h"
 #include "../drivers/oDrive.h"
+#include "../supporting/kicker_drive_train.h"
 
 //controller connected status value + mutex
 extern SemaphoreHandle_t controller_connected_mutex;

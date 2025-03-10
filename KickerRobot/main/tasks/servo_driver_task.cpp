@@ -1,5 +1,7 @@
 #include "../../include/tasks/servo_driver_task.h"
 
+
+
 void servoDriver(void *pv){
     ledc_channel_config_t servoAChannel = {
         .gpio_num = servoAPin,
@@ -8,14 +10,19 @@ void servoDriver(void *pv){
         .intr_type = LEDC_INTR_DISABLE,
         .timer_sel = LEDC_TIMER_0,
         .duty = 0,
-        .hpoint = 0
+        .hpoint = 0,
+        .flags ={
+            .output_invert = 0
+        }
     };
 
     ledc_timer_config_t servoATimer = {
-    .speed_mode = LEDC_LOW_SPEED_MODE,
-    .duty_resolution = LEDC_TIMER_12_BIT,
-    .timer_num  = LEDC_TIMER_0,
-    .freq_hz    = servo_frequency,              
+        .speed_mode = LEDC_LOW_SPEED_MODE,
+        .duty_resolution = LEDC_TIMER_12_BIT,
+        .timer_num  = LEDC_TIMER_0,
+        .freq_hz    = servo_frequency,
+        .clk_cfg = LEDC_USE_APB_CLK,
+        .deconfigure = false              
     };
 
     ledc_channel_config_t servoBChannel = {
@@ -25,14 +32,19 @@ void servoDriver(void *pv){
         .intr_type = LEDC_INTR_DISABLE,
         .timer_sel = LEDC_TIMER_1,
         .duty = 0,
-        .hpoint = 0
+        .hpoint = 0,
+        .flags ={
+            .output_invert = 0
+        }
     };
 
     ledc_timer_config_t servoBTimer = {
     .speed_mode = LEDC_LOW_SPEED_MODE,
     .duty_resolution = LEDC_TIMER_12_BIT,
     .timer_num  = LEDC_TIMER_1,
-    .freq_hz    = servo_frequency,              
+    .freq_hz    = servo_frequency,
+    .clk_cfg = LEDC_USE_APB_CLK,
+    .deconfigure = false             
     };
 
     ledc_timer_config(&servoATimer);
@@ -66,7 +78,6 @@ void servoDriver(void *pv){
             }
         xSemaphoreGive(servo_status_mutex);
         }
-    vTaskDelay(pdMS_TO_TICKS(100));
+    vTaskDelay(pdMS_TO_TICKS(servo_driver_wait_time));
     }
 }
-

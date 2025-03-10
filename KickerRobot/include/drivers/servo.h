@@ -1,17 +1,37 @@
 #ifndef __servo__
 #define __servo__
 
+#define max_servo_angle 270
+#define servo_period_time 20000 //in us
+
 #include "../all_includes.h"
 class servo{
   private:
-    ledc_channel_t ledCTimer;
-    int16_t Hlimit;
-    int16_t Llimit;
-    bool direction;
-    int8_t offset;
+    ledc_channel_t ledc_timer; ///< the timer channel for the servo to use
+    int16_t pwm_low_limit; ///< the upper limit of the servos pulse time
+    int16_t pwm_high_limit; ///< the lower limit of the servos pulse time
+    bool direction; ///< the direction that the servo should move
+    int8_t offset; ///< the angle offset if desired horn position cannot be achieved
   public:
-  servo(ledc_channel_t ledCTimerV, uint16_t pwmHighLimitV, uint16_t pwmLowLimitV, bool directionV,int8_t offsetV);
-  void setDegree(uint16_t nDegree);
+
+  /**
+   * @brief The constructor of the servo class
+   * 
+   * @param ledc_timer : ledc_channel_t the timer channel for the servo to use
+   * @param pwm_low_limit : uint16_t the lower on time limit of the servos 
+   * @param pwm_high_limit : uint16_t the upper on time limit of the servos
+   * @param direction : bool allows for the servo to be reversed
+   * @param offset : int8_t angle to offset the servo
+   * 
+   */
+  servo(ledc_channel_t ledc_timer, uint16_t pwm_low_limit, uint16_t pwm_high_limit, bool direction, int8_t offset);
+
+  /**
+   * @brief set the angle of the servo motor
+   * 
+   * @param new_degree : uint16_t the angle to set the servo motor
+   */
+  void setDegree(uint16_t new_degree);
 };
 
 #endif

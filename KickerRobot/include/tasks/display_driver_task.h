@@ -9,8 +9,10 @@ extern i2c_master_bus_handle_t bus_handle;
 
 //strings for the display + mutex
 extern SemaphoreHandle_t main_menu_values_mutex;
-extern std::string controller_connected_string; 
+extern std::string controller_connected_string;
+extern SemaphoreHandle_t battery_voltage_mutex;
 extern std::string battery_voltage_string;
+extern float battery_voltage;
 
 void displayDriver(void *pv);
 #endif
