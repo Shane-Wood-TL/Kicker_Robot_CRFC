@@ -1,3 +1,10 @@
+/**
+ * @file led_strip_setup.cpp
+ * @brief source file that sets up the led strips
+ * @author Shane Wood
+ * @date 12/02/2025
+ */
+
 #include "../../include/setup/led_strip_setup.h"
 #include "../../include/drivers/led_strip_driver.h"
 void led_setup(){

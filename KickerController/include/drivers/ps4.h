@@ -1,22 +1,23 @@
 /**
- * @file pinout.h
+ * @file ps4.h
  * @brief This is the file that contains the ps4 controller class (and internal tasks for usb host)
  * @author Shane Wood
- * @date 10/2/2025
+ * @date 14/12/2024
 */
 
 #ifndef __ps4__
-#define __ps4__ 
+#define __ps4__
+
 #include "../all_includes.h"
 #include "../pinout.h"
 
-#define usb_events_stack_size 4096
-#define usb_events_priority 15
-#define usb_events_queue_size 10
-#define hid_host_drvier_priority 5
-#define usb_lib_task_wait_time 1000
-#define usb_lib_disconnect_wait_time 10
-#define usb_data_read_size 64
+#define usb_events_stack_size 4096 ///<stack size for the usb events task
+#define usb_events_priority 15 ///< priority for the usb events task
+#define usb_events_queue_size 10 ///< usb events queue size
+#define hid_host_drvier_priority 5 ///< priority for the hid host driver task
+#define usb_lib_task_wait_time 1000 ///< wait time for the usb lib task (time to wait till usb events task is created)
+#define usb_lib_disconnect_wait_time 10 ///< delay time to process and cleanup a usb disconnect
+#define usb_data_read_size 64 ///< size of the usb data read buffer in bytes
 
 
 extern SemaphoreHandle_t main_menu_values_mutex;

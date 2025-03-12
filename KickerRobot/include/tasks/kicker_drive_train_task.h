@@ -31,6 +31,10 @@ extern SemaphoreHandle_t motor_speeds;
 extern uint8_t left_motor_speed;
 extern uint8_t right_motor_speed;
 
+#define odrive_driver_wait_time 10 ///< The amount of time to wait between odrive updates (in ms)
 
-void oDriveDriver(void *pv);
+/**
+ * @brief The task to drive the odrive motors, set speeds, modify ramped velocity parameters, and update the battery voltage
+ */
+void kicker_drive_train_task(void *pv);
 #endif

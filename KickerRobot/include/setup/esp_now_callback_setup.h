@@ -43,7 +43,21 @@ extern uint8_t left_motor_speed;
 extern uint8_t right_motor_speed;
 
 
+/**
+ * @brief Callback function for when a message is received
+ * 
+ * @param recv_info : const esp_now_recv_info_t* Information about the received message
+ * @param data : const uint8_t* The data received
+ * @param len : int The length of the data received
+ */
 void on_receive(const esp_now_recv_info_t *recv_info, const uint8_t *data, int len);
+
+/**
+ * @brief Callback function for when a message is sent
+ * 
+ * @param mac_addr : const uint8_t* The mac address of the device the message was sent to
+ * @param status : esp_now_send_status_t The status of the message send
+ */
 void on_send(const uint8_t *mac_addr, esp_now_send_status_t status);
 
 #endif

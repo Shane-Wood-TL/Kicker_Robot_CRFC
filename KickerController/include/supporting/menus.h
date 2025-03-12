@@ -10,16 +10,17 @@
 
 #include "../drivers/ssd1306.h"
 #include "changeable_values.h"
+#include "../pinout.h"
 #include <string>
 
 
-#define float_display_length 5
-#define divide_by_two /2
-#define max_line_count SSD1306Pages divide_by_two
-#define vertical_font_row_0 0
-#define vertical_font_row_1 15
-#define vertical_font_row_2 31
-#define vertical_font_row_3 47
+#define float_display_length 5 ///< The length of the float display XX.XX
+#define divide_by_two /2 ///< divide by 2
+#define max_line_count SSD1306_pages ///< The maximum amount of lines for the menu
+#define vertical_font_row_0 0 ///< row 0 for font at pixel 0
+#define vertical_font_row_1 15 ///< row 1 for font at pixel 15
+#define vertical_font_row_2 31 ///< row 2 for font at pixel 31
+#define vertical_font_row_3 47 ///< row 3 for font at pixel 47
 
 
 /**

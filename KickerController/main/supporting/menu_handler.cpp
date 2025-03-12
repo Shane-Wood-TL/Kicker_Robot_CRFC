@@ -19,6 +19,8 @@ menu_handler::menu_handler(ssd1306 *display, menu<std::string> *status_screen, m
         this->motors_enable_menu = motors_enable_menu;
         this->motors_disable_menu = motors_disable_menu;
         this->errors_clear_menu = errors_clear_menu;
+
+        motors_enabled = DISABLED;
 }
 
 void menu_handler::draw_status_display(){
@@ -30,7 +32,6 @@ void menu_handler::draw_status_display(){
 
 
 void menu_handler::triangle_pressed(){
-    static uint8_t motors_enabled = DISABLED;
     if (xSemaphoreTake(motor_status_mutex, portMAX_DELAY)){
         if(motors_enabled==ENABLED){
             motor_status = DISABLED;
@@ -58,18 +59,25 @@ void menu_handler::triangle_pressed(){
 
 void menu_handler::circle_pressed(){
     if (xSemaphoreTake(motor_status_mutex, portMAX_DELAY)){
+        motor_status = DISABLED;
+        xSemaphoreGive(motor_status_mutex);
+        vTaskDelay(pdMS_TO_TICKS(50));
+    }
+    if (xSemaphoreTake(motor_status_mutex, portMAX_DELAY)){
         motor_status = CALIBRATING;
         xSemaphoreGive(motor_status_mutex);
         display->clear_buffer();
         motors_calibrating_menu->draw_to_display();
         display->write_buffer_SSD1306();
         vTaskDelay(pdMS_TO_TICKS(motor_calibrating_display_time));
-        if (xSemaphoreTake(motor_status_mutex, portMAX_DELAY)){
-            motor_status = DISABLED;
-            xSemaphoreGive(motor_status_mutex);
-        }
+        motors_enabled = IDLE;
         draw_status_display();
     }
+    if (xSemaphoreTake(motor_status_mutex, portMAX_DELAY)){
+        motor_status = DISABLED;
+        xSemaphoreGive(motor_status_mutex);
+    }
+
 }
 
 
@@ -92,7 +100,7 @@ void menu_handler::square_pressed(){
 
 void menu_handler::r2_pressed(){
     if(xSemaphoreTake(servo_status_mutex, portMAX_DELAY)){
-        servo_status = LATCHED;
+        servo_status = RELEASED;
         xSemaphoreGive(servo_status_mutex);
 
         display->clear_buffer();
@@ -108,7 +116,7 @@ void menu_handler::r2_pressed(){
 
 void menu_handler::l2_pressed(){
     if(xSemaphoreTake(servo_status_mutex, portMAX_DELAY)){
-        servo_status = RELEASED;
+        servo_status = LATCHED;
         xSemaphoreGive(servo_status_mutex);
         display->clear_buffer();
         servo_latched_menu->draw_to_display();

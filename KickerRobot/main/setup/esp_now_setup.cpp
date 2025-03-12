@@ -1,3 +1,10 @@
+/**
+ * @file esp_now_setup.cpp
+ * @brief source file that sets up esp-now
+ * @author Shane Wood
+ * @date 1/15/2025
+ */
+
 #include "../../include/setup/esp_now_setup.h"
 
 void esp_now_setup(){

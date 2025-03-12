@@ -1,3 +1,9 @@
+/**
+ * @file font.h
+ * @brief This file contains the class for the 12x16 font class
+ * @author Shane Wood
+ * @date 15/10/2024
+ */
 #ifndef __font__
 #define __font__
 
@@ -1216,7 +1222,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for z
 
-        const uint16_t Dash[font_height] = {
+        const uint16_t dash[font_height] = {
         0x0000, //000000000000
         0x0000, //000000000000
         0x0000, //000000000000
@@ -1235,7 +1241,7 @@ class font{
         0x0000  //000000000000
         }; ///< pixel data for -
 
-        const uint16_t Decimal[font_height] = {
+        const uint16_t decimal[font_height] = {
         0x0000, //000000000000
         0x0000, //000000000000
         0x0000, //000000000000

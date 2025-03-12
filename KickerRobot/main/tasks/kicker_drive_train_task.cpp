@@ -1,6 +1,13 @@
-#include "../../include/tasks/odrive_driver_task.h"
+/**
+ * @file kicker_drive_train_tasl.cpp
+ * @brief source file for the task to drive the Odrives and update the battery voltage
+ * @author Shane Wood
+ * @date 15/02/2025
+ */
+#include "../../include/tasks/kicker_drive_train_task.h"
 
-void oDriveDriver(void *pv)
+
+void kicker_drive_train_task(void *pv)
 {
     static const twai_timing_config_t t_config = TWAI_TIMING_CONFIG_100KBITS();
     static const twai_filter_config_t f_config = TWAI_FILTER_CONFIG_ACCEPT_ALL();
@@ -8,8 +15,8 @@ void oDriveDriver(void *pv)
     static const twai_general_config_t g_config = {
         .controller_id = 0,
         .mode = TWAI_MODE_NORMAL,
-        .tx_io = canTXPin,
-        .rx_io = canRXPin,
+        .tx_io = can_TX_pin,
+        .rx_io = can_RX_pin,
         .clkout_io = TWAI_IO_UNUSED,
         .bus_off_io = TWAI_IO_UNUSED,
         .tx_queue_len = 1,
@@ -28,8 +35,8 @@ void oDriveDriver(void *pv)
     {
         assert(false);
     }
-    oDrive left_drive(oDrive0ID);
-    oDrive right_drive(oDrive1ID);
+    oDrive left_drive(oDrive_0_ID);
+    oDrive right_drive(oDrive_1_ID);
     kicker_drive_train drive_train(&left_drive, &right_drive, battery_voltage_refresh_time);
     for (;;)
     {

@@ -11,11 +11,11 @@
 #include "menus.h"
 #include "../all_includes.h"
 
-#define motor_status_changed_display_time 500
-#define servo_status_changed_display_time 250
-#define motor_calibrating_display_time 14000
+#define motor_status_changed_display_time 500 ///< how long to show that motor the status has changed for
+#define servo_status_changed_display_time 250 ///< how long to show that servo the status has changed for
+#define motor_calibrating_display_time 14000 ///< how long to show that the motors are calibrating for
 
-#define cyclic_menu_count 2
+#define cyclic_menu_count 2 ///< number of cyclic menus (main menu, motor speeds, ramped velocity)
 
 extern QueueHandle_t other_controller_data_queue;
 
@@ -84,6 +84,8 @@ class menu_handler{
         menu<uint8_t> *motors_disable_menu; ///< The motors disable menu
         menu<uint8_t> *errors_clear_menu; ///< The errors clear menu
 
+
+        uint8_t motors_enabled; ///< The current state of the motors (only enabled / disabled)
         /**
          * @brief This function draws the status menu to the display
          */

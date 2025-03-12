@@ -1,3 +1,10 @@
+/**
+ * @file font.cpp
+ * @brief source file for the class that maps ascii characters to their font representation
+ * @author Shane Wood
+ * @date 10/02/2025
+ */
+
 #include "../../include/supporting/font.h"
 
 
@@ -66,8 +73,8 @@ font::font(){
     font_map['x'] = low_X;
     font_map['y'] = low_Y;
     font_map['z'] = low_Z;
-    font_map['-'] = Dash;
-    font_map['.'] = Decimal;
+    font_map['-'] = dash;
+    font_map['.'] = decimal;
     font_map['%'] = percent;
     font_map['|'] = verticalBar;
     font_map[' '] = space;

@@ -1,8 +1,8 @@
 #ifndef __servo__
 #define __servo__
 
-#define max_servo_angle 270
-#define servo_period_time 20000 //in us
+#define max_servo_angle 270 ///< the maximum angle of the servo
+#define servo_period_time 20000 ///< period of a servo in us
 
 #include "../all_includes.h"
 class servo{

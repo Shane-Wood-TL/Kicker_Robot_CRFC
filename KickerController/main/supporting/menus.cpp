@@ -59,14 +59,14 @@ void menu<changeable_values<float>>::draw_to_display(){
             value_as_string = temp_buffer;
             current_length = words[i].length() + value_as_string.length()+1;
             current_length *=font_width;
-            x_positions = (SSD1306HorizontalRes-current_length)divide_by_two;
+            x_positions = (SSD1306_horizontal_resolution-current_length)divide_by_two;
             display->write_string_SSD1306(words[i],x_positions,font_rows[i]);
             display->write_string_SSD1306(value_as_string,(x_positions+(words[i].length()*font_width)+font_width),font_rows[i]);
         }else{
             uint8_t current_length=0;
             current_length = words[i].length();
             current_length *=font_width;
-            x_positions = (SSD1306HorizontalRes-current_length)divide_by_two; 
+            x_positions = (SSD1306_horizontal_resolution-current_length)divide_by_two; 
             display->write_string_SSD1306(words[i],x_positions,font_rows[i]);
         }
     }
@@ -85,14 +85,14 @@ void menu<changeable_values<uint8_t>>::draw_to_display(){
             value_as_string = std::to_string((*values[i])->get_value());                
             current_length = words[i].length() + value_as_string.length()+1;
             current_length *=font_width;
-            x_positions = (SSD1306HorizontalRes-current_length)divide_by_two;
+            x_positions = (SSD1306_horizontal_resolution-current_length)divide_by_two;
             display->write_string_SSD1306(words[i],x_positions,font_rows[i]);
             display->write_string_SSD1306(value_as_string,(x_positions+(words[i].length()*font_width)+font_width),font_rows[i]);
         }else{
             uint8_t current_length=0;
             current_length = words[i].length();
             current_length *=font_width;
-            x_positions = (SSD1306HorizontalRes-current_length)divide_by_two; 
+            x_positions = (SSD1306_horizontal_resolution-current_length)divide_by_two; 
             display->write_string_SSD1306(words[i],x_positions,font_rows[i]);
         }
     }
@@ -111,14 +111,14 @@ void menu<uint8_t>::draw_to_display(){
             value_as_string = std::to_string(**values[i]);                
             current_length = words[i].length() + value_as_string.length()+1;
             current_length *=font_width;
-            x_positions = (SSD1306HorizontalRes-current_length)divide_by_two;
+            x_positions = (SSD1306_horizontal_resolution-current_length)divide_by_two;
             display->write_string_SSD1306(words[i],x_positions,font_rows[i]);
             display->write_string_SSD1306(value_as_string,(x_positions+(words[i].length()*font_width)+font_width),font_rows[i]);
         }else{
             uint8_t current_length=0;
             current_length = words[i].length();
             current_length *=font_width;
-            x_positions = (SSD1306HorizontalRes-current_length)divide_by_two; 
+            x_positions = (SSD1306_horizontal_resolution-current_length)divide_by_two; 
             display->write_string_SSD1306(words[i],x_positions,font_rows[i]);
         }
     }
@@ -137,14 +137,14 @@ void menu<std::string>::draw_to_display(){
             std::string value_as_string = **values[i];                
             current_length = words[i].length() + value_as_string.length()+1;
             current_length *=font_width;
-            x_positions = (SSD1306HorizontalRes-current_length)divide_by_two;
+            x_positions = (SSD1306_horizontal_resolution-current_length)divide_by_two;
             display->write_string_SSD1306(words[i],x_positions,font_rows[i]);
             display->write_string_SSD1306(value_as_string,(x_positions+(words[i].length()*font_width)+font_width),font_rows[i]);
         }else{
             uint8_t current_length=0;
             current_length = words[i].length();
             current_length *=font_width;
-            x_positions = (SSD1306HorizontalRes-current_length)divide_by_two; 
+            x_positions = (SSD1306_horizontal_resolution-current_length)divide_by_two; 
             display->write_string_SSD1306(words[i],x_positions,font_rows[i]);
         }
     }

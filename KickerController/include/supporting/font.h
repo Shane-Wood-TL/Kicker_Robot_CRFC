@@ -1,11 +1,17 @@
+/**
+ * @file font.h
+ * @brief This file contains the class for the 12x16 font class
+ * @author Shane Wood
+ * @date 15/10/2024
+ */
 #ifndef __font__
 #define __font__
 
 #include "../all_includes.h"
 
-#define lowest_defined_ascii_value 20
-#define highest_defined_ascii_value 124
-#define font_map_size 128
+#define lowest_defined_ascii_value 20 ///< lowest defined ascii value
+#define highest_defined_ascii_value 124 ///< highest defined ascii value
+#define font_map_size 128 ///< size of each font map
 /**
  * @class font
  * @brief 12x16 pixel font.

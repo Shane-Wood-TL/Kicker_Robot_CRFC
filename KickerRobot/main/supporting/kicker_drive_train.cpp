@@ -1,3 +1,9 @@
+/**
+ * @file kicker_drive_train.cpp
+ * @brief source file for the class that handles the drive train
+ * @author Shane Wood
+ * @date 10/02/2025
+ */
 #include "../../include/supporting/kicker_drive_train.h"
 
 kicker_drive_train::kicker_drive_train(oDrive *left_drive, oDrive *right_drive, uint32_t battery_voltage_refresh){
@@ -162,15 +168,15 @@ void kicker_drive_train::ramped_settings_updater()
                 static uint16_t vel_ramp_rate_id_var = vel_ramp_rate_id;
                 ramped_rate[0] = odrive_write_rx; // write
 
-                memcpy(&ramped_rate[1], &vel_ramp_rate_id_var, sizeof(uint16_t)); // id
+                (void)memcpy(&ramped_rate[1], &vel_ramp_rate_id_var, sizeof(uint16_t)); // id
 
-                memcpy(&ramped_rate[full_message_middle_index], &velocity_ramp_limit, sizeof(float));
+                (void)memcpy(&ramped_rate[full_message_middle_index], &velocity_ramp_limit, sizeof(float));
                 left_drive->send_message(RxSdo, ramped_rate, eight_bytes, false);
                 right_drive->send_message(RxSdo, ramped_rate, eight_bytes, false);
 
                 uint8_t ramped_values[eight_bytes] = {0};
-                memcpy(&ramped_values[0], &velocity_gain, sizeof(float));
-                memcpy(&ramped_values[full_message_middle_index], &velocity_integrator_gain, sizeof(float));
+                (void)memcpy(&ramped_values[0], &velocity_gain, sizeof(float));
+                (void)memcpy(&ramped_values[full_message_middle_index], &velocity_integrator_gain, sizeof(float));
                 left_drive->send_message(Set_Vel_Gains, ramped_values, eight_bytes, false);
                 right_drive->send_message(Set_Vel_Gains, ramped_values, eight_bytes, false);
                 xSemaphoreGive(ramped_mutex);
@@ -200,11 +206,11 @@ void kicker_drive_train::drive_motors(){
     {
         current_right_motor_speed = 0;
     }
-    memcpy(&vel_left_as_int[full_message_start_index], &current_left_motor_speed, sizeof(float));
-    memcpy(&vel_left_as_int[full_message_middle_index], &Input_Torque_FF, sizeof(float));
+    (void)memcpy(&vel_left_as_int[full_message_start_index], &current_left_motor_speed, sizeof(float));
+    (void)memcpy(&vel_left_as_int[full_message_middle_index], &Input_Torque_FF, sizeof(float));
 
-    memcpy(&vel_right_as_int[full_message_start_index], &current_right_motor_speed, sizeof(float));
-    memcpy(&vel_right_as_int[full_message_middle_index], &Input_Torque_FF, sizeof(float));
+    (void)memcpy(&vel_right_as_int[full_message_start_index], &current_right_motor_speed, sizeof(float));
+    (void)memcpy(&vel_right_as_int[full_message_middle_index], &Input_Torque_FF, sizeof(float));
 
     left_drive->send_message(Set_Input_Vel, vel_left_as_int, eight_bytes, false);
     right_drive->send_message(Set_Input_Vel, vel_right_as_int, eight_bytes, false);
@@ -213,6 +219,4 @@ void kicker_drive_train::drive_motors(){
 void kicker_drive_train::estop(){
     left_drive->send_message(Estop, &NO_DATA, 1, false);
     right_drive->send_message(Estop, &NO_DATA, 1, false);
-    //left_drive->send_message(Estop, nullptr, zero_bytes, false);
-    //right_drive->send_message(Estop, nullptr, zero_bytes, false);
 }

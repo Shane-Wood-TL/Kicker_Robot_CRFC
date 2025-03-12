@@ -3,21 +3,18 @@
 #include "../../include/pinout.h"
 
 
-esp_err_t ssd1306::send_command_SSD1306(uint8_t command)
+void ssd1306::send_command_SSD1306(uint8_t command)
 {
     uint8_t data[SSD1306_COMMAND_SIZE] = {SSD1306_COMMAND_PREFIX, command}; // 0x00 is for command
-    esp_err_t ret = i2c_master_transmit(ssd1306_handle, data, SSD1306_COMMAND_SIZE,SSD1306_I2C_TIMEOUT);
-    return ret;
+    (void)i2c_master_transmit(ssd1306_handle, data, SSD1306_COMMAND_SIZE,SSD1306_I2C_TIMEOUT);
 }
 
-esp_err_t ssd1306::send_data_SSD1306(uint8_t *data, size_t len)
+void ssd1306::send_data_SSD1306(uint8_t *data, size_t len)
 {
     uint8_t data_to_send[len+1] = {0};
     data_to_send[0] = SSD1306_DATA_PREFIX;  // 0x40 is for data
-    memcpy(&(data_to_send[1]), data, len);
-    esp_err_t ret = i2c_master_transmit(ssd1306_handle, &data_to_send[0], (1+len), SSD1306_I2C_TIMEOUT);
-    //ret = i2c_master_transmit(ssd1306_handle, &data_to_send[1], len, SSD1306_I2C_TIMEOUT);
-    return ret; // return if the writing was sucessful
+    (void)memcpy(&(data_to_send[1]), data, len);
+    (void)i2c_master_transmit(ssd1306_handle, &data_to_send[0], (1+len), SSD1306_I2C_TIMEOUT);
 }
 
 
@@ -48,9 +45,9 @@ void ssd1306::init_SSD1306()
 
 void ssd1306::clear_SSD1306()
 {
-    uint8_t emptyBuffer[SSD1306HorizontalRes] = {0}; // each page is 128 x 8
+    uint8_t emptyBuffer[SSD1306_horizontal_resolution] = {0}; // each page is 128 x 8
     // display is 128 x 64, each page is 8 pixels high
-    for (uint8_t i = 0; i < (SSD1306Pages); i++)
+    for (uint8_t i = 0; i < (SSD1306_pages); i++)
     {
         send_command_SSD1306(SSD1306_PAGE_OFFSET + i); // 0B0 - 0B7 are the 8 vertical pages
 
@@ -65,28 +62,28 @@ void ssd1306::clear_SSD1306()
 
 void ssd1306::draw_pixel_SSD1306(uint8_t x, uint8_t y)
 {
-    if ((x >= SSD1306HorizontalRes) || (y >= SSD1306VerticalRes)){
+    if ((x >= SSD1306_horizontal_resolution) || (y >= SSD1306_vertical_resolution)){
         return; // Out of bounds
     }
-    uint8_t pixelInPage = (1 << (y % (SSD1306Pages))); //limit the pixel from 0 to 7 with a 1 in the position 0000_0001, 0000_0010, etc
+    uint8_t pixelInPage = (1 << (y % (SSD1306_pages))); //limit the pixel from 0 to 7 with a 1 in the position 0000_0001, 0000_0010, etc
     //buffer is indexed as such
 	// x straight across 0-127
 	//each one of these is 8 pixels bits tall, or 1 page
 	//repeat for pages 0-8
 	//leading to a total size of 128*8 = 1024 page "strips" each containing the data for 8 pixels
-	uint16_t bufferIndex = uint16_t(x + ((y / (SSD1306_page_height)) * SSD1306HorizontalRes));
+	uint16_t bufferIndex = uint16_t(x + ((y / (SSD1306_page_height)) * SSD1306_horizontal_resolution));
     buffer[bufferIndex] |= pixelInPage;  //write to the buffer based on page and column
 }
 
 void ssd1306::write_buffer_SSD1306()
 {
-    for (uint8_t i = 0; i < SSD1306Pages; i++)
+    for (uint8_t i = 0; i < SSD1306_pages; i++)
     {                                 // Send each page
         send_command_SSD1306(SSD1306_PAGE_OFFSET + i); // Set page start address
         send_command_SSD1306(SSD1306_LOWER_COLUMN_START);     // Set lower column address
         send_command_SSD1306(SSD1306_UPPER_COLUMN_START);     // Set higher column address
 
-        send_data_SSD1306(&buffer[SSD1306HorizontalRes * i], SSD1306HorizontalRes);
+        send_data_SSD1306(&buffer[SSD1306_horizontal_resolution * i], SSD1306_horizontal_resolution);
     }
 }
 

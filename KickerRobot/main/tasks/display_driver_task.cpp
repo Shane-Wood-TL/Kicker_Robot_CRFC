@@ -1,16 +1,19 @@
+/**
+ * @file display_driver_task.cpp
+ * @brief source file for the task that drives the display, displays controller connected status, and battery voltage
+ * @author Shane Wood
+ * @date 15/02/2025
+ */
+
 #include "../../include/tasks/display_driver_task.h"
 
-#define float_display_length 4
-#define minimum_battery_voltage 0
-#define maximum_battery_voltage 30
-#define display_driver_wait_time 1000
 
-void displayDriver(void *pv){
+void display_driver_task(void *pv){
     //display setup
     i2c_device_config_t ssd1306_config = {
         .dev_addr_length = I2C_ADDR_BIT_LEN_7,
-        .device_address = SSD1306Address,
-        .scl_speed_hz = i2cFreq,
+        .device_address = SSD1306_address,
+        .scl_speed_hz = i2c_frequency,
         .scl_wait_us = 0, //use the default value (https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-reference/peripherals/i2c.html)
         .flags = 0
     };

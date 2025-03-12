@@ -5,8 +5,40 @@
 #include <string>
 #include <stdbool.h>
 #include <string.h>
-//#include <unistd.h>
 #include <atomic>
+
+
+//rtos includes
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+#include "freertos/event_groups.h"
+#include "freertos/queue.h"
+
+//esp includes
+#include "esp_err.h"
+#include "esp_log.h"
+#include "esp_mac.h"
+#include "errno.h"
+#include "esp_system.h"
+#include "esp_timer.h"
+
+
+//esp now includes
+#include "esp_wifi.h"
+#include "espnow.h"
+#include "espnow_ctrl.h"
+#include "espnow_utils.h"
+#include "esp_crc.h"
+#include "esp_netif.h"
+#include "nvs_flash.h"
+
+//usb includes
+#include "usb/usb_host.h"
+#include "usb/hid_host.h"
+
+//drives includes
+#include "driver/gpio.h"
+#include "driver/i2c_master.h"
 
 
 /**
@@ -42,40 +74,6 @@ typedef struct {
      */
     uint8_t options_triggers;
 } display_controller_data;
-
-//rtos includes
-#include "freertos/FreeRTOS.h"
-#include "freertos/task.h"
-#include "freertos/event_groups.h"
-#include "freertos/queue.h"
-
-//esp includes
-#include "esp_err.h"
-#include "esp_log.h"
-#include "esp_mac.h"
-#include "errno.h"
-#include "esp_system.h"
-#include "esp_mac.h"
-
-//esp now includes
-#include "esp_wifi.h"
-#include "espnow.h"
-#include "espnow_ctrl.h"
-#include "espnow_utils.h"
-#include "esp_crc.h"
-#include "esp_netif.h"
-#include "nvs_flash.h"
-
-//usb includes
-#include "usb/usb_host.h"
-#include "usb/hid_host.h"
-
-//drives includes
-#include "driver/gpio.h"
-#include "driver/i2c_master.h"
-
-#include "pinout.h"
-
 
 /**
  * @enum motor_status_list
@@ -168,6 +166,36 @@ typedef struct {
     float battery_voltage; 
 } esp_now_data_to_receive;
 
+
+
+#define font_width 12 ///< width of the font in pixels
+#define font_height 16 ///< height of the font in pixels
+
+#define processed_dpad_left_bit 3 ///< bit for dpad left
+#define processed_dpad_down_bit 2 ///< bit for dpad down
+#define processed_dpad_right_bit 1 ///< bit for dpad right
+#define processed_dpad_up_bit 0 ///< bit for dpad up
+
+#define processed_triangle_bit 4 ///< bit for triangle
+#define processed_square_bit 5 ///< bit for square
+#define processed_circle_bit 6 ///< bit for circle
+#define processed_x_bit 7 ///< bit for x
+
+#define processed_options_bit 0 ///< bit for options
+#define processed_r2_bit 1 ///< bit for r2
+#define processed_l2_bit 2 ///< bit for l2
+
+#define values_6 6 ///< basic define to prevent magic numbers for 6
+#define values_5 5 ///< basic define to prevent magic numbers for 5
+#define values_4 4 ///< basic define to prevent magic numbers for 4
+#define values_3 3 ///< basic define to prevent magic numbers for 3
+#define values_2 2 ///< basic define to prevent magic numbers for 2
+#define values_1 1 ///< basic define to prevent magic numbers for 1
+
+#define left_shift_4 << 4 ///< left shift by 4 bits
+
+#define bytes_in_float 4 ///< number of bytes in a float for an esp32s3
+#define lower_four_bits 0x0F ///< mask for the lower four bits
 #endif
 
 

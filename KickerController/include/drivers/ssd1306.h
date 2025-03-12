@@ -1,5 +1,5 @@
 /**
- * @file ssh1306.h
+ * @file ssd1306.h
  * @brief Contains the code for ssd1306 display, setting it up, and writing text to it
  * @author Shane Wood
  * @date 10/2/2025
@@ -9,69 +9,71 @@
 #define __ssd1306__
 
 #include "../supporting/font.h"
+#include "../pinout.h"
 #include "../all_includes.h"
 
-#define SSD1306_DISPLAY_OFF 0xAE
-#define SSD1306_DISPLAY_ON 0xAF
-#define SSD1306_SET_MUX_RATIO 0xA8
-#define SSD1306_MUX_128x32 0x1F
-#define SSD1306_MUX_128x64 0x3F
-#define SSD1306_SET_DISPLAY_OFFSET 0xD3
-#define SSD1306_DISPLAY_OFFSET 0x00
-#define SSD1306_SET_START_LINE 0x40
-#define SSD1306_SET_MEMORY_MODE 0x20
-#define SSD1306_MEMORY_HORIZONTAL 0x00
-#define SSD1306_SET_SEGMENT_REMAP 0xA1
-#define SSD1306_SET_COM_SCAN_DIR 0xC8
-#define SSD1306_SET_COM_PINS 0xDA
-#define SSD1306_COM_PINS_128x32 0x02
-#define SSD1306_COM_PINS_128x64 0x12
-#define SSD1306_SET_CONTRAST 0x81
-#define SSD1306_CONTRAST_DEFAULT 0x9F
-#define SSD1306_ENTIRE_DISPLAY_ON 0xA4
-#define SSD1306_SET_NORMAL_DISPLAY 0xA6
-#define SSD1306_SET_OSC_FREQ 0xD5
-#define SSD1306_OSC_FREQ_DEFAULT 0x80
-#define SSD1306_ENABLE_CHARGE_PUMP 0x8D
-#define SSD1306_CHARGE_PUMP_ON 0x14
+#define SSD1306_DISPLAY_OFF 0xAE ///< command to turn off the display
+#define SSD1306_DISPLAY_ON 0xAF ///< command to turn on the display
+#define SSD1306_SET_MUX_RATIO 0xA8 ///< command to set the mux ratio
+#define SSD1306_MUX_128x32 0x1F ///< mux value for 128x32 display
+#define SSD1306_MUX_128x64 0x3F ///< mux value for 128x64 display
+#define SSD1306_SET_DISPLAY_OFFSET 0xD3 ///< command to set the display offset
+#define SSD1306_DISPLAY_OFFSET 0x00 ///< display offset value
+#define SSD1306_SET_START_LINE 0x40 ///< command to set the start line
+#define SSD1306_SET_MEMORY_MODE 0x20 ///< command to set the memory mode
+#define SSD1306_MEMORY_HORIZONTAL 0x00 ///< memory mode value for horizontal
+#define SSD1306_SET_SEGMENT_REMAP 0xA1 ///< command to set the segment remap
+#define SSD1306_SET_COM_SCAN_DIR 0xC8 ///< command to set the com scan direction
+#define SSD1306_SET_COM_PINS 0xDA ///< command to set the com pins
+#define SSD1306_COM_PINS_128x32 0x02 ///< com pins value for 128x32 display
+#define SSD1306_COM_PINS_128x64 0x12 ///< com pins value for 128x64 display
+#define SSD1306_SET_CONTRAST 0x81 ///< command to set the contrast
+#define SSD1306_CONTRAST_DEFAULT 0x9F ///< default contrast value
+#define SSD1306_ENTIRE_DISPLAY_ON 0xA4 ///< command to turn on the entire display
+#define SSD1306_SET_NORMAL_DISPLAY 0xA6 ///< command to set the display to normal
+#define SSD1306_SET_OSC_FREQ 0xD5 ///< command to set the osc frequency
+#define SSD1306_OSC_FREQ_DEFAULT 0x80 ///< default osc frequency value
+#define SSD1306_ENABLE_CHARGE_PUMP 0x8D ///< command to enable the charge pump
+#define SSD1306_CHARGE_PUMP_ON 0x14 ///< charge pump on value
 
-#define SSD1306_BUFFER_SIZE_128x64 1056
-#define SSD1306_BUFFER_SIZE_128x32 512
+#define SSD1306_BUFFER_SIZE_128x64 1056 ///< buffer size for 128x64 display (technically this is for a 132 x 64 display, purchased displays were not 128x64 despite claiming to be)
+#define SSD1306_BUFFER_SIZE_128x32 512 ///< buffer size for 128x32 display
 
-#define SSD1306_COMMAND_PREFIX 0x00
-#define SSD1306_COMMAND_SIZE 2
-#define SSD1306_DATA_PREFIX 0x40
-#define SSD1306_I2C_TIMEOUT 100
+#define SSD1306_COMMAND_PREFIX 0x00 ///< prefix for a command
+#define SSD1306_COMMAND_SIZE 2 ///< size of a command
+#define SSD1306_DATA_PREFIX 0x40 ///< prefix for data
+#define SSD1306_I2C_TIMEOUT 100 ///< i2c timeout
 
-#define SSD1306_PAGE_OFFSET 0xB0
+#define SSD1306_PAGE_OFFSET 0xB0 ///< page offset command
 
-#define SSD1306_LOWER_COLUMN_START 0x00
-#define SSD1306_UPPER_COLUMN_START 0x10
+#define SSD1306_LOWER_COLUMN_START 0x00 ///< lower column start command
+#define SSD1306_UPPER_COLUMN_START 0x10 ///< upper column start command
 
-
+/**
+ * @class ssd1306
+ * @brief This class is for interfacing with the ssd1306 display
+ * @details This class is for interfacing with the ssd1306 display, it can write text to the display data to a buffer and the buffer can be written to the display
+ * @ref https://cdn-shop.adafruit.com/datasheets/SSD1306.pdf
+ */
 class ssd1306{
 private:
     font font_instance; ///< instance of the font class
-    uint8_t buffer[(SSD1306HorizontalRes * SSD1306VerticalRes) / (SSD1306Pages)] = {0}; ///< SSD1306 display buffer
+    uint8_t buffer[SSD1306_BUFFER_SIZE_128x64] = {0}; ///< SSD1306 display buffer
 
     /**
      * @brief Sends a command to the SSD1306
      * 
      * @param command : uint8_t The command to send
-     * 
-     * @return esp_err_t ESP_OK if successful, ESP_FAIL otherwise
      */
-    esp_err_t send_command_SSD1306(uint8_t command);
+    void send_command_SSD1306(uint8_t command);
 
     /**
      * @brief Sends data to the SSD1306
      * 
      * @param data : uint8_t* The data to send
      * @param len : size_t The length of the data
-     * 
-     * @return esp_err_t ESP_OK if successful, ESP_FAIL otherwise
      */
-    esp_err_t send_data_SSD1306(uint8_t *data, size_t len);
+    void send_data_SSD1306(uint8_t *data, size_t len);
 
     /**
      * @brief Initializes the SSD1306

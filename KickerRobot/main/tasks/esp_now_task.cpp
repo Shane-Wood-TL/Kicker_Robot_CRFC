@@ -1,6 +1,13 @@
+/**
+ * @file esp_now_task.cpp
+ * @brief source file for the task that sends the battery voltage to the controller
+ * @author Shane Wood
+ * @date 15/02/2025
+ */
+
 #include "../../include/tasks/esp_now_task.h"
 
-#define send_data_task_wait_time 1000
+
 //task that sends controller data
 void send_data_task(void *pvParameter) {
     static esp_now_data_to_send current_transmission;

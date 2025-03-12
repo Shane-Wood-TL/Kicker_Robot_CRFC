@@ -1,3 +1,10 @@
+/**
+ * @file esp_now_setup.h
+ * @brief Contains the code that sets up the ESP-NOW communication
+ * @author Shane Wood
+ * @date 10/2/2025
+ */
+
 #ifndef __esp_now_setup__
 #define __esp_now_setup__
 #include "../all_includes.h"
