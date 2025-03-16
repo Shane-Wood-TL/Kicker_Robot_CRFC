@@ -1,3 +1,10 @@
+/**
+ * @file i2c_setup.h
+ * @brief Contains the code that sets up the i2c bus
+ * @author Shane Wood
+ * @date 10/2/2025
+ */
+
 #ifndef __i2c_setup__
 #define __i2c_setup__
 

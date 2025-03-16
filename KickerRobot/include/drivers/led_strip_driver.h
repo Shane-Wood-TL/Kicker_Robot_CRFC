@@ -1,3 +1,10 @@
+/**
+ * @file led_strip_drive.h
+ * @brief This is the header for the led strip class
+ * @author Shane Wood
+ * @date 14/12/2024
+*/
+
 #ifndef __led_strip_driver__
 #define __led_strip_driver__
 #include "../all_includes.h"
@@ -5,6 +12,10 @@
 #define rmt_counter_clock_frequency (10000000)  ///< 10MHz for the rmt counter clock
 #define rmt_channel_memory_size  (64)  ///< the memory size of each RMT channel, in words (4 bytes)
 
+/**
+ * @class led_strip_driver
+ * @brief This is a class to control ws2812b led strips
+ */
 class led_strip_driver {
    private:
     led_strip_rmt_config_t rmt_config = {

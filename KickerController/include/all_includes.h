@@ -1,3 +1,9 @@
+/**
+ * @file all_includes.h
+ * @brief Contains the system wide includes for esp-idf and c++, along with structs and enums
+ * @author Shane Wood
+ */
+
 #ifndef __all_includes__
 #define __all_includes__
 //standard C includes

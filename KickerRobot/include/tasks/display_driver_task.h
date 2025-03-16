@@ -1,3 +1,8 @@
+/**
+ * @file display_driver_task.h
+ * @brief Contains the externs and defines for the display driver task
+ * @author Shane Wood
+ */
 #ifndef __display_driver_task__
 #define __display_driver_task__
 #include "../all_includes.h"

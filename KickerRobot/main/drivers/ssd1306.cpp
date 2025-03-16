@@ -1,3 +1,9 @@
+/**
+ * @file ssh1306.cpp
+ * @brief This is the source for the ssd1306 class
+ * @author Shane Wood
+*/
+
 #include "../../include/drivers/ssd1306.h"
 #include "../../include/pinout.h"
 

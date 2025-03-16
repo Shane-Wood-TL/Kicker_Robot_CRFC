@@ -1,3 +1,9 @@
+/**
+ * @file ps4_task.h
+ * @brief This is the file that contains the ps4 task
+ * @details This task is responsible for handling the usb for the ps4 controller
+ * @author Shane Wood
+ */
 #ifndef __ps4_task__
 #define __ps4_task__
 

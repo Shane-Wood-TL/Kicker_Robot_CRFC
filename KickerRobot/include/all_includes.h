@@ -1,3 +1,8 @@
+/**
+ * @file all_includes.h
+ * @brief Contains the system wide includes for esp-idf and c++, along with structs and enums
+ * @author Shane Wood
+ */
 #ifndef __allIncludes__
 #define __allIncludes__
 #include <string>
@@ -82,6 +87,12 @@ enum motor_status_list{ENABLED, DISABLED, ERRORLESS,CALIBRATING, IDLE};
  */
 enum servo_status_list{LATCHED, RELEASED, DETACHED};
 
+/**
+ * @enum controller_status_list
+ * @brief Contains the different types of states for the controller
+ * CONNECTED = controller is connected
+ * DISCONNECTED = controller is disconnected
+ */
 enum controller_status_list{CONNECTED, DISCONNECTED};
 
 

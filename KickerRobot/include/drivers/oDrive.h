@@ -1,3 +1,9 @@
+/**
+ * @file oDrive.h
+ * @brief This is the header for the oDrive class
+ * @author Shane Wood
+*/
+
 #ifndef __oDrive__
 #define __oDrive__
 #include "../all_includes.h"
@@ -15,6 +21,10 @@ extern SemaphoreHandle_t main_menu_values_mutex;
 #define node_id_offset 5 ///< the offset of the node id in the message
 #define lower_five_bits 0x1F ///< the lower five bits of a byte
 
+/**
+ * @class oDrive
+ * @brief This is the class to control an odrive motor controller
+ */
 class oDrive {
    private:
     uint8_t node_ID;  ///< node id as set in the Odrive configurator

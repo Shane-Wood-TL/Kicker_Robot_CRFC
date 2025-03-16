@@ -1,3 +1,9 @@
+/**
+ * @file esp_now_callback_setup.cpp
+ * @brief source file that sets up esp-now callbacks
+ * @author Shane Wood
+ * @date 1/15/2025
+ */
 #include "../../include/setup/esp_now_callback_setup.h"
 
 // call back function for when data is sent

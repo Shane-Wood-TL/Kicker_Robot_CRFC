@@ -1,3 +1,8 @@
+/**
+ * @file kicker_drive_train.h
+ * @brief Header for the kicker drive_train class
+ * @author Shane Wood
+ */
 #ifndef __kicker_drive_train__
 #define __kicker_drive_train__
 
@@ -126,6 +131,12 @@ class kicker_drive_train{
          * @brief send estop to the odrives
          */
         void estop();
+
+        /// options for Set_Axis_State
+        uint8_t CLOSED_LOOP_CONTROL = 0x8;  ///< Data to set Odrive to closed loop control
+        uint8_t NO_DATA = 0x0;              ///< empty byte if no data is needed to be sent
+        uint8_t IDLE_STATE = 0x1;           ///< data to set the motor to the idle state
+        uint8_t FULL_CALIBRATION_SEQUENCE = 0x3;  ///< data to run the calibration sequence
 
     public:
         /**

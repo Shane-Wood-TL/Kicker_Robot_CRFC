@@ -1,3 +1,9 @@
+/**
+ * @file servo.h
+ * @brief This is the header for the servo motor class
+ * @author Shane Wood
+ * @date 14/12/2024
+*/
 #ifndef __servo__
 #define __servo__
 
@@ -5,6 +11,10 @@
 #define servo_period_time 20000 ///< period of a servo in us
 
 #include "../all_includes.h"
+/**
+ * @class servo
+ * @brief This is a class for controlling a pwm based servo motor
+ */
 class servo{
   private:
     ledc_channel_t ledc_timer; ///< the timer channel for the servo to use

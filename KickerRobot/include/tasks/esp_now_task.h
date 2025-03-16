@@ -1,3 +1,9 @@
+/**
+ * @file esp_now_task.h
+ * @brief Contains the externs and defines for the esp_now task
+ * @author Shane Wood
+ */
+
 #ifndef esp_now_task
 #define esp_now_task
 #include "../all_includes.h"

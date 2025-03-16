@@ -1,3 +1,7 @@
+/**
+ * @files Contains the command id for various oDrive commands
+ * @author Shane Wood
+ */
 #ifndef __odrive_commands__
 #define __odrive_commands__
 
@@ -29,11 +33,5 @@
 #define Get_Torques 0x1c  ///< Odrive command id for getting torque target and estimate
 #define Get_Powers 0x1d  ///< Odrive command id for getting electrical and mechanical power
 #define Enter_DFU_Mode 0x1f  ///< Odrive command id for entering DFU mode
-
-/// options for Set_Axis_State
-#define CLOSED_LOOP_CONTROL 0x8  ///< Data to set Odrive to closed loop control
-#define NO_DATA 0x0              ///< empty byte if no data is needed to be sent
-#define IDLE_STATE 0x1           ///< data to set the motor to the idle state
-#define FULL_CALIBRATION_SEQUENCE 0x3  ///< data to run the calibration sequence
 
 #endif

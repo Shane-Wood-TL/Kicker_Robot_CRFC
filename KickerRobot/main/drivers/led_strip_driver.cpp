@@ -1,3 +1,10 @@
+/**
+ * @file led_strip_drive.cpp
+ * @brief This is the source file for the led strip class
+ * @author Shane Wood
+ * @date 14/12/2024
+*/
+
 #include "../../include/drivers/led_strip_driver.h"
 led_strip_driver::led_strip_driver(uint8_t strip_gpio_pin, uint8_t number_of_leds_in_strip){
     led_strip_config.strip_gpio_num = strip_gpio_pin;

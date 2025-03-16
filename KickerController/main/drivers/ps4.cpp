@@ -1,3 +1,8 @@
+/**
+ * @file ps4.cpp
+ * @brief This is the file that contains the ps4 controller class (and internal tasks for usb host)
+ * @author Shane Wood
+ */
 #include "../../include/drivers/ps4.h"
 
 QueueHandle_t ps4::app_event_queue = nullptr;
@@ -7,7 +12,7 @@ extern std::atomic<uint8_t> controller_byte_4;
 extern std::atomic<uint8_t> controller_byte_5;
 extern std::atomic<uint8_t> controller_byte_6;
 
-
+extern std::atomic<bool> ps4_controller_connected;
 
 
 extern SemaphoreHandle_t new_controller_data;
@@ -92,6 +97,7 @@ void ps4::hid_host_interface_callback(hid_host_device_handle_t hid_device_handle
         ESP_ERROR_CHECK(hid_host_device_close(hid_device_handle));
         if(xSemaphoreTake(main_menu_values_mutex, portMAX_DELAY)){
             contoller_connected = "DisCon";
+            ps4_controller_connected = false;
             xSemaphoreGive(main_menu_values_mutex);
             if(xSemaphoreTake(update_main_display_mutex, portMAX_DELAY)){
                 update_main_display = true;
@@ -123,6 +129,7 @@ void ps4::hid_host_device_event(hid_host_device_handle_t hid_device_handle,
             ESP_LOGI("USB", "HID Device, protocol CONNECTED");
             if(xSemaphoreTake(main_menu_values_mutex, portMAX_DELAY)){
                 contoller_connected = "Conn";
+                ps4_controller_connected = true;
                 xSemaphoreGive(main_menu_values_mutex); 
                 if(xSemaphoreTake(update_main_display_mutex, portMAX_DELAY)){
                     update_main_display = true;
@@ -249,7 +256,6 @@ ps4::ps4(){
             }
 
             if (APP_EVENT_HID_HOST ==  evt_queue.event_group) {
-                printf("d\n");
                 hid_host_device_event(evt_queue.hid_host_device.handle,
                                       evt_queue.hid_host_device.event,
                                       evt_queue.hid_host_device.arg);

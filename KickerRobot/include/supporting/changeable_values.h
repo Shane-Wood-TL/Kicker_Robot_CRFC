@@ -1,3 +1,10 @@
+/**
+ * @file changeable_values.h
+ * @brief Contains the information for the changeable values class, this class allows a value
+ * to be modifed by a set value with high and low limits setable
+ * @author Shane Wood
+ * @date 27/2/2025
+ */
 #ifndef __changeable_values__
 #define __changeable_values__
 
@@ -56,25 +63,25 @@ changeable_values<T>::changeable_values(T *value, T min_value, T max_value, T ch
 template <typename T>
 void changeable_values<T>::increase_value(){
     if(*value < max_value){
-        *value = *value + change_by;
+        *value = *value + change_by; //increase value if in range
     }
     if(*value > max_value){
-        *value = max_value;
+        *value = max_value; //else: do nothing
     }
 }
 
 template <typename T>
-void changeable_values<T>::decrease_value(){
+void changeable_values<T>::decrease_value(){ //decrease value if in range
     if(*value > min_value){
         *value = *value - change_by;
     }
     if(*value < min_value){
-        *value = min_value;
+        *value = min_value; //else: do nothing
     }
 }
 
 template <typename T>
-T changeable_values<T>::get_value(){
+T changeable_values<T>::get_value(){ //return the value
     return *value;
 }
 

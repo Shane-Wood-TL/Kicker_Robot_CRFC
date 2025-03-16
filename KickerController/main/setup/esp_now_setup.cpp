@@ -1,3 +1,10 @@
+/**
+ * @file esp_now_setup.cpp
+ * @brief source file that sets up esp-now
+ * @author Shane Wood
+ * @date 1/15/2025
+ */
+
 #include "../../include/setup/esp_now_setup.h"
 
 void esp_now_setup(){
@@ -19,6 +26,16 @@ void esp_now_setup(){
 
   // setup esp-now
   ESP_ERROR_CHECK(esp_now_init());
+
+  // esp_now_rate_config_t rate_config = {
+  //   .phymode = WIFI_PHY_MODE_HT40,
+  //   .rate = WIFI_PHY_RATE_6M,
+  //   .ersu = false,
+  //   .dcm = false
+  // };
+
+//  esp_now_set_peer_rate_config(robotMacAddress, &rate_config);
+
   (void) esp_now_register_send_cb(on_send);
   (void) esp_now_register_recv_cb(on_receive);
 

@@ -92,6 +92,7 @@ void kicker_drive_train::motor_status_updater()
                     {
                         calibrating();
                         disable_motors();
+                        current_motor_state = DISABLED;
                     }
                     break;
                 }

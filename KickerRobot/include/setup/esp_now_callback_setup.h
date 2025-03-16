@@ -1,3 +1,8 @@
+/**
+ * @file esp_now_callback_setup.h
+ * @brief Contains the callback functions for esp-now
+ * @author Shane Wood
+ */
 #ifndef __esp_now_callback_setup__
 #define __esp_now_callback_setup__
 #include "../all_includes.h"

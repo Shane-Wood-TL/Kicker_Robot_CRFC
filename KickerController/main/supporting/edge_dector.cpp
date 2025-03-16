@@ -1,3 +1,8 @@
+/**
+ * @file edge_dector.cpp
+ * @brief This is the file that contains the edge dector class
+ * @author Shane Wood
+ */
 #include "../../include/supporting/edge_dector.h"
 
 edge_dector::edge_dector(bool current_state) : old_state(current_state) {}

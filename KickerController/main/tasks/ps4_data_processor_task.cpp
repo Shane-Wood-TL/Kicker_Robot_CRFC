@@ -1,3 +1,10 @@
+/**
+ * @file ps4_data_processor_task.cpp
+ * @brief This is the file that contains the ps4 data processor task
+ * @details This task is responsible for processing the data from the ps4 controller
+ * and sending it to the other tasks that need it, such as the menu handler
+ * @author Shane Wood
+ */
 #include "../../include/tasks/ps4_data_processor_task.h"
 
 void ps4_data_processor(void *pv) {

@@ -1,3 +1,8 @@
+/**
+ * @file kicker_drive_train_task.h
+ * @brief Contains the externs and defines for the kicker drive train task
+ * @author Shane Wood
+ */
 #ifndef __odrive_driver_task__
 #define __odrive_driver_task__
 #include "../all_includes.h"

@@ -1,3 +1,9 @@
+/**
+ * @file servo.cpp
+ * @brief This is the source file for the servo motor class
+ * @author Shane Wood
+ * @date 14/12/2024
+*/
 
 #include "../../include/drivers/servo.h"
 

@@ -1,3 +1,9 @@
+/**
+ * @file servo_driver_task.h
+ * @brief Contains the externs and defines for the servo driver task
+ * @author Shane Wood
+ */
+
 #ifndef __servo_driver_task__
 #define __servo_driver_task__
 

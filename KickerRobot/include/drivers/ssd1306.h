@@ -1,3 +1,8 @@
+/**
+ * @file ssh1306.h
+ * @brief This is the header for the ssd1306 class
+ * @author Shane Wood
+*/
 #ifndef __ssd1306__
 #define __ssd1306__
 
@@ -42,7 +47,10 @@
 #define SSD1306_LOWER_COLUMN_START 0x00 ///< lower column start command
 #define SSD1306_UPPER_COLUMN_START 0x10 ///< upper column start command
 
-
+/**
+ * @class ssd1306
+ * @brief This is a class to drive an ssd1306 over i2c
+ */
 class ssd1306{
     private:
         font font_instance; ///< instance of the font class

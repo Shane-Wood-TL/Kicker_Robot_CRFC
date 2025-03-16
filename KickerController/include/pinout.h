@@ -1,4 +1,4 @@
-    /**
+/**
  * @file pinout.h
  * @brief This is the file that contains the pinout and other configuration information
  * @author Shane Wood

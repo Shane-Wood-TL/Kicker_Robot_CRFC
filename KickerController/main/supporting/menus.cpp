@@ -1,4 +1,9 @@
-
+/**
+ * @file menus.cpp
+ * @brief source file for the class that handles the creation of menus
+ * @author Shane Wood
+ * @date 10/02/2025
+ */
 #include "../../include/supporting/menus.h"
 
 

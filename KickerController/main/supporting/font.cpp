@@ -1,3 +1,9 @@
+/**
+ * @file font.cpp
+ * @brief source file for the class that maps ascii characters to their font representation
+ * @author Shane Wood
+ * @date 10/02/2025
+ */
 #include "../../include/supporting/font.h"
 
 

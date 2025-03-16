@@ -1,4 +1,9 @@
-
+/**
+ * @file i2c_setup.cpp
+ * @brief source file that sets up the i2c bus
+ * @author Shane Wood
+ * @date 11/15/2024
+ */
 
 #include "../../include/setup/i2c_setup.h"
 

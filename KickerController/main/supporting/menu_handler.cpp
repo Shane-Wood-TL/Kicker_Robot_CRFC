@@ -1,3 +1,8 @@
+/**
+ * @file menu_handler.cpp
+ * @brief This is the file that contains the class for switching between menus
+ * @author Shane Wood
+ */
 #include "../../include/supporting/menu_handler.h"
 
 enum rolling_menu_states{STATUS_SCREEN_STATE, MOTOR_SPEEDS_STATE, RAMPED_VELOCITY_STATE};
@@ -21,10 +26,11 @@ menu_handler::menu_handler(ssd1306 *display, menu<std::string> *status_screen, m
         this->errors_clear_menu = errors_clear_menu;
 
         motors_enabled = DISABLED;
+        current_state = STATUS_SCREEN_STATE;
 }
 
 void menu_handler::draw_status_display(){
-    current_state = 0;
+    current_state = STATUS_SCREEN_STATE;
     display->clear_buffer();
     status_screen->draw_to_display();
     display->write_buffer_SSD1306();
@@ -59,11 +65,6 @@ void menu_handler::triangle_pressed(){
 
 void menu_handler::circle_pressed(){
     if (xSemaphoreTake(motor_status_mutex, portMAX_DELAY)){
-        motor_status = DISABLED;
-        xSemaphoreGive(motor_status_mutex);
-        vTaskDelay(pdMS_TO_TICKS(50));
-    }
-    if (xSemaphoreTake(motor_status_mutex, portMAX_DELAY)){
         motor_status = CALIBRATING;
         xSemaphoreGive(motor_status_mutex);
         display->clear_buffer();
@@ -76,6 +77,9 @@ void menu_handler::circle_pressed(){
     if (xSemaphoreTake(motor_status_mutex, portMAX_DELAY)){
         motor_status = DISABLED;
         xSemaphoreGive(motor_status_mutex);
+        display->clear_buffer();
+        motors_disable_menu->draw_to_display();
+        vTaskDelay(pdMS_TO_TICKS(motor_status_changed_display_time));
     }
 
 }
@@ -246,7 +250,7 @@ void menu_handler::dpad_right_pressed(){
 
 void menu_handler::update(){
     if(xSemaphoreTake(update_main_display_mutex, portMAX_DELAY)){
-        if(update_main_display==true && current_state ==STATUS_SCREEN_STATE){
+        if(update_main_display == true && current_state ==STATUS_SCREEN_STATE){
             update_main_display = false;
             xSemaphoreGive(update_main_display_mutex);
             if(xSemaphoreTake(main_menu_values_mutex, portMAX_DELAY)){
@@ -258,7 +262,7 @@ void menu_handler::update(){
             xSemaphoreGive(update_main_display_mutex);
         }
     }
-    if((xQueueReceive(other_controller_data_queue,&current_data,portMAX_DELAY) == pdTRUE)){
+    if((xQueueReceive(other_controller_data_queue,&current_data,pdMS_TO_TICKS(10)) == pdTRUE)){
         xQueueReset(other_controller_data_queue); //prevents multiple inputs
         bool current_options_state = current_data.options_triggers & (1 <<processed_options_bit);
 

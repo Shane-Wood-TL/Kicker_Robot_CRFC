@@ -10,9 +10,9 @@
 #include "../all_includes.h"
 #include "../pinout.h"
 
-#define lowest_defined_ascii_value 20
-#define highest_defined_ascii_value 124
-#define font_map_size 128
+#define lowest_defined_ascii_value 20 ///< lowest ascii value defined
+#define highest_defined_ascii_value 124 ///< highest ascii value defined
+#define font_map_size 128 ///< font map size
 /**
  * @class font
  * @brief 12x16 pixel font.

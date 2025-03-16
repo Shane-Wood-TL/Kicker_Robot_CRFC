@@ -1,4 +1,8 @@
-
+/**
+ * @file display_task.cpp
+ * @brief This is the file that contains the display task
+ * @author Shane Wood
+ */
 #include "../../include/tasks/display_task.h"
 
 void display_task(void *pv) {

@@ -30,7 +30,7 @@
 #include "../include/all_includes.h"
 
 
-//#include "../include/setup/i2c_setup.h"
+#include "../include/setup/i2c_setup.h"
 #include "../include/setup/esp_now_setup.h"
 #include "../include/setup/esp_now_callback_setup.h"
 
@@ -59,7 +59,7 @@
 #define display_task_stack_size 16384 ///< stack size for the display task
 #define ps4_data_processor_stack_sze 8092 ///< stack size for the ps4 data processor task
 
-#define send_data_task_priority 12 ///< priority for the send data task
+#define send_data_task_priority 8 ///< priority for the send data task
 #define ps4_task_priority 10 ///< priority for the ps4 task
 #define display_task_priority 5 ///< priority for the display task
 #define ps4_data_processor_priority 11 ///< priority for the ps4 data processor task
@@ -71,13 +71,15 @@
 
 
 SemaphoreHandle_t update_main_display_mutex = NULL; ///< mutex to determine if the main display needs to be updated or not
-bool update_main_display = false; ///< flag to determine if the main display needs to be updated
+bool update_main_display = true; ///< flag to determine if the main display needs to be updated
 
 SemaphoreHandle_t main_menu_values_mutex=NULL; ///< mutex protecting the main menu values
 std::string contoller_connected = "DisCon"; ///< string to display if the controller is connected or not
 std::string robot_connected = "DisCon"; ///< string to display if the robot is connected or not
 std::string battery_voltage_string = "0"; ///< string to display the battery voltage
 std::string status = ""; ///< string to display the status of the robot
+
+std::atomic<bool> ps4_controller_connected = false; ///< atomic variable to determine if the ps4 controller is connected or not
 
 SemaphoreHandle_t motor_status_mutex=NULL; ///< mutex protecting the motor status
 uint8_t motor_status = IDLE; ///< status of the motors
@@ -109,18 +111,9 @@ std::atomic<uint8_t> controller_byte_5 = 0; ///< atomic variable for the control
 std::atomic<uint8_t> controller_byte_6 = 0; ///< atomic variable for the controller byte 6 (l1, l2, r1, r2, options, share, l3, r3)
 
 
-
-void i2c_setup() {
-  i2c_mst_config.clk_source = I2C_CLK_SRC_DEFAULT;
-  i2c_mst_config.i2c_port = I2C_NUM_0;
-  i2c_mst_config.sda_io_num = sda_pin;
-  i2c_mst_config.scl_io_num = scl_pin;
-  i2c_mst_config.glitch_ignore_cnt = 0;
-  i2c_mst_config.flags.enable_internal_pullup = true;
-  i2c_new_master_bus(&i2c_mst_config, &bus_handle);
-}
-
-
+/**
+ * @brief the main function for the program, creates all semaphores, tasks, and runs setup functions
+ */
 extern "C" void app_main(void) {
   // create queues
   other_controller_data_queue = xQueueCreate(size_of_other_controller_data_queue, sizeof(display_controller_data));
