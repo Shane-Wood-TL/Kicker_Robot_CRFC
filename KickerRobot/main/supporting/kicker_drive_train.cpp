@@ -13,11 +13,11 @@ kicker_drive_train::kicker_drive_train(oDrive *left_drive, oDrive *right_drive, 
     battery_update_time = battery_voltage_refresh;
     last_motor_state = DISABLED;
 
-    last_left_motor_speed_mult = 0;
-    last_right_motor_speed_mult = 0;
+    last_driving_speed_mult = 0;
+    last_turning_speed_mult = 0;
 
-    last_left_motor_speed = 0;
-    last_right_motor_speed = 0;
+    last_driving_speed = 0;
+    last_turning_speed = 0;
 
 }
 
@@ -139,8 +139,8 @@ void kicker_drive_train::enable_motors(){
 void kicker_drive_train::motor_speed_multiplier_updater(){
     if (xSemaphoreTake(motor_speeds_settings_mutex, portMAX_DELAY))
     {
-        last_right_motor_speed_mult = right_motor_speed_mult;
-        last_left_motor_speed_mult = left_motor_speed_mult;
+        last_driving_speed_mult = driving_speed_mult;
+        last_turning_speed_mult = turning_speed_mult;
         xSemaphoreGive(motor_speeds_settings_mutex);
     }
 }
@@ -148,8 +148,8 @@ void kicker_drive_train::motor_speed_multiplier_updater(){
 void kicker_drive_train::motor_speeds_updater(){
     if (xSemaphoreTake(motor_speeds, portMAX_DELAY))
     {
-        last_left_motor_speed = left_motor_speed;
-        last_right_motor_speed = right_motor_speed;
+        last_driving_speed = driving_speed;
+        last_turning_speed = turning_speed;
         xSemaphoreGive(motor_speeds);
     }
 }
@@ -192,21 +192,32 @@ void kicker_drive_train::ramped_settings_updater()
 }
 
 void kicker_drive_train::drive_motors(){
-    float current_left_motor_speed = map(last_left_motor_speed, eight_bit_minimum, eight_bit_maximum, (-last_left_motor_speed_mult * motor_speed_multiplier_value), (last_left_motor_speed_mult * motor_speed_multiplier_value));
-    float current_right_motor_speed = map(last_right_motor_speed, eight_bit_minimum, eight_bit_maximum, (-last_right_motor_speed_mult * motor_speed_multiplier_value), (last_right_motor_speed_mult * motor_speed_multiplier_value));
+    float current_drive_speed = map(last_driving_speed, eight_bit_minimum, eight_bit_maximum, (-last_driving_speed_mult * motor_drive_speed_multiplier_value), (last_driving_speed_mult * motor_drive_speed_multiplier_value));
+    float current_turning_speed = map(last_turning_speed, eight_bit_minimum, eight_bit_maximum, (-last_turning_speed_mult * motor_turn_speed_multiplier_value), (last_turning_speed_mult * motor_turn_speed_multiplier_value));
+
+
+
+    if (abs(current_drive_speed) < (input_velocity_deadzone * last_driving_speed_mult))
+    {
+        current_drive_speed = 0;
+    }
+    if ((abs(current_turning_speed) < (input_velocity_deadzone * last_turning_speed_mult)))
+    {
+        current_turning_speed = 0;
+    }
+
+
+    float current_left_motor_speed = current_drive_speed + current_turning_speed;
+    float current_right_motor_speed = -(current_drive_speed - current_turning_speed);  //right motor is inverted
+
+    
 
     float Input_Torque_FF = odrive_motor_torque;
     uint8_t vel_left_as_int[full_message_size] = {0};
     uint8_t vel_right_as_int[full_message_size] = {0};
 
-    if (abs(current_left_motor_speed) < (input_velocity_deadzone * last_left_motor_speed_mult))
-    {
-        current_left_motor_speed = 0;
-    }
-    if (abs(current_right_motor_speed) < (input_velocity_deadzone * last_right_motor_speed_mult))
-    {
-        current_right_motor_speed = 0;
-    }
+    
+    
     (void)memcpy(&vel_left_as_int[full_message_start_index], &current_left_motor_speed, sizeof(float));
     (void)memcpy(&vel_left_as_int[full_message_middle_index], &Input_Torque_FF, sizeof(float));
 

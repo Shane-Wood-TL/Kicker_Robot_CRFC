@@ -24,8 +24,8 @@ void on_receive(const esp_now_recv_info_t *recv_info, const uint8_t *data, int l
         (void)memcpy(&received_data, data, sizeof(received_data));
         if (xSemaphoreTake(motor_speeds, portMAX_DELAY))
         {
-            left_motor_speed = received_data.left_motor_speed;
-            right_motor_speed = received_data.right_motor_speed;
+            driving_speed = received_data.driving_speed;
+            turning_speed = received_data.turning_speed;
             xSemaphoreGive(motor_speeds);
         }
 
@@ -61,8 +61,8 @@ void on_receive(const esp_now_recv_info_t *recv_info, const uint8_t *data, int l
         }
         if (xSemaphoreTake(motor_speeds_settings_mutex, portMAX_DELAY))
         {
-            left_motor_speed_mult = (received_data.motor_speed_setting >> values_4) & lower_four_bits;
-            right_motor_speed_mult = received_data.motor_speed_setting & lower_four_bits;
+            driving_speed_mult = (received_data.motor_speed_setting >> values_4) & lower_four_bits;
+            turning_speed_mult = received_data.motor_speed_setting & lower_four_bits;
             xSemaphoreGive(motor_speeds_settings_mutex);
         }
     }

@@ -30,8 +30,8 @@ extern float velocity_integrator_gain;
 
 //motor speed settings + mutex
 extern SemaphoreHandle_t motor_speeds_settings_mutex;
-extern uint8_t left_motor_speed_mult; //values set in settings
-extern uint8_t right_motor_speed_mult;
+extern uint8_t driving_speed_mult; //values set in settings
+extern uint8_t turning_speed_mult;
 
 //need to update display + mutex
 extern SemaphoreHandle_t update_main_display_mutex;
@@ -44,8 +44,8 @@ extern std::string battery_voltage_string;
 
 //current motor speeds + mutex (0-255, centered at 127)
 extern SemaphoreHandle_t motor_speeds;
-extern uint8_t left_motor_speed;
-extern uint8_t right_motor_speed;
+extern uint8_t driving_speed;
+extern uint8_t turning_speed;
 
 
 /**

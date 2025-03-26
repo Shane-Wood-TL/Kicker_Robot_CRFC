@@ -75,8 +75,8 @@ float velocity_integrator_gain = 0.0f; ///< velocity_integrator_gain : float gua
 
 // motor speed settings + mutex
 SemaphoreHandle_t motor_speeds_settings_mutex; ///< mutex protecting the motor speed multipliers
-uint8_t left_motor_speed_mult = 0;  ///< left_motor_speed_mult : uint8_t guarded by motor_speeds_settings_mutex
-uint8_t right_motor_speed_mult = 0; ///< right_motor_speed_mult : uint8_t guarded by motor_speeds_settings_mutex
+uint8_t turning_speed_mult = 0;  ///< turning_speed_mult : uint8_t guarded by motor_speeds_settings_mutex
+uint8_t driving_speed_mult = 0; ///< driving_speed_mult : uint8_t guarded by motor_speeds_settings_mutex
 
 // need to update display + mutex
 SemaphoreHandle_t update_main_display_mutex; ///< mutex protecting update_main_display
@@ -89,8 +89,8 @@ std::string battery_voltage_string = "0"; ///< battery_voltage_string : string, 
 
 // current motor speeds + mutex (0-255, centered at 127)
 SemaphoreHandle_t motor_speeds; ///< mutex protecting the motor speeds (values written to motors)
-uint8_t left_motor_speed = 127; ///< left_motor_speed : uint8_t, guarded by motor_speeds
-uint8_t right_motor_speed = 127; ///< right_motor_speed : uint8_t, guarded by motor_speeds
+uint8_t driving_speed = 127; ///< driving_speed : uint8_t, guarded by motor_speeds
+uint8_t turning_speed = 127; ///< turning_speed : uint8_t, guarded by motor_speeds
 
 // i2c bus tags
 i2c_master_bus_config_t i2c_mst_config; ///< i2c_mst_config : i2c_master_bus_config_t i2c bus config

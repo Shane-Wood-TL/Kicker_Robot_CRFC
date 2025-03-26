@@ -35,8 +35,8 @@ extern uint8_t motor_status;
 
 
 extern SemaphoreHandle_t motor_speeds_mutex;
-extern uint8_t left_motor_speed; //values set in settings
-extern uint8_t right_motor_speed;
+extern uint8_t drive_motor_speed; //values set in settings
+extern uint8_t turn_motor_speed;
 
 extern SemaphoreHandle_t servo_status_mutex;
 extern uint8_t servo_status;

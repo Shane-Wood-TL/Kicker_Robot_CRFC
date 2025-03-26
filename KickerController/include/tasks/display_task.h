@@ -17,14 +17,14 @@
 extern i2c_master_bus_config_t i2c_mst_config;
 extern i2c_master_bus_handle_t bus_handle;
 
-#define maximum_left_motor_speed_modifier 15  ///< max multipler for the left motor
-#define maximum_right_motor_speed_modifier 15 ///< max multipler for the right motor
+#define maximum_drive_motor_speed_modifier 15  ///< max multipler for the driving speed
+#define maximum_turn_motor_speed_modifier 15 ///< max multipler for the turning speed
 
-#define minimum_left_motor_speed_modifier 0 ///< min multipler for the left motor
-#define minimum_right_motor_speed_modifier 0 ///< min multipler for the right motor
+#define minimum_drive_motor_speed_modifier 0 ///< min multipler for the driving speed
+#define minimum_turn_motor_speed_modifier 0 ///< min multipler for the turning speed
 
-#define left_motor_speed_modifier_step_size 1 ///< step size for the left motor multipler
-#define right_motor_speed_modifier_step_size 1 ///< step size for the right motor multipler
+#define drive_motor_speed_modifier_step_size 1 ///< step size for the driving speed multipler
+#define turn_motor_speed_modifier_step_size 1 ///< step size for the turning speed multipler
 
 #define boot_screen_wait_time 1000 ///< time to wait for the boot screen to be displayed
 

@@ -12,7 +12,7 @@
 #include "../drivers/ps4.h"
 
 extern std::atomic<uint8_t> controller_byte_2;
-extern std::atomic<uint8_t> controller_byte_4;
+extern std::atomic<uint8_t> controller_byte_3;
 extern std::atomic<uint8_t> controller_byte_5;
 extern std::atomic<uint8_t> controller_byte_6;
 

@@ -27,7 +27,7 @@
 #define ps4_data_processor_wait_time 10 ///< time to wait in the ps4 data processor task
 
 extern std::atomic<uint8_t> controller_byte_2;
-extern std::atomic<uint8_t> controller_byte_4;
+extern std::atomic<uint8_t> controller_byte_3;
 extern std::atomic<uint8_t> controller_byte_5;
 extern std::atomic<uint8_t> controller_byte_6;
 

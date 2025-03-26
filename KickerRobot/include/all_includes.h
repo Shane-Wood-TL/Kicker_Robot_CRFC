@@ -115,16 +115,16 @@ typedef struct {
  */
 typedef struct {
     /**
-     * @brief left_motor_speed : uint8_t
+     * @brief driving_speed : uint8_t
      * Data from the left joystick on the ps4 controller
      */
-    uint8_t left_motor_speed;
+    uint8_t driving_speed;
 
     /**
-     * @brief right_motor_speed : uint8_t
+     * @brief turning_speed : uint8_t
      * Data from the right joystick on the ps4 controller
      */
-    uint8_t right_motor_speed;
+    uint8_t turning_speed;
 
     /**
      * @brief velocity_ramp_limit : float
@@ -154,9 +154,9 @@ typedef struct {
 
     /**
      * @brief motor_speed_setting : uint8_t
-     * Contains the data for the speed settings for the left and right motor
-     * The right speed is the lower 4 bits
-     * The left speed is the upper 4 bits
+     * Contains the data for the speed settings for the driving and turning
+     * The turning speed is the lower 4 bits
+     * The dirving speed is the upper 4 bits
      */
     uint8_t motor_speed_setting;
 } esp_now_data_to_receive;

@@ -1,6 +1,6 @@
 /**
  * @file edge_dector.cpp
- * @brief This is the file that contains the edge dector class
+ * @brief This is the file that contains the edge (rising) dector class
  * @author Shane Wood
  */
 #include "../../include/supporting/edge_dector.h"

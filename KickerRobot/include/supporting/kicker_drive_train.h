@@ -16,7 +16,8 @@
 #define one_byte 1 ///< 1 byte in a message
 #define zero_bytes 0 ///< 0 bytes in a command message
 #define input_velocity_deadzone 0.5 ///< deadzone for the input velocity
-#define motor_speed_multiplier_value 5.0 ///< value to multiply the joystick value by to get the motor speed
+#define motor_drive_speed_multiplier_value 5.0 ///< value to multiply the joystick value by to get the motor speed
+#define motor_turn_speed_multiplier_value 5.0 ///< value to multiply the joystick value by to get the motor speed
 #define odrive_motor_torque 0.5 ///< torque value for the odrive motors
 #define full_message_start_index 0 ///< start index of the full message
 #define full_message_middle_index 4 ///< middle index of the full message (useful for 2 floats)
@@ -46,13 +47,13 @@ extern float velocity_integrator_gain;
 
 //motor speed settings + mutex
 extern SemaphoreHandle_t motor_speeds_settings_mutex;
-extern uint8_t left_motor_speed_mult; //values set in settings
-extern uint8_t right_motor_speed_mult;
+extern uint8_t turning_speed_mult; //values set in settings
+extern uint8_t driving_speed_mult;
 
 //current motor speeds + mutex (0-255, centered at 127)
 extern SemaphoreHandle_t motor_speeds;
-extern uint8_t left_motor_speed;
-extern uint8_t right_motor_speed;
+extern uint8_t driving_speed;
+extern uint8_t turning_speed;
 
 
 /**
@@ -71,11 +72,11 @@ class kicker_drive_train{
         uint8_t last_motor_state; ///< the last motor state
 
         // last value read from the controller joystick
-        uint8_t last_left_motor_speed; ///< the last left joystick reading
-        uint8_t last_right_motor_speed; ///< the last right joystick reading
+        uint8_t last_driving_speed; ///< the last left joystick reading
+        uint8_t last_turning_speed; ///< the last right joystick reading
 
-        uint8_t last_left_motor_speed_mult; ///< the last left motor speed multiplier
-        uint8_t last_right_motor_speed_mult; ///< the last right motor speed multiplier
+        uint8_t last_driving_speed_mult; ///< the last left motor speed multiplier
+        uint8_t last_turning_speed_mult; ///< the last right motor speed multiplier
 
         /**
          * @brief update the battery voltage if the correct amount of time has passed

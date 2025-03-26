@@ -13,8 +13,8 @@ void send_data_task(void *pvParameter) {
     static esp_now_data_to_send current_transmission;
     while (1) {
       if (ps4_controller_connected) {
-        current_transmission.left_motor_speed = controller_byte_2;
-        current_transmission.right_motor_speed = controller_byte_4;
+        current_transmission.driving_speed = controller_byte_2;
+        current_transmission.turning_speed = controller_byte_3;
   
         if (xSemaphoreTake(ramped_velocity_mutex, portMAX_DELAY)==pdTRUE) {
           current_transmission.velocity_ramp_limit = velocity_ramp_limit;
@@ -31,13 +31,14 @@ void send_data_task(void *pvParameter) {
           xSemaphoreGive(motor_status_mutex);
         }
         if (xSemaphoreTake(motor_speeds_mutex, portMAX_DELAY)==pdTRUE) {
-          current_transmission.motor_speed_setting = ((left_motor_speed & lower_four_bits) left_shift_4) | (right_motor_speed & lower_four_bits);
+          printf("drive_motor_speed: %d, turn_motor_speed: %d\n", drive_motor_speed, turn_motor_speed);
+          current_transmission.motor_speed_setting = ((drive_motor_speed & lower_four_bits) left_shift_4) | (turn_motor_speed & lower_four_bits);
           xSemaphoreGive(motor_speeds_mutex);
         }
       } else {
         // if the controller is not connected, send 0 values
-        current_transmission.left_motor_speed = 0;
-        current_transmission.right_motor_speed = 0;
+        current_transmission.driving_speed = 0;
+        current_transmission.turning_speed = 0;
         current_transmission.servo_and_motor_state = 0;
         current_transmission.servo_and_motor_state |= ((DISABLED & lower_four_bits) left_shift_4);
       }

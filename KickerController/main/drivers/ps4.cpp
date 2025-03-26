@@ -8,7 +8,7 @@
 QueueHandle_t ps4::app_event_queue = nullptr;
 
 extern std::atomic<uint8_t> controller_byte_2;
-extern std::atomic<uint8_t> controller_byte_4;
+extern std::atomic<uint8_t> controller_byte_3;
 extern std::atomic<uint8_t> controller_byte_5;
 extern std::atomic<uint8_t> controller_byte_6;
 
@@ -20,7 +20,7 @@ extern SemaphoreHandle_t new_controller_data;
 void ps4::hid_host_generic_report_callback(const uint8_t *const data, const int length)
 {
     controller_byte_2 = data[values_2];
-    controller_byte_4 = data[values_4];
+    controller_byte_3 = data[values_3];
     controller_byte_5 = data[values_5];
     controller_byte_6 = data[values_6];
     xSemaphoreGive(new_controller_data);

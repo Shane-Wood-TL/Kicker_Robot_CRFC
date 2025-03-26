@@ -85,13 +85,13 @@ SemaphoreHandle_t motor_status_mutex=NULL; ///< mutex protecting the motor statu
 uint8_t motor_status = IDLE; ///< status of the motors
 
 SemaphoreHandle_t ramped_velocity_mutex=NULL; ///< mutex protecting the ramped velocity values
-float velocity_ramp_limit = 10.0f; ///< 
-float velocity_gain = 0.07f; ///< 
-float velocity_integrator_gain = 0.05f;
+float velocity_ramp_limit = 10.0f; ///< velocity_ramp_limit, max rate at which velocity can change : float guarded by ramped_mutex
+float velocity_gain = 0.07f; ///< velocity_gain, proportional part of PID : float guarded by ramped_mutex
+float velocity_integrator_gain = 0.05f; ///< velocity_integrator_gain, integral part of PID : float guarded by ramped_mutex
 
-SemaphoreHandle_t motor_speeds_mutex=NULL; ///< mutex protecting the motor speeds
-uint8_t left_motor_speed = 1; ///< speed multiplier of the left motor
-uint8_t right_motor_speed = 1; ///< speed multiplier of the right motor
+SemaphoreHandle_t motor_speeds_mutex=NULL; ///< mutex protecting the motor speed multipliers
+uint8_t drive_motor_speed = 1; ///< speed multiplier for driving
+uint8_t turn_motor_speed = 1; ///< speed multiplier for turning
 
 SemaphoreHandle_t servo_status_mutex=NULL; ///< mutex protecting the servo status
 uint8_t servo_status = LATCHED; ///< status of the servo
@@ -106,7 +106,7 @@ QueueHandle_t other_controller_data_queue = NULL; ///< queue used by the menu ha
 SemaphoreHandle_t new_controller_data = NULL; ///< mutex to determine if there is new controller data for the ps4 data processor
 
 std::atomic<uint8_t> controller_byte_2 = 0; ///< atomic variable for the controller byte 2 (left stick y)
-std::atomic<uint8_t> controller_byte_4 = 0; ///< atomic variable for the controller byte 4 (right stick y)
+std::atomic<uint8_t> controller_byte_3 = 0; ///< atomic variable for the controller byte 4 (right stick x)
 std::atomic<uint8_t> controller_byte_5 = 0; ///< atomic variable for the controller byte 5 (buttons + dpad)
 std::atomic<uint8_t> controller_byte_6 = 0; ///< atomic variable for the controller byte 6 (l1, l2, r1, r2, options, share, l3, r3)
 

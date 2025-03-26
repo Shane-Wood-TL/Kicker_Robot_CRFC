@@ -67,10 +67,10 @@ void display_task(void *pv) {
     status_screen.draw_to_display();
     display.write_buffer_SSD1306();
   
-    changeable_values<uint8_t> left_motor_speed_values(&left_motor_speed, minimum_left_motor_speed_modifier, maximum_left_motor_speed_modifier, left_motor_speed_modifier_step_size);
-    changeable_values<uint8_t> right_motor_speed_values(&right_motor_speed, minimum_right_motor_speed_modifier, maximum_right_motor_speed_modifier, right_motor_speed_modifier_step_size);
-    changeable_values<uint8_t> *motor_speeds[values_3] = {nullptr, &left_motor_speed_values, &right_motor_speed_values};
-    std::string motor_speed_text[values_3] = {"Speeds", "Left", "Right"};
+    changeable_values<uint8_t> drive_motor_speed_values(&drive_motor_speed, minimum_drive_motor_speed_modifier, maximum_drive_motor_speed_modifier, drive_motor_speed_modifier_step_size);
+    changeable_values<uint8_t> turning_motor_speed_values(&turn_motor_speed, minimum_turn_motor_speed_modifier, maximum_turn_motor_speed_modifier, turn_motor_speed_modifier_step_size);
+    changeable_values<uint8_t> *motor_speeds[values_3] = {nullptr, &drive_motor_speed_values, &turning_motor_speed_values};
+    std::string motor_speed_text[values_3] = {"Speeds", "Drive", "Turn"};
   
     menu<changeable_values<uint8_t>> motor_speed_menu(values_3, one_false_two_true, motor_speed_text, motor_speeds, &display, one_false_two_true);
   
