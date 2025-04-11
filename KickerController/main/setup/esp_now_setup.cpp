@@ -23,6 +23,11 @@ void esp_now_setup(){
   ESP_ERROR_CHECK(esp_wifi_init(&cfg));
   ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
   ESP_ERROR_CHECK(esp_wifi_start());
+  if(xSemaphoreTake(network_channel_mutex, portMAX_DELAY)==pdTRUE) {
+    esp_wifi_set_channel(current_network_channel,WIFI_SECOND_CHAN_NONE);
+    xSemaphoreGive(network_channel_mutex);
+  }
+  
 
   // setup esp-now
   ESP_ERROR_CHECK(esp_now_init());
@@ -41,7 +46,10 @@ void esp_now_setup(){
 
   esp_now_peer_info_t peer_info = {};
   memcpy(peer_info.peer_addr, robotMacAddress, mac_address_length);
-  peer_info.channel = 0;
+  if(xSemaphoreTake(network_channel_mutex, portMAX_DELAY)==pdTRUE) {
+    peer_info.channel = current_network_channel;
+    xSemaphoreGive(network_channel_mutex);
+  }
   peer_info.encrypt = false;
   ESP_ERROR_CHECK(esp_now_add_peer(&peer_info));
 }

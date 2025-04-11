@@ -17,7 +17,7 @@
 #define zero_bytes 0 ///< 0 bytes in a command message
 #define input_velocity_deadzone 0.5 ///< deadzone for the input velocity
 #define motor_drive_speed_multiplier_value 5.0 ///< value to multiply the joystick value by to get the motor speed
-#define motor_turn_speed_multiplier_value 5.0 ///< value to multiply the joystick value by to get the motor speed
+#define motor_turn_speed_multiplier_value 1.25 ///< value to multiply the joystick value by to get the motor speed
 #define odrive_motor_torque 0.5 ///< torque value for the odrive motors
 #define full_message_start_index 0 ///< start index of the full message
 #define full_message_middle_index 4 ///< middle index of the full message (useful for 2 floats)
@@ -55,6 +55,11 @@ extern SemaphoreHandle_t motor_speeds;
 extern uint8_t driving_speed;
 extern uint8_t turning_speed;
 
+extern SemaphoreHandle_t right_drive_velocity_estimate_mutex;
+extern float right_drive_velocity_estimate;
+
+extern SemaphoreHandle_t left_drive_velocity_estimate_mutex;
+extern float left_drive_velocity_estimate;
 
 /**
  * @class kicker_drive_train
@@ -91,7 +96,7 @@ class kicker_drive_train{
         /**
          * @brief drive the motors based on set parameters and last joystick values
          */
-        void drive_motors();
+        void drive_motors(bool boosted);
 
         /**
          * @brief run the calibration sequence with periodic messages over can bus to prevent the odrives from entering watchdog timeout
@@ -132,6 +137,8 @@ class kicker_drive_train{
          * @brief send estop to the odrives
          */
         void estop();
+
+        void break_motors();
 
         /// options for Set_Axis_State
         uint8_t CLOSED_LOOP_CONTROL = 0x8;  ///< Data to set Odrive to closed loop control

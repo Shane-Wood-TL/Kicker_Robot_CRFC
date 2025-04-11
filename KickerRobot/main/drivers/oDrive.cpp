@@ -80,6 +80,7 @@ void oDrive::receive_message(uint8_t message_ID)
         }
         else if (rx_message.identifier == ((node_ID << node_id_offset) | Get_Encoder_Estimates))
         {
+            update_current_motor_velocity(rx_message);
         }
         else if (rx_message.identifier == ((node_ID << node_id_offset) | Get_Iq))
         {
@@ -147,6 +148,34 @@ void oDrive::clear_battery_voltage()
         {
             battery_voltage_string = battery_voltage;
             xSemaphoreGive(main_menu_values_mutex);
+        }
+    }
+}
+
+void oDrive::update_current_motor_velocity(twai_message_t rx_message){
+    union
+    {
+        float a;
+        uint8_t bytes[bytes_in_float];
+    } temp_union;
+
+    // convert the 4 bytes to a float
+    temp_union.bytes[values_0] = rx_message.data[values_4];
+    temp_union.bytes[values_1] = rx_message.data[values_5];
+    temp_union.bytes[values_2] = rx_message.data[values_6];
+    temp_union.bytes[values_3] = rx_message.data[values_7];
+
+    if(node_ID == oDrive_0_ID){
+        if (xSemaphoreTake(left_drive_velocity_estimate_mutex, portMAX_DELAY))
+        {
+            left_drive_velocity_estimate = temp_union.a;
+            xSemaphoreGive(left_drive_velocity_estimate_mutex);
+        }
+    }else if(node_ID == oDrive_1_ID){
+        if (xSemaphoreTake(right_drive_velocity_estimate_mutex, portMAX_DELAY))
+        {
+            right_drive_velocity_estimate = temp_union.a;
+            xSemaphoreGive(right_drive_velocity_estimate_mutex);
         }
     }
 }

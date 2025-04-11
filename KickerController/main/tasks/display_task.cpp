@@ -41,6 +41,7 @@ void display_task(void *pv) {
     bool all_false[values_4] = {false, false, false, false};
     bool all_true[values_4] = {true, true, true, true};
     bool one_false_two_true[values_3] = {false, true, true};
+    bool one_false_one_true[values_2] = {false, true};
   
     // the startup menu
     std::string startup_text[values_4] = {"Kicker", "Robot", "2025", "Trine"};
@@ -102,7 +103,13 @@ void display_task(void *pv) {
     std::string errors_clear_text[values_2] = {"Errors", "Clear"};
     menu<uint8_t> errors_clear_menu(values_2, all_false, errors_clear_text, nullptr, &display, all_false);
   
-    menu_handler main_menu_handler(&display, &status_screen, &motor_speed_menu, &ramped_velocity_menu, &servo_latched_menu, &servo_released_menu, &motors_calibrating_menu, &motors_enable_menu, &motors_disable_menu, &errors_clear_menu);
+    changeable_values<uint8_t> network_channel_value(&current_network_channel, 0, 13, 1);
+    changeable_values<uint8_t> *network_channel_values[values_2] = {nullptr, &network_channel_value};
+    std::string network_channel_text[values_2] = {"Network", "Chan"};
+  
+    menu<changeable_values<uint8_t>> network_channel_menu(values_2, one_false_one_true, network_channel_text, network_channel_values, &display, one_false_one_true);
+
+    menu_handler main_menu_handler(&display, &status_screen, &motor_speed_menu, &ramped_velocity_menu, &servo_latched_menu, &servo_released_menu, &motors_calibrating_menu, &motors_enable_menu, &motors_disable_menu, &errors_clear_menu, &network_channel_menu);
   
     for (;;) {
       main_menu_handler.update();

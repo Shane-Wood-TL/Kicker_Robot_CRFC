@@ -23,6 +23,7 @@
 #define options_byte 0x20 ///< options byte
 #define r2_byte 0x08 ///< r2 byte
 #define l2_byte 0x04 ///< l2 byte
+#define l3_byte 0x40 ///< l3 byte
 
 #define ps4_data_processor_wait_time 10 ///< time to wait in the ps4 data processor task
 
@@ -36,6 +37,8 @@ extern SemaphoreHandle_t new_controller_data;
 
 // queue handles
 extern QueueHandle_t other_controller_data_queue;
+
+extern std::atomic<bool> boost;
 
 /**
  * @brief This is the task that processes the ps4 controller data, but does not deal with usb directly

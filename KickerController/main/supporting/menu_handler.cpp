@@ -5,13 +5,13 @@
  */
 #include "../../include/supporting/menu_handler.h"
 
-enum rolling_menu_states{STATUS_SCREEN_STATE, MOTOR_SPEEDS_STATE, RAMPED_VELOCITY_STATE};
+enum rolling_menu_states{STATUS_SCREEN_STATE, MOTOR_SPEEDS_STATE, RAMPED_VELOCITY_STATE, NETWORK_CHAN};
 
 
 
 menu_handler::menu_handler(ssd1306 *display, menu<std::string> *status_screen, menu<changeable_values<uint8_t>> *motor_speed_menu, menu<changeable_values<float>> *ramped_velocity_menu, 
     menu<uint8_t> *servo_latched_menu, menu<uint8_t> *servo_released_menu, menu<uint8_t> *motors_calibrating_menu,
-    menu<uint8_t> *motors_enable_menu, menu<uint8_t> *motors_disable_menu, menu<uint8_t> *errors_clear_menu) : option_state(false), r2_state(false), 
+    menu<uint8_t> *motors_enable_menu, menu<uint8_t> *motors_disable_menu, menu<uint8_t> *errors_clear_menu, menu<changeable_values<uint8_t>> *network_channel_selector) : option_state(false), r2_state(false), 
     l2_state(false), square_state(false), triangle_state(false), circle_state(false), dpad_up_state(false), dpad_down_state(false), dpad_left_state(false),
     dpad_right_state(false){
         this->display = display;
@@ -24,6 +24,7 @@ menu_handler::menu_handler(ssd1306 *display, menu<std::string> *status_screen, m
         this->motors_enable_menu = motors_enable_menu;
         this->motors_disable_menu = motors_disable_menu;
         this->errors_clear_menu = errors_clear_menu;
+        this->network_channel_selector = network_channel_selector;
 
         motors_enabled = DISABLED;
         current_state = STATUS_SCREEN_STATE;
@@ -70,18 +71,18 @@ void menu_handler::circle_pressed(){
         display->clear_buffer();
         motors_calibrating_menu->draw_to_display();
         display->write_buffer_SSD1306();
-        vTaskDelay(pdMS_TO_TICKS(motor_calibrating_display_time));
-        motors_enabled = IDLE;
-        draw_status_display();
-    }
-    if (xSemaphoreTake(motor_status_mutex, portMAX_DELAY)){
-        motor_status = DISABLED;
-        xSemaphoreGive(motor_status_mutex);
-        display->clear_buffer();
-        motors_disable_menu->draw_to_display();
-        vTaskDelay(pdMS_TO_TICKS(motor_status_changed_display_time));
-    }
 
+        vTaskDelay(pdMS_TO_TICKS(motor_status_changed_display_time));
+        
+        if (xSemaphoreTake(motor_status_mutex, portMAX_DELAY)){
+            motor_status = DISABLED;
+            xSemaphoreGive(motor_status_mutex);
+        }
+        
+        vTaskDelay(pdMS_TO_TICKS(motor_calibrating_display_time));
+        draw_status_display();
+        
+    }
 }
 
 
@@ -102,7 +103,7 @@ void menu_handler::square_pressed(){
 }
 
 
-void menu_handler::r2_pressed(){
+void menu_handler::servo_released(){
     if(xSemaphoreTake(servo_status_mutex, portMAX_DELAY)){
         servo_status = RELEASED;
         xSemaphoreGive(servo_status_mutex);
@@ -167,6 +168,16 @@ void menu_handler::options_pressed(){
         display->write_buffer_SSD1306();
         break;
     }
+    case(NETWORK_CHAN):{
+        display->clear_buffer();
+        if(xSemaphoreTake(network_channel_mutex, portMAX_DELAY)){
+            network_channel_selector->draw_to_display();
+            xSemaphoreGive(network_channel_mutex);
+        }
+        display->write_buffer_SSD1306();
+        break;
+
+    }
     default:{
         current_state = STATUS_SCREEN_STATE;
         break;
@@ -222,6 +233,14 @@ void menu_handler::dpad_left_pressed(){
             xSemaphoreGive(ramped_velocity_mutex);
         }
         display->write_buffer_SSD1306();
+    }else if(current_state == NETWORK_CHAN){
+        display->clear_buffer();
+        if(xSemaphoreTake(network_channel_mutex, portMAX_DELAY)){
+            network_channel_selector->decrease_selected_value();
+            network_channel_selector->draw_to_display();
+            xSemaphoreGive(network_channel_mutex);
+        }
+        display->write_buffer_SSD1306();
     }
 }
 
@@ -241,6 +260,14 @@ void menu_handler::dpad_right_pressed(){
             ramped_velocity_menu->increase_selected_value();
             ramped_velocity_menu->draw_to_display();
             xSemaphoreGive(ramped_velocity_mutex);
+        }
+        display->write_buffer_SSD1306();
+    }else if(current_state == NETWORK_CHAN){
+        display->clear_buffer();
+        if(xSemaphoreTake(network_channel_mutex, portMAX_DELAY)){
+            network_channel_selector->increase_selected_value();
+            network_channel_selector->draw_to_display();
+            xSemaphoreGive(network_channel_mutex);
         }
         display->write_buffer_SSD1306();
     }
@@ -272,6 +299,7 @@ void menu_handler::update(){
         bool current_square_state = (current_data.buttons & (1 << processed_square_bit));
         bool current_triangle_state = (current_data.buttons & (1 << processed_triangle_bit));
         bool current_circle_state = (current_data.buttons & (1 << processed_circle_bit));
+        bool current_x_state = (current_data.buttons & (1 << processed_x_bit));
 
         bool current_dpad_up_state = current_data.buttons & (1 << processed_dpad_up_bit);
         bool current_dpad_down_state = current_data.buttons & (1 << processed_dpad_down_bit);
@@ -285,8 +313,8 @@ void menu_handler::update(){
             square_pressed();
         }else if(circle_state.update(current_circle_state)){
             circle_pressed();
-        }else if(r2_state.update(current_r2_state)){
-            r2_pressed();
+        }else if((r2_state.update(current_r2_state)) and (current_x_state)){
+            servo_released();
         }else if(l2_state.update(current_l2_state)){
             l2_pressed();
         }else if(option_state.update(current_options_state)){

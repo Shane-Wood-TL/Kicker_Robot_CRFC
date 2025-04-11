@@ -47,6 +47,8 @@ extern SemaphoreHandle_t motor_speeds;
 extern uint8_t driving_speed;
 extern uint8_t turning_speed;
 
+extern SemaphoreHandle_t network_channel_mutex;
+extern uint8_t current_network_channel;
 
 /**
  * @brief Callback function for when a message is received

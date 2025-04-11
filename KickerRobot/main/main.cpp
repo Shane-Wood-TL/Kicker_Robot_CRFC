@@ -43,7 +43,7 @@
 #define servo_driver_stack_size 4096 ///< stack size for the servo task
 #define servo_driver_priority 2 ///< servo task priority
 
-#define send_data_stack_size 2048 ///< stack size for the send data task
+#define send_data_stack_size 4096 ///< stack size for the send data task
 #define send_data_priority 5 ///< send data task priority
 
 #define main_task_wait_time 1000 ///< delay time for the main task
@@ -62,7 +62,7 @@ uint8_t motor_status = IDLE; ///< motor_status : uint8_t , guarded by motor_stat
 
 // servo status + mutex
 SemaphoreHandle_t servo_status_mutex; ///< mutex protecting servo_status
-uint8_t servo_status = DETACHED; ///< servo_status : uint8_t guared by servo_status_mutex
+uint8_t servo_status = LATCHED; ///< servo_status : uint8_t guared by servo_status_mutex
 
 // ramped values + values changed + mutexes
 SemaphoreHandle_t ramped_values_updated; ///< mutex protecting ramped_values_updated_bool
@@ -92,6 +92,18 @@ SemaphoreHandle_t motor_speeds; ///< mutex protecting the motor speeds (values w
 uint8_t driving_speed = 127; ///< driving_speed : uint8_t, guarded by motor_speeds
 uint8_t turning_speed = 127; ///< turning_speed : uint8_t, guarded by motor_speeds
 
+SemaphoreHandle_t network_channel_mutex = NULL;
+uint8_t current_network_channel = 13;
+
+
+
+SemaphoreHandle_t right_drive_velocity_estimate_mutex = NULL;
+float right_drive_velocity_estimate=0;
+
+SemaphoreHandle_t left_drive_velocity_estimate_mutex= NULL;
+float left_drive_velocity_estimate=0;
+
+
 // i2c bus tags
 i2c_master_bus_config_t i2c_mst_config; ///< i2c_mst_config : i2c_master_bus_config_t i2c bus config
 i2c_master_bus_handle_t bus_handle; ///< bus_handle : i2c_master_bus_handle_t i2c bus handle
@@ -114,6 +126,10 @@ extern "C" void app_main(void) {
     main_menu_values_mutex = xSemaphoreCreateMutex();
     motor_speeds = xSemaphoreCreateMutex();
     ramped_mutex = xSemaphoreCreateMutex();
+    network_channel_mutex = xSemaphoreCreateMutex();
+
+    right_drive_velocity_estimate_mutex = xSemaphoreCreateMutex();
+    left_drive_velocity_estimate_mutex = xSemaphoreCreateMutex();
 
     esp_now_setup();
     i2c_setup();

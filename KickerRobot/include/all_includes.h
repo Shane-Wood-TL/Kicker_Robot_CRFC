@@ -74,7 +74,7 @@
  * IDLE = motor is not moving / has no power going through it
  * 
  */
-enum motor_status_list{ENABLED, DISABLED, ERRORLESS,CALIBRATING, IDLE};
+enum motor_status_list{ENABLED, DISABLED, ERRORLESS,CALIBRATING, IDLE, BOOSTED};
 
 /**
  * @enum servo_status_list
@@ -159,6 +159,10 @@ typedef struct {
      * The dirving speed is the upper 4 bits
      */
     uint8_t motor_speed_setting;
+    /**
+     * 
+     */
+    uint8_t esp_now_channel;
 } esp_now_data_to_receive;
 
 #endif

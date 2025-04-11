@@ -65,6 +65,12 @@ void on_receive(const esp_now_recv_info_t *recv_info, const uint8_t *data, int l
             turning_speed_mult = received_data.motor_speed_setting & lower_four_bits;
             xSemaphoreGive(motor_speeds_settings_mutex);
         }
+        if (xSemaphoreTake(network_channel_mutex, portMAX_DELAY))
+        {
+            current_network_channel = received_data.esp_now_channel;
+            //printf("current channel: %d\n", current_network_channel);
+            xSemaphoreGive(network_channel_mutex);
+        }
     }
     else
     {

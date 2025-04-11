@@ -33,6 +33,10 @@ extern std::atomic<uint8_t> controller_byte_3;
 
 extern std::atomic<bool> ps4_controller_connected;
 
+extern SemaphoreHandle_t network_channel_mutex;
+extern uint8_t current_network_channel;
+
+extern std::atomic<bool> boost;
 
 #define send_data_task_wait_time 10 ///< time to wait until another packet of data is to be sent to the kicker mainboard
 

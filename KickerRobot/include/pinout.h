@@ -64,11 +64,11 @@
 
 
 
-#define servo_latched_angle 270 ///< servo latched angle
-#define servo_released_angle 0 ///< servo released angle
+#define servo_latched_angle 0 ///< servo latched angle
+#define servo_released_angle 140 ///< servo released angle
 #define servo_detached_angle 135 ///< servo detached angle
 #define servo_frequency 50 ///< servo frequency
-#define servo_max_pwm 2000 ///< max on time for servo
+#define servo_max_pwm 2500 ///< max on time for servo
 #define servo_min_pwm 1000 ///< min on time for servo
 
 

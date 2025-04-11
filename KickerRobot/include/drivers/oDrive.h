@@ -16,6 +16,13 @@ extern QueueHandle_t displayBatteryQueue;
 extern std::string battery_voltage_string;
 extern SemaphoreHandle_t main_menu_values_mutex;
 
+extern SemaphoreHandle_t right_drive_velocity_estimate_mutex;
+extern float right_drive_velocity_estimate;
+
+extern SemaphoreHandle_t left_drive_velocity_estimate_mutex;
+extern float left_drive_velocity_estimate;
+
+
 #define bytes_in_float 4 ///< the number of bytes in a float
 #define max_message_size 8 ///< the maximum size of a message
 #define node_id_offset 5 ///< the offset of the node id in the message
@@ -65,6 +72,9 @@ class oDrive {
      * @param data_returned : const bool if data is returned (determines if receive_message is called or not)
      */
     void send_message(const uint8_t message_ID, const uint8_t* message_contents, uint8_t message_length, const bool data_returned);
+
+
+    void update_current_motor_velocity(twai_message_t rx_message);
 };
 
 #endif

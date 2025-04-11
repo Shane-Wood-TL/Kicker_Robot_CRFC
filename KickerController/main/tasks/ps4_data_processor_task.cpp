@@ -43,6 +43,13 @@ void ps4_data_processor(void *pv) {
         } else if (controller_byte_6 & l2_byte) {
           current_display_data.options_triggers |= (1 << processed_l2_bit);      // l2
         }
+        
+
+        if (controller_byte_6 & l3_byte) {
+          boost = true;
+        }else{
+          boost = false;
+        }
         xQueueSend(other_controller_data_queue, &current_display_data, portMAX_DELAY);
         vTaskDelay(pdMS_TO_TICKS(ps4_data_processor_wait_time));
       }

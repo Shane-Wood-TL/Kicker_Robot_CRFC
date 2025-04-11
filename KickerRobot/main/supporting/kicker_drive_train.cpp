@@ -32,13 +32,24 @@ void kicker_drive_train::update(){
     {
         if (controller_connected == CONNECTED)
         {
+            static bool last_boosted = false;
+            if (xSemaphoreTake(motor_status_mutex, portMAX_DELAY)){
+                if(motor_status == BOOSTED){
+                    last_boosted = true;
+                }else{
+                    last_boosted = false;
+                }
+                xSemaphoreGive(motor_status_mutex);
+            }
             xSemaphoreGive(controller_connected_mutex);
-            drive_motors();
+        
+            drive_motors(last_boosted);
         }
         else
         {
             xSemaphoreGive(controller_connected_mutex);
-            estop();
+            break_motors();
+            //estop();
         }
     }
 
@@ -74,7 +85,9 @@ void kicker_drive_train::motor_status_updater()
                 {
                     if (last_motor_state != DISABLED)
                     {
-                        disable_motors();
+                        break_motors();
+                        //estop();
+                        //disable_motors();
                     }
                     break;
                 }
@@ -92,7 +105,7 @@ void kicker_drive_train::motor_status_updater()
                     {
                         calibrating();
                         disable_motors();
-                        current_motor_state = DISABLED;
+                        last_motor_state = DISABLED;
                     }
                     break;
                 }
@@ -111,7 +124,7 @@ void kicker_drive_train::calibrating()
     left_drive->send_message(Set_Axis_State, &FULL_CALIBRATION_SEQUENCE, one_byte, false);
     right_drive->send_message(Set_Axis_State, &FULL_CALIBRATION_SEQUENCE, one_byte, false);
     static uint32_t delay_ms = 100;
-    static uint32_t total_delay_ms = 16000;
+    static uint32_t total_delay_ms = 18000;
     // prevent watchdog timeout
     for (uint32_t elapsed = 0; elapsed < total_delay_ms; elapsed += delay_ms)
     {
@@ -191,11 +204,18 @@ void kicker_drive_train::ramped_settings_updater()
     
 }
 
-void kicker_drive_train::drive_motors(){
-    float current_drive_speed = map(last_driving_speed, eight_bit_minimum, eight_bit_maximum, (-last_driving_speed_mult * motor_drive_speed_multiplier_value), (last_driving_speed_mult * motor_drive_speed_multiplier_value));
-    float current_turning_speed = map(last_turning_speed, eight_bit_minimum, eight_bit_maximum, (-last_turning_speed_mult * motor_turn_speed_multiplier_value), (last_turning_speed_mult * motor_turn_speed_multiplier_value));
+void kicker_drive_train::drive_motors(bool boosted){
+    float current_drive_speed = 0.0f;
+    float current_turning_speed = 0.0f;
+    if(!boosted){
+        current_drive_speed = map(last_driving_speed, eight_bit_minimum, eight_bit_maximum, (-last_driving_speed_mult * motor_drive_speed_multiplier_value), (last_driving_speed_mult * motor_drive_speed_multiplier_value));
+        
+    }else{
+        current_drive_speed = map(last_driving_speed, eight_bit_minimum, eight_bit_maximum, ((-3-last_driving_speed_mult) * motor_drive_speed_multiplier_value), ((3+last_driving_speed_mult) * motor_drive_speed_multiplier_value));   
+    }
 
 
+    current_turning_speed = map(last_turning_speed, eight_bit_minimum, eight_bit_maximum, (-last_turning_speed_mult * motor_turn_speed_multiplier_value), (last_turning_speed_mult * motor_turn_speed_multiplier_value));
 
     if (abs(current_drive_speed) < (input_velocity_deadzone * last_driving_speed_mult))
     {
@@ -207,10 +227,8 @@ void kicker_drive_train::drive_motors(){
     }
 
 
-    float current_left_motor_speed = current_drive_speed + current_turning_speed;
-    float current_right_motor_speed = -(current_drive_speed - current_turning_speed);  //right motor is inverted
-
-    
+    float current_left_motor_speed = -current_drive_speed + current_turning_speed;
+    float current_right_motor_speed = current_drive_speed + current_turning_speed;  //right motor is inverted
 
     float Input_Torque_FF = odrive_motor_torque;
     uint8_t vel_left_as_int[full_message_size] = {0};
@@ -231,4 +249,73 @@ void kicker_drive_train::drive_motors(){
 void kicker_drive_train::estop(){
     left_drive->send_message(Estop, &NO_DATA, 1, false);
     right_drive->send_message(Estop, &NO_DATA, 1, false);
+}
+
+
+void kicker_drive_train::break_motors(){
+    uint8_t vel_as_int[full_message_size] = {0};
+
+
+    float no_ramp_velocity = 250.0f;
+
+    left_drive->send_message(Set_Input_Vel, vel_as_int, eight_bytes, false);
+    right_drive->send_message(Set_Input_Vel, vel_as_int, eight_bytes, false);
+
+    static uint8_t ramped_rate[eight_bytes] = {0};
+    static uint16_t vel_ramp_rate_id_var = vel_ramp_rate_id;
+    ramped_rate[0] = odrive_write_rx; // write
+
+    (void)memcpy(&ramped_rate[1], &vel_ramp_rate_id_var, sizeof(uint16_t)); // id
+
+    (void)memcpy(&ramped_rate[full_message_middle_index], &no_ramp_velocity, sizeof(float));
+
+    left_drive->send_message(RxSdo, ramped_rate, eight_bytes, false);
+    right_drive->send_message(RxSdo, ramped_rate, eight_bytes, false);
+
+    if (xSemaphoreTake(ramped_values_updated, portMAX_DELAY))
+    {
+        ramped_values_updated_bool = true;
+        xSemaphoreGive(ramped_values_updated);
+    }
+
+
+    static uint32_t delay_ms = 100;
+    static uint32_t max_delay_ms = 10000;
+
+    bool left_stopped = false;
+    bool right_stopped = false;
+    // prevent watchdog timeout
+    for (uint32_t elapsed = 0; elapsed < max_delay_ms; elapsed += delay_ms)
+    {
+        left_drive->send_message(Get_Error, NULL, zero_bytes, true);
+        right_drive->send_message(Get_Error, NULL, zero_bytes, true);
+
+        left_drive->send_message(Get_Encoder_Estimates, NULL, zero_bytes, true);
+        right_drive->send_message(Get_Encoder_Estimates, NULL, zero_bytes, true);
+
+        if(xSemaphoreTake(left_drive_velocity_estimate_mutex, portMAX_DELAY))
+        {
+            if(left_drive_velocity_estimate < 0.5f && left_drive_velocity_estimate > -0.5f)
+            {
+                left_stopped = true;
+            }
+            xSemaphoreGive(left_drive_velocity_estimate_mutex);
+        }
+        if(xSemaphoreTake(right_drive_velocity_estimate_mutex, portMAX_DELAY))
+        {
+            if(right_drive_velocity_estimate < 0.5f && right_drive_velocity_estimate > -0.5f)
+            {
+                right_stopped = true;
+            }
+            xSemaphoreGive(right_drive_velocity_estimate_mutex);
+        }
+
+        if(left_stopped && right_stopped)
+        {
+            break;
+        }
+        vTaskDelay(pdMS_TO_TICKS(delay_ms));
+    }
+
+    disable_motors();
 }

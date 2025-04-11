@@ -64,6 +64,7 @@ void servo_driver_task(void *pv){
 
     for(;;){
         if(xSemaphoreTake(servo_status_mutex, portMAX_DELAY)){
+            //printf("%d\n",servo_status);
             switch (servo_status)
             {
             case (LATCHED):{

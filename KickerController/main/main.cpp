@@ -85,7 +85,7 @@ SemaphoreHandle_t motor_status_mutex=NULL; ///< mutex protecting the motor statu
 uint8_t motor_status = IDLE; ///< status of the motors
 
 SemaphoreHandle_t ramped_velocity_mutex=NULL; ///< mutex protecting the ramped velocity values
-float velocity_ramp_limit = 10.0f; ///< velocity_ramp_limit, max rate at which velocity can change : float guarded by ramped_mutex
+float velocity_ramp_limit = 35.0f; ///< velocity_ramp_limit, max rate at which velocity can change : float guarded by ramped_mutex
 float velocity_gain = 0.07f; ///< velocity_gain, proportional part of PID : float guarded by ramped_mutex
 float velocity_integrator_gain = 0.05f; ///< velocity_integrator_gain, integral part of PID : float guarded by ramped_mutex
 
@@ -110,6 +110,10 @@ std::atomic<uint8_t> controller_byte_3 = 0; ///< atomic variable for the control
 std::atomic<uint8_t> controller_byte_5 = 0; ///< atomic variable for the controller byte 5 (buttons + dpad)
 std::atomic<uint8_t> controller_byte_6 = 0; ///< atomic variable for the controller byte 6 (l1, l2, r1, r2, options, share, l3, r3)
 
+SemaphoreHandle_t network_channel_mutex = NULL;
+uint8_t current_network_channel = 13;
+
+std::atomic<bool> boost = false; ///< atomic variable for the boost button
 
 /**
  * @brief the main function for the program, creates all semaphores, tasks, and runs setup functions
@@ -126,6 +130,7 @@ extern "C" void app_main(void) {
   motor_speeds_mutex = xSemaphoreCreateMutex();
   servo_status_mutex = xSemaphoreCreateMutex();
   motor_status_mutex = xSemaphoreCreateMutex();
+  network_channel_mutex = xSemaphoreCreateMutex();
 
   new_controller_data = xSemaphoreCreateBinary();
 

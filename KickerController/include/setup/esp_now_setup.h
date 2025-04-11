@@ -11,6 +11,11 @@
 #include "../pinout.h"
 #include "esp_now_callback_setup.h"
 
+
+extern SemaphoreHandle_t network_channel_mutex;
+extern uint8_t current_network_channel;
+
+
 /**
  * @brief Sets up the ESP-NOW communication, including setting up the callback functions
  */

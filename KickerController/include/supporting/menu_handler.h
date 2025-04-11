@@ -13,9 +13,9 @@
 
 #define motor_status_changed_display_time 500 ///< how long to show that motor the status has changed for
 #define servo_status_changed_display_time 250 ///< how long to show that servo the status has changed for
-#define motor_calibrating_display_time 14000 ///< how long to show that the motors are calibrating for
+#define motor_calibrating_display_time 18000 ///< how long to show that the motors are calibrating for
 
-#define cyclic_menu_count 2 ///< number of cyclic menus (main menu, motor speeds, ramped velocity)
+#define cyclic_menu_count 3 ///< number of cyclic menus (main menu, motor speeds, ramped velocity)
 
 extern QueueHandle_t other_controller_data_queue;
 
@@ -44,6 +44,8 @@ extern uint8_t servo_status;
 extern SemaphoreHandle_t update_main_display_mutex;
 extern bool update_main_display;
 
+extern SemaphoreHandle_t network_channel_mutex;
+extern uint8_t current_network_channel;
 /**
  * @class menu_handler
  * @brief This class is for switching between menus
@@ -84,6 +86,8 @@ class menu_handler{
         menu<uint8_t> *motors_disable_menu; ///< The motors disable menu
         menu<uint8_t> *errors_clear_menu; ///< The errors clear menu
 
+        menu<changeable_values<uint8_t>> *network_channel_selector; ///< The networ channel selection menu
+
 
         uint8_t motors_enabled; ///< The current state of the motors (only enabled / disabled)
         /**
@@ -109,7 +113,7 @@ class menu_handler{
         /**
          * @brief This function draws the servo released menu to the display
          */
-        void r2_pressed();
+        void servo_released();
 
         /**
          * @brief This function draws the servo latched menu to the display
@@ -159,10 +163,11 @@ class menu_handler{
          * @param motors_enable_menu The motors enable menu
          * @param motors_disable_menu The motors disable menu
          * @param errors_clear_menu The errors clear menu
+         * @param network_channel_selector The menu for selecting the network channel
          */
         menu_handler(ssd1306 *display, menu<std::string> *status_screen, menu<changeable_values<uint8_t>> *motor_speed_menu, menu<changeable_values<float>> *ramped_velocity_menu, 
             menu<uint8_t> *servo_latched_menu, menu<uint8_t> *servo_released_menu, menu<uint8_t> *motors_calibrating_menu,
-            menu<uint8_t> *motors_enable_menu, menu<uint8_t> *motors_disable_menu, menu<uint8_t> *errors_clear_menu);
+            menu<uint8_t> *motors_enable_menu, menu<uint8_t> *motors_disable_menu, menu<uint8_t> *errors_clear_menu, menu<changeable_values<uint8_t>> *network_channel_selector);
         /**
          * @brief This function will update the menu handler
          * @details This function will check the state of the inputs and update the display
