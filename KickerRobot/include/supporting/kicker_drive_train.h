@@ -175,4 +175,48 @@ class kicker_drive_train{
 
 };
 
+
+/*
+```plantuml
+@startuml
+skinparam classAttributeIconSize 0
+hide circle
+
+class kicker_drive_train {
+    - left_drive : oDrive*
+    - right_drive : oDrive*
+    - last_time : int64_t
+    - battery_update_time : int32_t
+    - last_motor_state : uint8_t
+    - last_driving_speed : uint8_t
+    - last_turning_speed : uint8_t
+    - last_driving_speed_mult : uint8_t
+    - last_turning_speed_mult : uint8_t
+    - CLOSED_LOOP_CONTROL : uint8_t
+    - NO_DATA : uint8_t
+    - IDLE_STATE : uint8_t
+    - FULL_CALIBRATION_SEQUENCE : uint8_t
+
+    + kicker_drive_train(left_drive : oDrive*, right_drive : oDrive*, battery_voltage_refresh : uint32_t)
+    + update() : void
+
+    - periodic_voltage_reading() : void
+    - ramped_settings_updater() : void
+    - drive_motors(boosted : bool) : void
+    - calibrating() : void
+    - clear_errors() : void
+    - disable_motors() : void
+    - enable_motors() : void
+    - motor_status_updater() : void
+    - motor_speed_multiplier_updater() : void
+    - motor_speeds_updater() : void
+    - estop() : void
+    - break_motors() : void
+}
+
+    
+@enduml
+```
+
+*/
 #endif

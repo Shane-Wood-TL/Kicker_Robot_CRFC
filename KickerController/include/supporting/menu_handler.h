@@ -187,4 +187,54 @@ public:
   void update();
 };
 
+/*
+```plantuml
+@startuml
+skinparam classAttributeIconSize 0
+hide circle
+
+class menu_handler {
+    - current_state : uint8_t
+    - current_data : display_controller_data
+    - option_state : edge_dector
+    - r2_state : edge_dector
+    - l2_state : edge_dector
+    - square_state : edge_dector
+    - triangle_state : edge_dector
+    - circle_state : edge_dector
+    - dpad_up_state : edge_dector
+    - dpad_down_state : edge_dector
+    - dpad_left_state : edge_dector
+    - dpad_right_state : edge_dector
+    - display : ssd1306*
+    - status_screen : menu<std::string>*
+    - motor_speed_menu : menu<changeable_values<uint8_t>>*
+    - ramped_velocity_menu : menu<changeable_values<float>>*
+    - servo_latched_menu : menu<uint8_t>*
+    - servo_released_menu : menu<uint8_t>*
+    - motors_calibrating_menu : menu<uint8_t>*
+    - motors_enable_menu : menu<uint8_t>*
+    - motors_disable_menu : menu<uint8_t>*
+    - errors_clear_menu : menu<uint8_t>*
+    - network_channel_selector : menu<changeable_values<uint8_t>>*
+    - motors_enabled : uint8_t
+
+    + menu_handler(display : ssd1306*, status_screen : menu<std::string>*, motor_speed_menu : menu<changeable_values<uint8_t>>*, ramped_velocity_menu : menu<changeable_values<float>>*, servo_latched_menu : menu<uint8_t>*, servo_released_menu : menu<uint8_t>*, motors_calibrating_menu : menu<uint8_t>*, motors_enable_menu : menu<uint8_t>*, motors_disable_menu : menu<uint8_t>*, errors_clear_menu : menu<uint8_t>*, network_channel_selector : menu<changeable_values<uint8_t>>*) : void
+    + update() : void
+    - draw_status_display() : void
+    - triangle_pressed() : void
+    - circle_pressed() : void
+    - square_pressed() : void
+    - servo_released() : void
+    - l2_pressed() : void
+    - options_pressed() : void
+    - dpad_up_pressed() : void
+    - dpad_down_pressed() : void
+    - dpad_left_pressed() : void
+    - dpad_right_pressed() : void
+}
+@enduml
+```
+*/
+
 #endif

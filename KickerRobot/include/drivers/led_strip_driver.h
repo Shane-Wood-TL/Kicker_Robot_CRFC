@@ -50,4 +50,23 @@ class led_strip_driver {
     void set_color(uint8_t r, uint8_t g, uint8_t b, uint8_t led_start,
                    uint8_t led_end);
 };
+
+
+/*
+```plantuml
+@startuml
+skinparam classAttributeIconSize 0
+hide circle
+
+class led_strip_driver {
+    - rmt_config : led_strip_rmt_config_t
+    - led_strip_config : led_strip_config_t
+    - led_strip : led_strip_handle_t
+    + led_strip_driver(strip_gpio_pin : uint8_t, number_of_leds_in_strip : uint8_t)
+    + set_color(r : uint8_t, g : uint8_t, b : uint8_t, led_start : uint8_t, led_end : uint8_t) : void
+}
+
+@enduml
+```
+*/
 #endif

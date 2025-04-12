@@ -44,4 +44,24 @@ class servo{
   void setDegree(uint16_t new_degree);
 };
 
+
+/*
+```plantuml
+@startuml
+skinparam classAttributeIconSize 0
+hide circle
+
+class servo {
+    - ledc_timer : ledc_channel_t
+    - pwm_low_limit : int16_t
+    - pwm_high_limit : int16_t
+    - direction : bool
+    - offset : int8_t
+    + servo(ledc_timer : ledc_channel_t, pwm_low_limit : uint16_t, pwm_high_limit : uint16_t, direction : bool, offset : int8_t)
+    + setDegree(new_degree : uint16_t) : void
+}
+
+@enduml
+```
+*/
 #endif

@@ -55,6 +55,17 @@ class oDrive {
      */
     void clear_battery_voltage();
 
+
+    
+    /**
+     * @brief Read the motor velocity from an odrive
+     * 
+     * @param rx_message : twai_message_t the message that has been received containing the id of Get_Encoder_Estimates
+     * @details This function will read the velocity of the motor from the odrive and update the velocity estimate
+     */
+    void update_current_motor_velocity(twai_message_t rx_message);
+
+
    public:
     /**
      * @brief The constructor for the Odrive class
@@ -74,13 +85,26 @@ class oDrive {
     void send_message(const uint8_t message_ID, const uint8_t* message_contents, uint8_t message_length, const bool data_returned);
 
 
-    /**
-     * @brief Read the motor velocity from an odrive
-     * 
-     * @param rx_message : twai_message_t the message that has been received containing the id of Get_Encoder_Estimates
-     * @details This function will read the velocity of the motor from the odrive and update the velocity estimate
-     */
-    void update_current_motor_velocity(twai_message_t rx_message);
 };
 
+
+/*
+```plantuml
+@startuml
+skinparam classAttributeIconSize 0
+hide circle
+
+class oDrive {
+    - node_ID : uint8_t
+    - update_battery_voltage(rx_message : twai_message_t) : void
+    - receive_message(message_ID : uint8_t) : void
+    - clear_battery_voltage() : void
+    - update_current_motor_velocity(rx_message : twai_message_t) : void
+    + oDrive(node_IDV : uint8_t)
+    + send_message(message_ID : const uint8_t, message_contents : const uint8_t*, message_length : uint8_t, data_returned : const bool) : void
+}
+
+@enduml
+```
+*/
 #endif

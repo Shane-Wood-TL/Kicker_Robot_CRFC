@@ -77,4 +77,32 @@ public:
      */
   void decrease_selected_value();
 };
+
+/*
+```plantuml
+@startuml
+skinparam classAttributeIconSize 0
+hide circle
+
+class menu<T> {
+    - lines : uint8_t
+    - words : std::string[current_max_line_count]
+    - have_values : bool[current_max_line_count]
+    - values : T**[current_max_line_count]
+    - display : ssd1306*
+    - currently_selected : int8_t
+    - font_rows : uint8_t[max_line_count]
+    - has_selectable_values : bool
+    - selectable_values : bool[current_max_line_count]
+
+    + menu(lines : uint8_t, have_values : bool*, words : std::string*, values : T**, display : ssd1306*, selectable_values : bool*)
+    + change_selected(direction : int8_t) : void
+    + draw_to_display() : void
+    + increase_selected_value() : void
+    + decrease_selected_value() : void
+}
+@enduml
+```
+*/
+
 #endif

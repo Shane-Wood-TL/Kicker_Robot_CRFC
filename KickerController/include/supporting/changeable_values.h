@@ -88,4 +88,29 @@ T changeable_values<T>::get_value() { //return the value of the variable value
   return *value;
 }
 
+
+
+/*
+
+```plantuml
+@startuml
+skinparam classAttributeIconSize 0
+hide circle
+
+template <T>
+class changeable_values {
+    - value : T*
+    - min_value : T
+    - max_value : T
+    - change_by : T
+
+    + changeable_values(value : T*, min_value : T, max_value : T, change_by : T)
+    + increase_value() : void
+    + decrease_value() : void
+    + get_value() : T
+}
+    
+@enduml
+'''
+*/
 #endif

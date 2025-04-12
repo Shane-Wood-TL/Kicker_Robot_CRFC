@@ -107,7 +107,17 @@ typedef struct {
      */
     float battery_voltage; 
 } esp_now_data_to_send;
-
+/*
+```plantuml
+@startuml
+skinparam classAttributeIconSize 0
+hide circle
+class esp_now_data_to_send {
+    +battery_voltage : float
+}
+@enduml
+```
+*/
 
 /**
  * @struct esp_now_data_to_receive
@@ -164,5 +174,24 @@ typedef struct {
      */
     uint8_t esp_now_channel;
 } esp_now_data_to_receive;
+/*
+```plantuml
+@startuml
+skinparam classAttributeIconSize 0
+hide circle
+class esp_now_data_to_receive {
+    +driving_speed : uint8_t
+    +turning_speed : uint8_t
+    +velocity_ramp_limit : float
+    +velocity_gain : float
+    +velocity_integrator_gain : float
+    +servo_and_motor_state : uint8_t
+    +motor_speed_setting : uint8_t
+}
+@enduml
+```
+
+*/
 
 #endif
+

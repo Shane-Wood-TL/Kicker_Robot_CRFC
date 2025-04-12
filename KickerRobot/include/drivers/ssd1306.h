@@ -132,4 +132,33 @@ class ssd1306{
          */
         void write_buffer_SSD1306();
 };
+
+/*
+```plantuml
+@startuml
+skinparam classAttributeIconSize 0
+hide circle
+class ssd1306 {
+    - font_instance : font
+    - buffer : uint8_t[SSD1306_BUFFER_SIZE_128x32]
+    - ssd1306_handle : i2c_master_dev_handle_t
+
+    - send_command_SSD1306(command : uint8_t) : void
+    - send_data_SSD1306(data : uint8_t*, len : size_t) : void
+    - init_SSD1306() : void
+    - clear_SSD1306() : void
+    - draw_pixel_SSD1306(x : uint8_t, y : uint8_t) : void
+    - write_letter_SSD1306(letter : uint8_t, x_pos : uint8_t, y_pos : uint8_t) : void
+
+    + ssd1306(ssd1306_handle : i2c_master_dev_handle_t)
+    + write_string_SSD1306(word : std::string, x_pos : uint8_t, y_pos : uint8_t) : void
+    + clear_buffer() : void
+    + write_buffer_SSD1306() : void
+}
+@enduml
+```
+
+*/
+
+
 #endif

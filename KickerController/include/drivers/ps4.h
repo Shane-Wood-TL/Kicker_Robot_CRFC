@@ -131,5 +131,27 @@ public:
   ps4();
 };
 
+/*
 
+```plantuml
+@startuml
+skinparam classAttributeIconSize 0
+hide circle
+
+class ps4 {
+    - static app_event_queue : QueueHandle_t
+    - static void hid_host_generic_report_callback(data : uint8_t*, length : int)
+    - static void hid_host_interface_callback(hid_device_handle : hid_host_device_handle_t, event : hid_host_interface_event_t, arg : void*)
+    - void hid_host_device_event(hid_device_handle : hid_host_device_handle_t, event : hid_host_driver_event_t, arg : void*)
+    - static void usb_lib_task(arg : void*)
+    - static void hid_host_device_callback(hid_device_handle : hid_host_device_handle_t, event : hid_host_driver_event_t, arg : void*)
+    - typedef enum app_event_group_t
+    - typedef struct app_event_queue_t
+    + ps4()
+}
+
+
+@enduml
+```
+*/
 #endif

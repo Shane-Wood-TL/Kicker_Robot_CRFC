@@ -33,4 +33,20 @@ public:
   bool update(bool new_state);
 };
 
+/*
+```plantuml
+@startuml
+skinparam classAttributeIconSize 0
+hide circle
+
+class edge_dector {
+    - bool old_state
+    + edge_dector(current_state : bool)
+    + update(new_state : bool) : bool
+}
+
+@enduml
+```
+*/
+
 #endif
