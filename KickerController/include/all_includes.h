@@ -7,52 +7,51 @@
 #ifndef __all_includes__
 #define __all_includes__
 //standard C includes
-#include <stdio.h>
-#include <string>
-#include <stdbool.h>
-#include <string.h>
 #include <atomic>
+#include <stdbool.h>
+#include <stdio.h>
+#include <string.h>
+#include <string>
 
 
 //rtos includes
 #include "freertos/FreeRTOS.h"
-#include "freertos/task.h"
 #include "freertos/event_groups.h"
 #include "freertos/queue.h"
+#include "freertos/task.h"
 
 //esp includes
+#include "errno.h"
 #include "esp_err.h"
 #include "esp_log.h"
 #include "esp_mac.h"
-#include "errno.h"
 #include "esp_system.h"
 #include "esp_timer.h"
 
 
 //esp now includes
+#include "esp_crc.h"
+#include "esp_netif.h"
 #include "esp_wifi.h"
 #include "espnow.h"
 #include "espnow_ctrl.h"
 #include "espnow_utils.h"
-#include "esp_crc.h"
-#include "esp_netif.h"
 #include "nvs_flash.h"
 
 //usb includes
-#include "usb/usb_host.h"
 #include "usb/hid_host.h"
+#include "usb/usb_host.h"
 
 //drives includes
 #include "driver/gpio.h"
 #include "driver/i2c_master.h"
-
 
 /**
  * @struct display_controller_data
  * @brief Contains the data of inputs to drive the menu handler
  */
 typedef struct {
-    /**
+  /**
      * @brief Button states
      * 
      * bit[7] = x button  
@@ -64,9 +63,9 @@ typedef struct {
      * bit[1] = uint8_t turn_motor_speed dpad  
      * bit[0] = up dpad  
      */
-    uint8_t buttons;
+  uint8_t buttons;
 
-    /**
+  /**
      * @brief Options and trigger states
      * 
      * bit[7] = unused  
@@ -78,7 +77,7 @@ typedef struct {
      * bit[1] = r2 pressed  
      * bit[0] = options button pressed  
      */
-    uint8_t options_triggers;
+  uint8_t options_triggers;
 } display_controller_data;
 
 /**
@@ -86,14 +85,19 @@ typedef struct {
  * @brief Contains the different types of states for the Odrive motor controllers
  *
  * @details motor_status_list has the following options: ENABLED, DISABLED, ERRORLESS, CALIBRATING, IDLE
- * ENABLED = motor working as normal
- * DISABLED = motor set to idle (not by choice, this state happens when something wrong has occured, such as controller disconnect)
+ * ENABLED = send messages to the motor controller to enable the motors
+ * DISABLED = motor set to idle
  * ERRORLESS = clears motor errors
  * CALIBRATING = motor is running it's calibration sequence
- * IDLE = motor is not moving / has no power going through it
- * 
+ * IDLE = motor state does not change (if it was active it remains active, if it was disabled it remains disabled)
+ * BOOSTED = motor is in a boosted state, this is used to increase the speed of the robot when the button is pressed
  */
-enum motor_status_list{ENABLED, DISABLED, ERRORLESS,CALIBRATING, IDLE, BOOSTED};
+enum motor_status_list { ENABLED,
+                         DISABLED,
+                         ERRORLESS,
+                         CALIBRATING,
+                         IDLE,
+                         BOOSTED };
 
 /**
  * @enum servo_status_list
@@ -104,77 +108,81 @@ enum motor_status_list{ENABLED, DISABLED, ERRORLESS,CALIBRATING, IDLE, BOOSTED};
  * RELEASED = servo is in position to release the kicking leg
  * DETACHED = state servo is in on boot, will update to the expected state when controller connects
  */
-enum servo_status_list{LATCHED, RELEASED, DETACHED};
-
+enum servo_status_list { LATCHED,
+                         RELEASED,
+                         DETACHED };
 
 /**
  * @struct esp_now_data_to_send
  * @brief Contains the data that is sent to the robot from the controller
  */
 typedef struct {
-    /**
+  /**
      * @brief driving_speed : uint8_t
      * Data from the left joystick on the ps4 controller
      */
-    uint8_t driving_speed;
+  uint8_t driving_speed;
 
-    /**
+  /**
      * @brief turning_speed : uint8_t
      * Data from the uint8_t turn_motor_speed joystick on the ps4 controller
      */
-    uint8_t turning_speed;
+  uint8_t turning_speed;
 
-    /**
+  /**
      * @brief velocity_ramp_limit : float
      * Max value at which the velocity will increase by, as set in the controller menu
      */
-    float velocity_ramp_limit;
+  float velocity_ramp_limit;
 
-    /**
+  /**
      * @brief velocity_gain : float
      * Acts as a proportional gain for the ramped velocity mode, as set in the controller menu
      */
-    float velocity_gain;
+  float velocity_gain;
 
-    /**
+  /**
      * @brief velocity_integrator_gain : float
      * Acts as a integral gain for the ramped velocity mode, as set in the controller menu
      */
-    float velocity_integrator_gain;
+  float velocity_integrator_gain;
 
-    /**
+  /**
      * @brief servo_and_motor_state : uint8_t
      * Contains the data for the servo and Odrive motor controllers current state
      * The servo status is the lower 4 bits
      * The motor status is the upper 4 bits
      */
-    uint8_t servo_and_motor_state;
+  uint8_t servo_and_motor_state;
 
-    /**
+  /**
      * @brief motor_speed_setting : uint8_t
      * Contains the data for the speed settings for the left and uint8_t turn_motor_speed motor
      * The turning speed is the lower 4 bits
      * The dirving speed is the upper 4 bits
      */
-    uint8_t motor_speed_setting;
+  uint8_t motor_speed_setting;
 
-    uint8_t esp_now_channel;
+  /**
+   * @brief network_channel : uint8_t
+   * The channel that the ESP-NOW is using to send data
+   * This is used to set the channel for the ESP-NOW communication
+   * This is set in the controller menu
+   */
+  uint8_t esp_now_channel;
 } esp_now_data_to_send;
-
 
 /**
  * @struct esp_now_data_to_receive
  * @brief Contains the data that the controller is expecting from the robot
  */
 typedef struct {
-    /**
+  /**
      * @brief battery_voltage : float
      * The battery voltage as a float
      */
-    float battery_voltage; 
+  float battery_voltage;
 } esp_now_data_to_receive;
-
-
 
 #define font_width 12 ///< width of the font in pixels
 #define font_height 16 ///< height of the font in pixels
@@ -205,5 +213,3 @@ typedef struct {
 #define bytes_in_float 4 ///< number of bytes in a float for an esp32s3
 #define lower_four_bits 0x0F ///< mask for the lower four bits
 #endif
-
-

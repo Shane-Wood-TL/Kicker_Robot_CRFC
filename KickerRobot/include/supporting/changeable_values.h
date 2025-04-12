@@ -52,6 +52,8 @@ class changeable_values{
         T get_value();
 };
 
+
+
 template <typename T>
 changeable_values<T>::changeable_values(T *value, T min_value, T max_value, T change_by){
     this->value = value;
@@ -59,6 +61,8 @@ changeable_values<T>::changeable_values(T *value, T min_value, T max_value, T ch
     this->max_value = max_value;
     this->change_by = change_by;
 }
+
+
 
 template <typename T>
 void changeable_values<T>::increase_value(){
@@ -70,6 +74,8 @@ void changeable_values<T>::increase_value(){
     }
 }
 
+
+
 template <typename T>
 void changeable_values<T>::decrease_value(){ //decrease value if in range
     if(*value > min_value){
@@ -79,6 +85,8 @@ void changeable_values<T>::decrease_value(){ //decrease value if in range
         *value = min_value; //else: do nothing
     }
 }
+
+
 
 template <typename T>
 T changeable_values<T>::get_value(){ //return the value

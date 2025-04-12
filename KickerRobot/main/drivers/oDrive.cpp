@@ -14,6 +14,8 @@ oDrive::oDrive(uint8_t node_ID)
     this->node_ID = node_ID;
 }
 
+
+
 void oDrive::send_message(const uint8_t message_ID, const uint8_t *message_contents, uint8_t message_length, const bool data_returned)
 {
     // max data size is 8 bytes
@@ -60,6 +62,7 @@ void oDrive::send_message(const uint8_t message_ID, const uint8_t *message_conte
         }
     }
 }
+
 
 
 
@@ -111,6 +114,7 @@ void oDrive::receive_message(uint8_t message_ID)
 
 
 
+
 void oDrive::update_battery_voltage(twai_message_t rx_message)
 {
     union
@@ -138,6 +142,8 @@ void oDrive::update_battery_voltage(twai_message_t rx_message)
     }
 }
 
+
+
 void oDrive::clear_battery_voltage()
 {
     if (xSemaphoreTake(battery_voltage_mutex, portMAX_DELAY))
@@ -151,6 +157,8 @@ void oDrive::clear_battery_voltage()
         }
     }
 }
+
+
 
 void oDrive::update_current_motor_velocity(twai_message_t rx_message){
     union

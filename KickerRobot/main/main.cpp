@@ -92,26 +92,25 @@ SemaphoreHandle_t motor_speeds; ///< mutex protecting the motor speeds (values w
 uint8_t driving_speed = 127; ///< driving_speed : uint8_t, guarded by motor_speeds
 uint8_t turning_speed = 127; ///< turning_speed : uint8_t, guarded by motor_speeds
 
-SemaphoreHandle_t network_channel_mutex = NULL;
-uint8_t current_network_channel = 13;
+SemaphoreHandle_t network_channel_mutex = NULL; ///< mutex protecting the network channel
+uint8_t current_network_channel = 13; ///< current_network_channel : uint8_t, guarded by network_channel_mutex
 
 
+SemaphoreHandle_t right_drive_velocity_estimate_mutex = NULL; ///< mutex protecting right_drive_velocity_estimate
+float right_drive_velocity_estimate=0; ///< right_drive_velocity_estimate : float, guarded by right_drive_velocity_estimate_mutex
 
-SemaphoreHandle_t right_drive_velocity_estimate_mutex = NULL;
-float right_drive_velocity_estimate=0;
-
-SemaphoreHandle_t left_drive_velocity_estimate_mutex= NULL;
-float left_drive_velocity_estimate=0;
+SemaphoreHandle_t left_drive_velocity_estimate_mutex= NULL; ///< mutex protecting left_drive_velocity_estimate
+float left_drive_velocity_estimate=0; ///< left_drive_velocity_estimate : float, guarded by left_drive_velocity_estimate_mutex
 
 
 // i2c bus tags
 i2c_master_bus_config_t i2c_mst_config; ///< i2c_mst_config : i2c_master_bus_config_t i2c bus config
 i2c_master_bus_handle_t bus_handle; ///< bus_handle : i2c_master_bus_handle_t i2c bus handle
 
+
 /**
  * @brief the main function for the program, creates all semaphores, tasks, and runs setup functions
  */
-
 extern "C" void app_main(void) {
     #ifdef TIME_BETWEEN_MESSAGES
         gpio_set_direction(C0_4_pin, GPIO_MODE_OUTPUT);

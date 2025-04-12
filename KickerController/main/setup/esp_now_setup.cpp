@@ -7,8 +7,10 @@
 
 #include "../../include/setup/esp_now_setup.h"
 
-void esp_now_setup(){
-    // setup nvs (non-volatile storage)
+
+
+void esp_now_setup() {
+  // setup nvs (non-volatile storage)
   esp_err_t ret = nvs_flash_init();
   if (ret == ESP_ERR_NVS_NO_FREE_PAGES || ret == ESP_ERR_NVS_NEW_VERSION_FOUND) {
     ESP_ERROR_CHECK(nvs_flash_erase());
@@ -23,30 +25,26 @@ void esp_now_setup(){
   ESP_ERROR_CHECK(esp_wifi_init(&cfg));
   ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
   ESP_ERROR_CHECK(esp_wifi_start());
-  if(xSemaphoreTake(network_channel_mutex, portMAX_DELAY)==pdTRUE) {
-    esp_wifi_set_channel(current_network_channel,WIFI_SECOND_CHAN_NONE);
+
+  //get the current network channel
+  if (xSemaphoreTake(network_channel_mutex, portMAX_DELAY) == pdTRUE) {
+    esp_wifi_set_channel(current_network_channel, WIFI_SECOND_CHAN_NONE);
     xSemaphoreGive(network_channel_mutex);
   }
-  
+
 
   // setup esp-now
   ESP_ERROR_CHECK(esp_now_init());
 
-  // esp_now_rate_config_t rate_config = {
-  //   .phymode = WIFI_PHY_MODE_HT40,
-  //   .rate = WIFI_PHY_RATE_6M,
-  //   .ersu = false,
-  //   .dcm = false
-  // };
-
-//  esp_now_set_peer_rate_config(robotMacAddress, &rate_config);
-
+  // set up callback functions for sending and receiving data
   (void) esp_now_register_send_cb(on_send);
   (void) esp_now_register_recv_cb(on_receive);
 
+
+  // set up the peer info for the kicker
   esp_now_peer_info_t peer_info = {};
   memcpy(peer_info.peer_addr, robotMacAddress, mac_address_length);
-  if(xSemaphoreTake(network_channel_mutex, portMAX_DELAY)==pdTRUE) {
+  if (xSemaphoreTake(network_channel_mutex, portMAX_DELAY) == pdTRUE) {
     peer_info.channel = current_network_channel;
     xSemaphoreGive(network_channel_mutex);
   }

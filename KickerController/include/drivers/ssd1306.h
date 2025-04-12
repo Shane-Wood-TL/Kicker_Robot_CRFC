@@ -8,9 +8,9 @@
 #ifndef __ssd1306__
 #define __ssd1306__
 
-#include "../supporting/font.h"
-#include "../pinout.h"
 #include "../all_includes.h"
+#include "../pinout.h"
+#include "../supporting/font.h"
 
 #define SSD1306_DISPLAY_OFF 0xAE ///< command to turn off the display
 #define SSD1306_DISPLAY_ON 0xAF ///< command to turn on the display
@@ -55,85 +55,83 @@
  * @details This class is for interfacing with the ssd1306 display, it can write text to the display data to a buffer and the buffer can be written to the display
  * @ref https://cdn-shop.adafruit.com/datasheets/SSD1306.pdf
  */
-class ssd1306{
+class ssd1306 {
 private:
-    font font_instance; ///< instance of the font class
-    uint8_t buffer[SSD1306_BUFFER_SIZE_128x64] = {0}; ///< SSD1306 display buffer
+  font font_instance; ///< instance of the font class
+  uint8_t buffer[SSD1306_BUFFER_SIZE_128x64] = {0}; ///< SSD1306 display buffer
 
-    /**
-     * @brief Sends a command to the SSD1306
-     * 
-     * @param command : uint8_t The command to send
-     */
-    void send_command_SSD1306(uint8_t command);
+  /**
+    * @brief Sends a command to the SSD1306
+    * 
+    * @param command : uint8_t The command to send
+    */
+  void send_command_SSD1306(uint8_t command);
 
-    /**
-     * @brief Sends data to the SSD1306
-     * 
-     * @param data : uint8_t* The data to send
-     * @param len : size_t The length of the data
-     */
-    void send_data_SSD1306(uint8_t *data, size_t len);
+  /**
+    * @brief Sends data to the SSD1306
+    * 
+    * @param data : uint8_t* The data to send
+    * @param len : size_t The length of the data
+    */
+  void send_data_SSD1306(uint8_t *data, size_t len);
 
-    /**
-     * @brief Initializes the SSD1306
-     */
-    void init_SSD1306();
+  /**
+    * @brief Initializes the SSD1306
+    */
+  void init_SSD1306();
 
-    /**
-     * Clears the display display
-     */
-    void clear_SSD1306();
+  /**
+    * Clears the display display
+    */
+  void clear_SSD1306();
 
-    /**
-     * @brief Draws a pixel on the display buffer
-     * 
-     * @param x : uint8_t The x coordinate of the pixel
-     * @param y : uint8_t The y coordinate of the pixel
-     */
-    void draw_pixel_SSD1306(uint8_t x, uint8_t y);
-    
-    
-
-    /**
-     * @brief Writes a letter to the display buffer
-     * 
-     * @param letter : uint8_t The letter to write
-     * @param x_pos : uint8_t The x position to write the letter
-     * @param y_pos : uint8_t The y position to write the letter
-     */
-    void write_letter_SSD1306(uint8_t letter, uint8_t x_pos, uint8_t y_pos);
-    
-   
-
-    i2c_master_dev_handle_t ssd1306_handle; ///< I2C handle for the SSD1306
-
-    public:
-        /**
-         * @brief Constructor for the SSD1306 class
-         * 
-         * @param ssd1306_handle : i2c_master_dev_handle_t The handle for the SSD1306
-         */
-        ssd1306(i2c_master_dev_handle_t ssd1306_handle);
-
-        /**
-         * @brief Writes a string to the display
-         * 
-         * @param word : std::string The string to write
-         * @param x_pos : uint8_t The x position to write the string
-         * @param y_pos : uint8_t The y position to write the string
-         */
-        void write_string_SSD1306(std::string word, uint8_t x_pos, uint8_t y_pos);
+  /**
+    * @brief Draws a pixel on the display buffer
+    * 
+    * @param x : uint8_t The x coordinate of the pixel
+    * @param y : uint8_t The y coordinate of the pixel
+    */
+  void draw_pixel_SSD1306(uint8_t x, uint8_t y);
 
 
-        /**
-         * @brief Clears the display buffer
-         */
-        void clear_buffer();
+  /**
+    * @brief Writes a letter to the display buffer
+    * 
+    * @param letter : uint8_t The letter to write
+    * @param x_pos : uint8_t The x position to write the letter
+    * @param y_pos : uint8_t The y position to write the letter
+    */
+  void write_letter_SSD1306(uint8_t letter, uint8_t x_pos, uint8_t y_pos);
 
-        /**
-         * @brief Writes the buffer to the display
-         */
-        void write_buffer_SSD1306();
+
+  i2c_master_dev_handle_t ssd1306_handle; ///< I2C handle for the SSD1306
+
+public:
+  /**
+    * @brief Constructor for the SSD1306 class
+    * 
+    * @param ssd1306_handle : i2c_master_dev_handle_t The handle for the SSD1306
+    */
+  ssd1306(i2c_master_dev_handle_t ssd1306_handle);
+
+  /**
+    * @brief Writes a string to the display
+    * 
+    * @param word : std::string The string to write
+    * @param x_pos : uint8_t The x position to write the string
+    * @param y_pos : uint8_t The y position to write the string
+    */
+  void write_string_SSD1306(std::string word, uint8_t x_pos, uint8_t y_pos);
+
+
+  /**
+    * @brief Clears the display buffer
+    */
+  void clear_buffer();
+
+  /**
+    * @brief Writes the buffer to the display
+    */
+  void write_buffer_SSD1306();
 };
 #endif

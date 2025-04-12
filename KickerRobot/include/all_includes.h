@@ -66,13 +66,13 @@
  * @enum motor_status_list
  * @brief Contains the different types of states for the Odrive motor controllers
  *
- * @details motor_status_list has the following options: ENABLED, DISABLED, ERRORLESS, CALIBRATING, IDLE
+ * @details motor_status_list has the following options: ENABLED, DISABLED, ERRORLESS, CALIBRATING, IDLE, BOOSTED
  * ENABLED = motor working as normal
  * DISABLED = motor set to idle (not by choice, this state happens when something wrong has occured, such as controller disconnect)
  * ERRORLESS = clears motor errors
  * CALIBRATING = motor is running it's calibration sequence
  * IDLE = motor is not moving / has no power going through it
- * 
+ * BOOSTED = motor is in a boosted state, driving faster
  */
 enum motor_status_list{ENABLED, DISABLED, ERRORLESS,CALIBRATING, IDLE, BOOSTED};
 

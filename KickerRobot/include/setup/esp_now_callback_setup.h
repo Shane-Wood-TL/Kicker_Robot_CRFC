@@ -50,6 +50,8 @@ extern uint8_t turning_speed;
 extern SemaphoreHandle_t network_channel_mutex;
 extern uint8_t current_network_channel;
 
+
+
 /**
  * @brief Callback function for when a message is received
  * 
@@ -58,6 +60,8 @@ extern uint8_t current_network_channel;
  * @param len : int The length of the data received
  */
 void on_receive(const esp_now_recv_info_t *recv_info, const uint8_t *data, int len);
+
+
 
 /**
  * @brief Callback function for when a message is sent

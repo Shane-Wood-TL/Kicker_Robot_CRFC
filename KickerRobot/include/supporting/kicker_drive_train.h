@@ -11,6 +11,7 @@
 #include "../drivers/oDrive.h"
 #include "../supporting/odrive_commands.h"
 
+
 #define battery_voltage_refresh_time 1000000 ///< how often the battery voltage is refreshed in us
 #define eight_bytes 8 ///< 8 bytes in a message
 #define one_byte 1 ///< 1 byte in a message
@@ -27,6 +28,14 @@
 
 #define eight_bit_minimum 0.0 ///< minimum value for an 8 bit number
 #define eight_bit_maximum 255.0 ///< maximum value for an 8 bit number
+
+#define boost_amount 3 ///< amount to boost the speed by when the button is pressed
+
+#define timeout_clock 100 ///< timeout clock for the odrives (in ms)
+#define max_braking_time 10000 ///< max time to brake the motors (in ms)
+#define brake_turn_off_velocity 0.5f ///< velocity to turn off the brakes at (in rev/s)
+#define brake_velocity_ramp 250.0f ///< velocity ramp limit for the brakes
+#define calibration_time 18000 ///< time to calibrate the motors (in ms)
 
 
 //controller connected status value + mutex
@@ -138,6 +147,9 @@ class kicker_drive_train{
          */
         void estop();
 
+        /**
+         * @brief brake the motors by setting the velocity to 0
+         */
         void break_motors();
 
         /// options for Set_Axis_State

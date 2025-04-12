@@ -20,6 +20,10 @@ extern std::string robot_connected;
 extern std::string battery_voltage_string;
 extern std::string status;
 
+#define connected_string "Conn" ///< string for when the robot is connected
+#define disconnected_string "DisCon" ///< string for when the robot is disconnected
+#define no_battery_voltage_string "0" ///< string for when the battery voltage is 0
+#define one_decimal_place "%.1f" ///< string for formatting the battery voltage to 1 decimal place
 /**
  * @brief Callback function for when a message is received
  * 

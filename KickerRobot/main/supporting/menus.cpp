@@ -51,6 +51,8 @@ menu<T>::menu(uint8_t lines, bool *have_values, std::string *words, T **values, 
     this->display = display;
 }
 
+
+
 template <>
 void menu<changeable_values<float>>::draw_to_display(){
     //find the center of each word
@@ -79,6 +81,8 @@ void menu<changeable_values<float>>::draw_to_display(){
     
 }
 
+
+
 template <>
 void menu<changeable_values<uint8_t>>::draw_to_display(){
     //find the center of each word
@@ -103,6 +107,8 @@ void menu<changeable_values<uint8_t>>::draw_to_display(){
     }
     change_selected(0); 
 }
+
+
 
 
 template <>
@@ -132,6 +138,7 @@ void menu<uint8_t>::draw_to_display(){
 
 
 
+
 template <>
 void menu<std::string>::draw_to_display(){
     //find the center of each word
@@ -156,6 +163,8 @@ void menu<std::string>::draw_to_display(){
     change_selected(0);
     
 }
+
+
 
 template <typename T>
 void menu<T>::change_selected(int8_t direction){
@@ -185,6 +194,7 @@ void menu<T>::change_selected(int8_t direction){
 }
 
 
+
 template <>
 void menu<changeable_values<float>>::increase_selected_value(){
     if(selectable_values[currently_selected]){
@@ -192,10 +202,14 @@ void menu<changeable_values<float>>::increase_selected_value(){
     }
 }
 
+
+
 template <>
 void menu<changeable_values<float>>::decrease_selected_value(){
     (*values[currently_selected])->decrease_value();
 }
+
+
 
 template <>
 void menu<changeable_values<uint8_t>>::increase_selected_value(){
@@ -204,12 +218,16 @@ void menu<changeable_values<uint8_t>>::increase_selected_value(){
     }
 }
 
+
+
 template <>
 void menu<changeable_values<uint8_t>>::decrease_selected_value(){
     if(selectable_values[currently_selected]){
         (*values[currently_selected])->decrease_value();
     }
 }
+
+
 
 template class menu<unsigned char>;
 template class menu<float>;

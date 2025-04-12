@@ -16,12 +16,17 @@ void on_receive(const esp_now_recv_info_t *recv_info, const uint8_t *data, int l
     esp_now_data_to_receive received_data;
     if (len == sizeof(received_data))
     {
+        //macro to measure latency
         #ifdef TIME_BETWEEN_MESSAGES
             static bool toggle = false;
             (void)gpio_set_level(C0_4_pin,toggle);
             toggle = !toggle;
         #endif
+
+
         (void)memcpy(&received_data, data, sizeof(received_data));
+
+        //update the current motor speeds
         if (xSemaphoreTake(motor_speeds, portMAX_DELAY))
         {
             driving_speed = received_data.driving_speed;
@@ -29,6 +34,7 @@ void on_receive(const esp_now_recv_info_t *recv_info, const uint8_t *data, int l
             xSemaphoreGive(motor_speeds);
         }
 
+        //update the ramped settings
         if (xSemaphoreTake(ramped_mutex, portMAX_DELAY))
         {
             if ((velocity_ramp_limit != received_data.velocity_ramp_limit) | (velocity_gain != received_data.velocity_gain) | (velocity_integrator_gain != received_data.velocity_integrator_gain))
@@ -49,16 +55,21 @@ void on_receive(const esp_now_recv_info_t *recv_info, const uint8_t *data, int l
             }
         }
 
+        //update the servo status
         if (xSemaphoreTake(servo_status_mutex, portMAX_DELAY))
         {
             servo_status = (received_data.servo_and_motor_state) & lower_four_bits;
             xSemaphoreGive(servo_status_mutex);
         }
+
+        //update the motor status
         if (xSemaphoreTake(motor_status_mutex, portMAX_DELAY))
         {
             motor_status = (received_data.servo_and_motor_state >> values_4) & lower_four_bits;
             xSemaphoreGive(motor_status_mutex);
         }
+
+        //update the speed multiplers
         if (xSemaphoreTake(motor_speeds_settings_mutex, portMAX_DELAY))
         {
             driving_speed_mult = (received_data.motor_speed_setting >> values_4) & lower_four_bits;
@@ -68,7 +79,6 @@ void on_receive(const esp_now_recv_info_t *recv_info, const uint8_t *data, int l
         if (xSemaphoreTake(network_channel_mutex, portMAX_DELAY))
         {
             current_network_channel = received_data.esp_now_channel;
-            //printf("current channel: %d\n", current_network_channel);
             xSemaphoreGive(network_channel_mutex);
         }
     }
@@ -77,6 +87,8 @@ void on_receive(const esp_now_recv_info_t *recv_info, const uint8_t *data, int l
         return;
     }
 }
+
+
 
 //call back function for when data is sent
 void on_send(const uint8_t *mac_addr, esp_now_send_status_t status) {

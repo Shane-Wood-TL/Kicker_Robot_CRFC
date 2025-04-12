@@ -74,6 +74,12 @@ class oDrive {
     void send_message(const uint8_t message_ID, const uint8_t* message_contents, uint8_t message_length, const bool data_returned);
 
 
+    /**
+     * @brief Read the motor velocity from an odrive
+     * 
+     * @param rx_message : twai_message_t the message that has been received containing the id of Get_Encoder_Estimates
+     * @details This function will read the velocity of the motor from the odrive and update the velocity estimate
+     */
     void update_current_motor_velocity(twai_message_t rx_message);
 };
 

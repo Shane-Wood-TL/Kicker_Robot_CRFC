@@ -107,7 +107,7 @@ AlignConsecutiveShortCaseStatements:
   AcrossEmptyLines: true 
 
 AlignTrailingComments: 
-  Kind: Always
+  Kind: Never
   OverEmptyLines: 2
 
 

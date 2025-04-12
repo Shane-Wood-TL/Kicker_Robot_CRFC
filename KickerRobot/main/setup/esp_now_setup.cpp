@@ -7,6 +7,7 @@
 
 #include "../../include/setup/esp_now_setup.h"
 
+
 void esp_now_setup(){
     // setup nvs (non-volatile storage)
      esp_err_t ret = nvs_flash_init();

@@ -28,92 +28,82 @@
  */
 
 #include "../include/all_includes.h"
-
-
-#include "../include/setup/i2c_setup.h"
-#include "../include/setup/esp_now_setup.h"
-#include "../include/setup/esp_now_callback_setup.h"
-
-
 #include "../include/drivers/ps4.h"
 #include "../include/drivers/ssd1306.h"
-
+#include "../include/setup/esp_now_callback_setup.h"
+#include "../include/setup/esp_now_setup.h"
+#include "../include/setup/i2c_setup.h"
 #include "../include/supporting/changeable_values.h"
 #include "../include/supporting/edge_dector.h"
 #include "../include/supporting/menu_handler.h"
 #include "../include/supporting/menus.h"
-
 #include "../include/tasks/display_task.h"
 #include "../include/tasks/ps4_data_processor_task.h"
-#include "../include/tasks/send_data_task.h"
 #include "../include/tasks/ps4_task.h"
+#include "../include/tasks/send_data_task.h"
 
 
+#define send_data_task_stack_size 8092              ///< stack size for the send data task
+#define ps4_task_stack_size 8092                    ///< stack size for the ps4 task
+#define display_task_stack_size 16384               ///< stack size for the display task
+#define ps4_data_processor_stack_sze 8092           ///< stack size for the ps4 data processor task
 
+#define send_data_task_priority 8                   ///< priority for the send data task
+#define ps4_task_priority 10                        ///< priority for the ps4 task
+#define display_task_priority 5                     ///< priority for the display task
+#define ps4_data_processor_priority 11              ///< priority for the ps4 data processor task
 
+#define size_of_other_controller_data_queue 10      ///< size of the queue for the other controller data
 
-
-
-#define send_data_task_stack_size 8092 ///< stack size for the send data task
-#define ps4_task_stack_size 8092 ///< stack size for the ps4 task
-#define display_task_stack_size 16384 ///< stack size for the display task
-#define ps4_data_processor_stack_sze 8092 ///< stack size for the ps4 data processor task
-
-#define send_data_task_priority 8 ///< priority for the send data task
-#define ps4_task_priority 10 ///< priority for the ps4 task
-#define display_task_priority 5 ///< priority for the display task
-#define ps4_data_processor_priority 11 ///< priority for the ps4 data processor task
-
-#define size_of_other_controller_data_queue 10 ///< size of the queue for the other controller data
-
-#define main_task_wait_time 1000 ///< time to wait in the main task
-
+#define main_task_wait_time 1000                    ///< time to wait in the main task
 
 
 SemaphoreHandle_t update_main_display_mutex = NULL; ///< mutex to determine if the main display needs to be updated or not
-bool update_main_display = true; ///< flag to determine if the main display needs to be updated
+bool update_main_display = true;                    ///< flag to determine if the main display needs to be updated
 
-SemaphoreHandle_t main_menu_values_mutex=NULL; ///< mutex protecting the main menu values
-std::string contoller_connected = "DisCon"; ///< string to display if the controller is connected or not
-std::string robot_connected = "DisCon"; ///< string to display if the robot is connected or not
-std::string battery_voltage_string = "0"; ///< string to display the battery voltage
-std::string status = ""; ///< string to display the status of the robot
+SemaphoreHandle_t main_menu_values_mutex = NULL;    ///< mutex protecting the main menu values
+std::string contoller_connected = "DisCon";         ///< string to display if the controller is connected or not
+std::string robot_connected = "DisCon";             ///< string to display if the robot is connected or not
+std::string battery_voltage_string = "0";           ///< string to display the battery voltage
+std::string status = "";                            ///< string to display the status of the robot
 
 std::atomic<bool> ps4_controller_connected = false; ///< atomic variable to determine if the ps4 controller is connected or not
 
-SemaphoreHandle_t motor_status_mutex=NULL; ///< mutex protecting the motor status
-uint8_t motor_status = IDLE; ///< status of the motors
+SemaphoreHandle_t motor_status_mutex = NULL;        ///< mutex protecting the motor status
+uint8_t motor_status = IDLE;                        ///< status of the motors
 
-SemaphoreHandle_t ramped_velocity_mutex=NULL; ///< mutex protecting the ramped velocity values
-float velocity_ramp_limit = 35.0f; ///< velocity_ramp_limit, max rate at which velocity can change : float guarded by ramped_mutex
-float velocity_gain = 0.07f; ///< velocity_gain, proportional part of PID : float guarded by ramped_mutex
-float velocity_integrator_gain = 0.05f; ///< velocity_integrator_gain, integral part of PID : float guarded by ramped_mutex
+SemaphoreHandle_t ramped_velocity_mutex = NULL;     ///< mutex protecting the ramped velocity values
+float velocity_ramp_limit = 35.0f;                  ///< velocity_ramp_limit, max rate at which velocity can change : float guarded by ramped_mutex
+float velocity_gain = 0.07f;                        ///< velocity_gain, proportional part of PID : float guarded by ramped_mutex
+float velocity_integrator_gain = 0.05f;             ///< velocity_integrator_gain, integral part of PID : float guarded by ramped_mutex
 
-SemaphoreHandle_t motor_speeds_mutex=NULL; ///< mutex protecting the motor speed multipliers
-uint8_t drive_motor_speed = 1; ///< speed multiplier for driving
-uint8_t turn_motor_speed = 1; ///< speed multiplier for turning
+SemaphoreHandle_t motor_speeds_mutex = NULL;        ///< mutex protecting the motor speed multipliers
+uint8_t drive_motor_speed = 1;                      ///< speed multiplier for driving
+uint8_t turn_motor_speed = 1;                       ///< speed multiplier for turning
 
-SemaphoreHandle_t servo_status_mutex=NULL; ///< mutex protecting the servo status
-uint8_t servo_status = LATCHED; ///< status of the servo
+SemaphoreHandle_t servo_status_mutex = NULL;        ///< mutex protecting the servo status
+uint8_t servo_status = LATCHED;                     ///< status of the servo
 
 // i2c bus config
-i2c_master_bus_config_t i2c_mst_config; ///< i2c bus config
-i2c_master_bus_handle_t bus_handle=NULL; ///< i2c bus handle
+i2c_master_bus_config_t i2c_mst_config;    ///< i2c bus config
+i2c_master_bus_handle_t bus_handle = NULL; ///< i2c bus handle
 
 // queue handles
 QueueHandle_t other_controller_data_queue = NULL; ///< queue used by the menu handler from the processed controller data
 
-SemaphoreHandle_t new_controller_data = NULL; ///< mutex to determine if there is new controller data for the ps4 data processor
+SemaphoreHandle_t new_controller_data = NULL;     ///< mutex to determine if there is new controller data for the ps4 data processor
 
-std::atomic<uint8_t> controller_byte_2 = 0; ///< atomic variable for the controller byte 2 (left stick y)
-std::atomic<uint8_t> controller_byte_3 = 0; ///< atomic variable for the controller byte 4 (right stick x)
-std::atomic<uint8_t> controller_byte_5 = 0; ///< atomic variable for the controller byte 5 (buttons + dpad)
-std::atomic<uint8_t> controller_byte_6 = 0; ///< atomic variable for the controller byte 6 (l1, l2, r1, r2, options, share, l3, r3)
+std::atomic<uint8_t> controller_byte_2 = 0;       ///< atomic variable for the controller byte 2 (left stick y)
+std::atomic<uint8_t> controller_byte_3 = 0;       ///< atomic variable for the controller byte 4 (right stick x)
+std::atomic<uint8_t> controller_byte_5 = 0;       ///< atomic variable for the controller byte 5 (buttons + dpad)
+std::atomic<uint8_t> controller_byte_6 = 0;       ///< atomic variable for the controller byte 6 (l1, l2, r1, r2, options, share, l3, r3)
 
-SemaphoreHandle_t network_channel_mutex = NULL;
-uint8_t current_network_channel = 13;
+SemaphoreHandle_t network_channel_mutex = NULL;   ///<
+uint8_t current_network_channel = 13;             ///< current network channel for esp-now
 
-std::atomic<bool> boost = false; ///< atomic variable for the boost button
+std::atomic<bool> boost = false;                  ///< atomic variable for the boost button
+
+
 
 /**
  * @brief the main function for the program, creates all semaphores, tasks, and runs setup functions
@@ -137,9 +127,10 @@ extern "C" void app_main(void) {
   i2c_setup();
   esp_now_setup();
 
-  
+
+  //wait for i2c and esp_now to setup
   vTaskDelay(pdMS_TO_TICKS(main_task_wait_time));
-  
+
   // create tasks
   xTaskCreate(send_data_task, "SendDataTask", send_data_task_stack_size, NULL, send_data_task_priority, NULL);
   xTaskCreate(ps4_task, "ps4_task", ps4_task_stack_size, NULL, ps4_task_priority, NULL);
@@ -150,4 +141,3 @@ extern "C" void app_main(void) {
     vTaskDelay(pdMS_TO_TICKS(main_task_wait_time));
   }
 }
-

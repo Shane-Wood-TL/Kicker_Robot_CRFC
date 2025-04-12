@@ -8,8 +8,8 @@
 #define __ps4_task__
 
 #include "../all_includes.h"
-#include "../pinout.h"
 #include "../drivers/ps4.h"
+#include "../pinout.h"
 
 extern std::atomic<uint8_t> controller_byte_2;
 extern std::atomic<uint8_t> controller_byte_3;
@@ -21,5 +21,3 @@ extern std::atomic<uint8_t> controller_byte_6;
  */
 void ps4_task(void *pv);
 #endif
-
-

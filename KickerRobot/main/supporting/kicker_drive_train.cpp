@@ -6,6 +6,8 @@
  */
 #include "../../include/supporting/kicker_drive_train.h"
 
+
+
 kicker_drive_train::kicker_drive_train(oDrive *left_drive, oDrive *right_drive, uint32_t battery_voltage_refresh){
     this->left_drive = left_drive;
     this->right_drive = right_drive;
@@ -20,6 +22,8 @@ kicker_drive_train::kicker_drive_train(oDrive *left_drive, oDrive *right_drive, 
     last_turning_speed = 0;
 
 }
+
+
 
 void kicker_drive_train::update(){
     periodic_voltage_reading();
@@ -55,6 +59,9 @@ void kicker_drive_train::update(){
 
 }
 
+
+
+
 void kicker_drive_train::periodic_voltage_reading(){
     if ((esp_timer_get_time() - last_time) > battery_update_time)
     {
@@ -62,6 +69,9 @@ void kicker_drive_train::periodic_voltage_reading(){
         left_drive->send_message(Get_Bus_Voltage_Current, nullptr, 0, true);
     }
 }
+
+
+
 
 void kicker_drive_train::motor_status_updater()
 {
@@ -119,12 +129,15 @@ void kicker_drive_train::motor_status_updater()
     }
 }
 
+
+
+
 void kicker_drive_train::calibrating()
 {
     left_drive->send_message(Set_Axis_State, &FULL_CALIBRATION_SEQUENCE, one_byte, false);
     right_drive->send_message(Set_Axis_State, &FULL_CALIBRATION_SEQUENCE, one_byte, false);
-    static uint32_t delay_ms = 100;
-    static uint32_t total_delay_ms = 18000;
+    static uint32_t delay_ms = timeout_clock;
+    static uint32_t total_delay_ms = calibration_time;
     // prevent watchdog timeout
     for (uint32_t elapsed = 0; elapsed < total_delay_ms; elapsed += delay_ms)
     {
@@ -134,20 +147,28 @@ void kicker_drive_train::calibrating()
     }
 }
 
+
+
 void kicker_drive_train::clear_errors(){
     left_drive->send_message(Clear_Errors, &NO_DATA, one_byte, false);
     right_drive->send_message(Clear_Errors, &NO_DATA, one_byte, false);
 }
+
+
 
 void kicker_drive_train::disable_motors(){
     left_drive->send_message(Set_Axis_State, &IDLE_STATE, one_byte, false);
     right_drive->send_message(Set_Axis_State, &IDLE_STATE, one_byte, false);
 }
 
+
+
 void kicker_drive_train::enable_motors(){
     left_drive->send_message(Set_Axis_State, &CLOSED_LOOP_CONTROL, one_byte, false);
     right_drive->send_message(Set_Axis_State, &CLOSED_LOOP_CONTROL, one_byte, false);
 }
+
+
 
 void kicker_drive_train::motor_speed_multiplier_updater(){
     if (xSemaphoreTake(motor_speeds_settings_mutex, portMAX_DELAY))
@@ -158,6 +179,8 @@ void kicker_drive_train::motor_speed_multiplier_updater(){
     }
 }
 
+
+
 void kicker_drive_train::motor_speeds_updater(){
     if (xSemaphoreTake(motor_speeds, portMAX_DELAY))
     {
@@ -166,6 +189,8 @@ void kicker_drive_train::motor_speeds_updater(){
         xSemaphoreGive(motor_speeds);
     }
 }
+
+
 
 void kicker_drive_train::ramped_settings_updater()
 {
@@ -204,6 +229,8 @@ void kicker_drive_train::ramped_settings_updater()
     
 }
 
+
+
 void kicker_drive_train::drive_motors(bool boosted){
     float current_drive_speed = 0.0f;
     float current_turning_speed = 0.0f;
@@ -211,7 +238,7 @@ void kicker_drive_train::drive_motors(bool boosted){
         current_drive_speed = map(last_driving_speed, eight_bit_minimum, eight_bit_maximum, (-last_driving_speed_mult * motor_drive_speed_multiplier_value), (last_driving_speed_mult * motor_drive_speed_multiplier_value));
         
     }else{
-        current_drive_speed = map(last_driving_speed, eight_bit_minimum, eight_bit_maximum, ((-3-last_driving_speed_mult) * motor_drive_speed_multiplier_value), ((3+last_driving_speed_mult) * motor_drive_speed_multiplier_value));   
+        current_drive_speed = map(last_driving_speed, eight_bit_minimum, eight_bit_maximum, ((-boost_amount-last_driving_speed_mult) * motor_drive_speed_multiplier_value), ((boost_amount+last_driving_speed_mult) * motor_drive_speed_multiplier_value));   
     }
 
 
@@ -246,17 +273,20 @@ void kicker_drive_train::drive_motors(bool boosted){
     right_drive->send_message(Set_Input_Vel, vel_right_as_int, eight_bytes, false);
 }
 
+
+
 void kicker_drive_train::estop(){
     left_drive->send_message(Estop, &NO_DATA, 1, false);
     right_drive->send_message(Estop, &NO_DATA, 1, false);
 }
 
 
+
 void kicker_drive_train::break_motors(){
     uint8_t vel_as_int[full_message_size] = {0};
 
 
-    float no_ramp_velocity = 250.0f;
+    float no_ramp_velocity = brake_velocity_ramp;
 
     left_drive->send_message(Set_Input_Vel, vel_as_int, eight_bytes, false);
     right_drive->send_message(Set_Input_Vel, vel_as_int, eight_bytes, false);
@@ -279,8 +309,8 @@ void kicker_drive_train::break_motors(){
     }
 
 
-    static uint32_t delay_ms = 100;
-    static uint32_t max_delay_ms = 10000;
+    static uint32_t delay_ms = timeout_clock;
+    static uint32_t max_delay_ms = max_braking_time;
 
     bool left_stopped = false;
     bool right_stopped = false;
@@ -295,7 +325,7 @@ void kicker_drive_train::break_motors(){
 
         if(xSemaphoreTake(left_drive_velocity_estimate_mutex, portMAX_DELAY))
         {
-            if(left_drive_velocity_estimate < 0.5f && left_drive_velocity_estimate > -0.5f)
+            if((left_drive_velocity_estimate < brake_turn_off_velocity) && (left_drive_velocity_estimate > -brake_turn_off_velocity))
             {
                 left_stopped = true;
             }
@@ -303,7 +333,7 @@ void kicker_drive_train::break_motors(){
         }
         if(xSemaphoreTake(right_drive_velocity_estimate_mutex, portMAX_DELAY))
         {
-            if(right_drive_velocity_estimate < 0.5f && right_drive_velocity_estimate > -0.5f)
+            if((right_drive_velocity_estimate < brake_turn_off_velocity) && (right_drive_velocity_estimate > -brake_turn_off_velocity))
             {
                 right_stopped = true;
             }

@@ -6,6 +6,7 @@
  */
 #include "../../include/setup/i2c_setup.h"
 
+
 void i2c_setup(){
     i2c_mst_config.clk_source = I2C_CLK_SRC_DEFAULT;
     i2c_mst_config.i2c_port = i2c_bus_number;

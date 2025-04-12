@@ -80,6 +80,8 @@ font::font(){
     font_map[' '] = space;
 }
 
+
+
 const uint16_t* font::get_letter(const uint8_t letter){
     if((letter < lowest_defined_ascii_value) || (letter > highest_defined_ascii_value)){
         return font_map[' '];

@@ -7,6 +7,7 @@
 #include "../../include/supporting/font.h"
 
 
+
 font::font(){
     //map the font to the ascii table
     font_map['0'] = zero;
@@ -78,6 +79,8 @@ font::font(){
     font_map['|'] = verticalBar;
     font_map[' '] = space;
 }
+
+
 
 const uint16_t* font::get_letter(const uint8_t letter){
     if((letter < lowest_defined_ascii_value) || (letter > highest_defined_ascii_value)){

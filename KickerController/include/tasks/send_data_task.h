@@ -4,13 +4,12 @@
  * @author Shane Wood
  */
 
- 
+
 #ifndef __send_data_task__
 #define __send_data_task__
 
 #include "../all_includes.h"
 #include "../pinout.h"
-
 
 
 extern SemaphoreHandle_t motor_status_mutex;

@@ -13,6 +13,8 @@ void ssd1306::send_command_SSD1306(uint8_t command)
     (void)i2c_master_transmit(ssd1306_handle, data, SSD1306_COMMAND_SIZE,SSD1306_I2C_TIMEOUT);
 }
 
+
+
 void ssd1306::send_data_SSD1306(uint8_t *data, size_t len)
 {
     uint8_t data_to_send[len+1] = {0};
@@ -20,6 +22,8 @@ void ssd1306::send_data_SSD1306(uint8_t *data, size_t len)
     memcpy(&(data_to_send[1]), data, len);
     (void)i2c_master_transmit(ssd1306_handle, &data_to_send[0], (1+len), SSD1306_I2C_TIMEOUT);
 }
+
+
 
 
 void ssd1306::init_SSD1306()
@@ -47,6 +51,8 @@ void ssd1306::init_SSD1306()
     send_command_SSD1306(SSD1306_DISPLAY_ON);
 }
 
+
+
 void ssd1306::clear_SSD1306()
 {
     uint8_t emptyBuffer[SSD1306_horizontal_resolution] = {0}; // each page is 128 x 8
@@ -64,6 +70,8 @@ void ssd1306::clear_SSD1306()
     }
 }
 
+
+
 void ssd1306::draw_pixel_SSD1306(uint8_t x, uint8_t y)
 {
     if ((x >= SSD1306_horizontal_resolution) || (y >= SSD1306_vertical_resolution)){
@@ -79,6 +87,8 @@ void ssd1306::draw_pixel_SSD1306(uint8_t x, uint8_t y)
     buffer[buffer_index] |= pixel_in_page;  //write to the buffer based on page and column
 }
 
+
+
 void ssd1306::write_buffer_SSD1306()
 {
     for (uint8_t i = 0; i < SSD1306_page_count; i++)
@@ -90,6 +100,8 @@ void ssd1306::write_buffer_SSD1306()
         send_data_SSD1306(&buffer[SSD1306_horizontal_resolution * i], SSD1306_horizontal_resolution);
     }
 }
+
+
 
 void ssd1306::write_letter_SSD1306(uint8_t letter, uint8_t x_pos, uint8_t y_pos)
 {
@@ -111,6 +123,8 @@ void ssd1306::write_letter_SSD1306(uint8_t letter, uint8_t x_pos, uint8_t y_pos)
     }
 }
 
+
+
 void ssd1306::write_string_SSD1306(std::string word, uint8_t x_pos, uint8_t y_pos)
 {
     for (uint8_t i = 0; i < word.length(); i++)
@@ -119,6 +133,8 @@ void ssd1306::write_string_SSD1306(std::string word, uint8_t x_pos, uint8_t y_po
         //with proper spacing
     }
 }
+
+
 
 ssd1306::ssd1306(i2c_master_dev_handle_t ssd1306_handle)
 {
@@ -129,6 +145,8 @@ ssd1306::ssd1306(i2c_master_dev_handle_t ssd1306_handle)
     // Send the empty buffer to the display
     clear_buffer();
 }
+
+
 
 // empties buffer so that new data can be put into it
 void ssd1306::clear_buffer()
