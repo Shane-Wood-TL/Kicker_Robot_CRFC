@@ -26,5 +26,5 @@ Clock Speed: 240 Mhz
 2 D5065 Motors
 1 SSD1306 (Display) 128 x 64
 
-There 2 systems communicate over ESP-NOW
+These 2 systems communicate over ESP-NOW
 
