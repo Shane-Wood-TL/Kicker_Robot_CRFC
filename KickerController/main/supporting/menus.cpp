@@ -223,10 +223,8 @@ void menu<changeable_values<uint8_t>>::decrease_selected_value() {
   }
 }
 
-
-
-template class menu<uint8_t>;
 template class menu<float>;
+template class menu<uint8_t>;
 template class menu<std::string>;
 template class menu<changeable_values<float>>;
 template class menu<changeable_values<uint8_t>>;
