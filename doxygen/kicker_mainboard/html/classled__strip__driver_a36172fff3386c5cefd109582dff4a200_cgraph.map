@@ -1,0 +1,5 @@
+<map id="led_strip_driver::led_strip_driver" name="led_strip_driver::led_strip_driver">
+<area shape="rect" id="Node000001" title="Constructor for the led_strip_driver class." alt="" coords="5,5,255,35"/>
+<area shape="rect" id="Node000002" href="$classled__strip__driver.html#a55d9fff12f864b0acfdac864fca5232b" title="set the color for a set of leds in the strip" alt="" coords="303,5,507,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="255,18,287,18,287,23,255,23"/>
+</map>

@@ -1,0 +1,27 @@
+<map id="kicker_drive_train::update" name="kicker_drive_train::update">
+<area shape="rect" id="Node000001" title="The main loop for the drive train, updates values, checks battery, and drives motors." alt="" coords="5,153,210,183"/>
+<area shape="rect" id="Node000002" href="$classkicker__drive__train.html#a7b21d38c1a81e3646f07602f41cab0bc" title="brake the motors by setting the velocity to 0" alt="" coords="696,76,948,106"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="118,151,140,123,172,90,211,57,257,32,326,13,398,4,470,4,541,11,608,22,670,37,768,68,767,73,669,42,607,28,540,16,470,9,398,9,327,18,259,37,214,62,175,94,144,127,122,154"/>
+<area shape="rect" id="Node000004" href="$classkicker__drive__train.html#a78a7597a4a1b0bc9492ef66c32b8a0c6" title="drive the motors based on set parameters and last joystick values" alt="" coords="327,47,574,76"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="130,151,186,117,257,86,311,72,312,77,259,91,188,122,133,155"/>
+<area shape="rect" id="Node000005" href="$classkicker__drive__train.html#a429f74f99def00f7d234662909150be0" title="modify the speed multipliers" alt="" coords="258,100,643,130"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="191,150,257,139,318,130,318,135,258,144,192,155"/>
+<area shape="rect" id="Node000006" href="$classkicker__drive__train.html#a059b7bd8b12aa236032041c49c0312cd" title="update the speeds of the motors based on the joysticks" alt="" coords="291,153,610,183"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="210,166,276,166,276,171,210,171"/>
+<area shape="rect" id="Node000007" href="$classkicker__drive__train.html#a2c011997429fafeeacddbb1e74d604c4" title="change the status of the motors" alt="" coords="296,207,605,236"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="192,181,258,192,318,201,318,207,257,198,191,186"/>
+<area shape="rect" id="Node000011" href="$classkicker__drive__train.html#acae2e06df7e1d3c8af4f988fc1629b2f" title="update the battery voltage if the correct amount of time has passed" alt="" coords="282,260,618,290"/>
+<area shape="poly" id="edge12_Node000001_Node000011" title=" " alt="" coords="133,181,188,215,259,246,286,253,284,259,257,251,186,219,130,186"/>
+<area shape="rect" id="Node000012" href="$classkicker__drive__train.html#a1aea7c500cba07d358770050e51fd6cb" title="update the ramped velocity parameters if they have been changed" alt="" coords="282,313,618,343"/>
+<area shape="poly" id="edge13_Node000001_Node000012" title=" " alt="" coords="122,182,177,241,215,273,259,299,274,306,272,310,256,304,212,277,173,245,118,185"/>
+<area shape="rect" id="Node000003" href="$classkicker__drive__train.html#a6ef0c24f1b0871021979a48fde1c9ff4" title="set the motors to their idle state" alt="" coords="1000,103,1265,132"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="949,99,985,102,985,108,948,104"/>
+<area shape="poly" id="edge7_Node000007_Node000002" title=" " alt="" coords="605,210,641,193,658,177,665,159,673,140,689,122,711,110,714,114,693,126,677,143,670,161,662,180,645,197,607,214"/>
+<area shape="poly" id="edge10_Node000007_Node000003" title=" " alt="" coords="601,204,642,192,666,179,690,166,764,146,841,132,985,117,985,123,841,137,765,151,692,171,668,184,644,197,602,209"/>
+<area shape="rect" id="Node000008" href="$classkicker__drive__train.html#ac9c1b7680ef0506c28d674f26bda4ee7" title="run the calibration sequence with periodic messages over can bus to prevent the odrives from entering..." alt="" coords="707,180,936,210"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="605,208,691,202,692,207,606,213"/>
+<area shape="rect" id="Node000009" href="$classkicker__drive__train.html#ad5670ad9be6bd4d7055b8dfbfafe75db" title="clear the errors on the odrives" alt="" coords="702,233,942,263"/>
+<area shape="poly" id="edge9_Node000007_Node000009" title=" " alt="" coords="606,230,686,236,686,241,605,235"/>
+<area shape="rect" id="Node000010" href="$classkicker__drive__train.html#aa08dd2966d8975334cf46f3e939f1751" title="set the motors to their active state" alt="" coords="691,287,952,316"/>
+<area shape="poly" id="edge11_Node000007_Node000010" title=" " alt="" coords="602,235,644,246,668,259,692,272,714,280,712,285,690,277,666,264,642,251,601,240"/>
+</map>

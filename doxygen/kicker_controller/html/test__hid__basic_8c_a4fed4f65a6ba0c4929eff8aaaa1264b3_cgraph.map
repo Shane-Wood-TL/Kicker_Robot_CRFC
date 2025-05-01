@@ -1,0 +1,16 @@
+<map id="hid_host_test_callback" name="hid_host_test_callback">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,58,190,88"/>
+<area shape="rect" id="Node000002" href="$hid__host_8c.html#a645239dcac0a0881b4a8feae644b50fb" title="HID Device get parameters by handle." alt="" coords="594,19,825,49"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="128,55,178,34,237,17,330,5,424,3,513,7,592,14,592,19,513,12,424,8,330,11,238,22,180,39,130,60"/>
+<area shape="rect" id="Node000003" href="$hid__host_8c.html#a364bcd9da089068e935bcd441dcdb393" title="USB HID Host open a device with specific device parameters." alt="" coords="273,31,456,61"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="190,61,257,54,258,59,191,66"/>
+<area shape="rect" id="Node000004" href="$hid__host_8c.html#a0111566ddcd5090911c05f2a21b69771" title="HID Host start awaiting event from a device by handle." alt="" coords="276,85,454,114"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="191,79,261,86,260,92,190,85"/>
+<area shape="rect" id="Node000005" href="$test__hid__basic_8c.html#a910057603e9aca69a6f9bfa8c9172acd" title=" " alt="" coords="238,138,492,168"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="135,86,238,124,267,131,266,136,237,129,133,91"/>
+<area shape="poly" id="edge6_Node000005_Node000002" title=" " alt="" coords="455,135,491,124,515,111,539,97,648,52,650,57,541,102,518,116,493,129,456,140"/>
+<area shape="rect" id="Node000006" href="$hid__host_8c.html#a11a0fba026148791db2f95529d5a74e5" title="USB HID Host close device." alt="" coords="616,111,802,141"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="492,140,601,132,601,137,493,146"/>
+<area shape="rect" id="Node000007" href="$hid__host_8c.html#aeb8242bd63abe09482931132c4279f30" title="HID Host get device raw input report data pointer by handle." alt="" coords="540,165,878,194"/>
+<area shape="poly" id="edge7_Node000005_Node000007" title=" " alt="" coords="493,160,525,162,524,168,492,165"/>
+</map>

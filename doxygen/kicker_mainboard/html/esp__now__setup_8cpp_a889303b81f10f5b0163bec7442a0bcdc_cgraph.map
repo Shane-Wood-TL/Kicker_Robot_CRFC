@@ -1,0 +1,7 @@
+<map id="esp_now_setup" name="esp_now_setup">
+<area shape="rect" id="Node000001" title="Sets up the ESP&#45;NOW communication, including setting up the callback functions." alt="" coords="5,32,140,62"/>
+<area shape="rect" id="Node000002" href="$esp__now__callback__setup_8cpp.html#a0125c0c0903f463f26ed56c90a2ec006" title="Callback function for when a message is received." alt="" coords="188,5,288,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="140,33,172,28,173,33,140,39"/>
+<area shape="rect" id="Node000003" href="$esp__now__callback__setup_8cpp.html#a16fcfe50c95ced45f0ad21870f6e169a" title="Callback function for when a message is sent." alt="" coords="196,59,280,88"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="140,55,181,62,180,67,140,60"/>
+</map>

@@ -1,0 +1,16 @@
+<map id="ssd1306::send_command_SSD1306" name="ssd1306::send_command_SSD1306">
+<area shape="rect" id="Node000001" title="Sends a command to the SSD1306." alt="" coords="645,59,929,88"/>
+<area shape="rect" id="Node000002" href="$classssd1306.html#a1aae212504a93232231113bfe2e864a5" title=" " alt="" coords="369,5,573,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="679,58,563,38,564,33,680,53"/>
+<area shape="rect" id="Node000004" href="$classssd1306.html#a5196c8d2e984359da2cc876c8d5f58db" title="Initializes the SSD1306." alt="" coords="376,59,566,88"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="630,76,567,76,567,71,630,71"/>
+<area shape="rect" id="Node000005" href="$classssd1306.html#a8534651a9db59a3d8c5162b91457e322" title="Writes the buffer to the display." alt="" coords="345,112,597,142"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="680,94,564,114,563,109,679,89"/>
+<area shape="rect" id="Node000003" href="$classssd1306.html#a2518946b016e3c7f651eacaa1416864f" title="Constructor for the SSD1306 class." alt="" coords="146,32,297,62"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="354,35,298,41,297,36,353,30"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="361,64,297,58,298,52,361,59"/>
+<area shape="rect" id="Node000006" href="$display__task_8cpp.html#a9f61f48e689e3ceb92895a85cd380e17" title="This is the task that handles driving the display with the menus and values." alt="" coords="166,112,276,142"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="329,130,277,130,277,124,329,124"/>
+<area shape="rect" id="Node000007" href="$main_8cpp.html#a630544a7f0a2cc40d8a7fefab7e2fe70" title="the main function for the program, creates all semaphores, tasks, and runs setup functions" alt="" coords="5,112,98,142"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="150,130,98,130,98,124,150,124"/>
+</map>

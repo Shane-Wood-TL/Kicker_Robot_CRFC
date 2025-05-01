@@ -1,0 +1,7 @@
+<map id="ssd1306::clear_SSD1306" name="ssd1306::clear_SSD1306">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,32,210,62"/>
+<area shape="rect" id="Node000002" href="$classssd1306.html#ab1436aa90d5c6404a1246e8f740e80b4" title="Sends a command to the SSD1306." alt="" coords="258,5,541,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="210,35,242,32,243,37,210,40"/>
+<area shape="rect" id="Node000003" href="$classssd1306.html#a81795f6478fb00df3bca485ba125fb02" title="Sends data to the SSD1306." alt="" coords="277,59,522,88"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="210,54,262,58,261,64,210,59"/>
+</map>

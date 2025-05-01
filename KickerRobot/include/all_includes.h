@@ -97,7 +97,7 @@ enum controller_status_list{CONNECTED, DISCONNECTED};
 
 
 /**
- * @struct esp_now_data_to_receive
+ * @struct esp_now_data_to_send
  * @brief Contains the data that the controller is expecting from the robot
  */
 typedef struct {

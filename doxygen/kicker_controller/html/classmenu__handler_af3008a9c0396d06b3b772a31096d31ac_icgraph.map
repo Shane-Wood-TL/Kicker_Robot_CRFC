@@ -1,0 +1,24 @@
+<map id="menu_handler::draw_status_display" name="menu_handler::draw_status_display">
+<area shape="rect" id="Node000001" title="This function draws the status menu to the display." alt="" coords="833,136,1111,166"/>
+<area shape="rect" id="Node000002" href="$classmenu__handler.html#a5359c304e788501a02e8aaf6d289266f" title="This function draws the motor calibration menu to the display." alt="" coords="541,5,777,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="931,130,864,93,784,56,728,38,729,33,786,51,866,88,934,125"/>
+<area shape="rect" id="Node000003" href="$classmenu__handler.html#a23740b6e7279e5a39ab4377d1e440813" title="This function will update the menu handler." alt="" coords="304,136,485,166"/>
+<area shape="poly" id="edge13_Node000001_Node000003" title=" " alt="" coords="914,133,852,114,784,100,714,91,659,87,604,89,534,100,476,117,427,138,425,133,475,112,533,95,603,84,659,81,714,85,785,95,853,109,916,128"/>
+<area shape="rect" id="Node000006" href="$classmenu__handler.html#a501ff5ac964f8ed7775397311071c34f" title="This function draws the servo latched menu to the display." alt="" coords="553,109,765,139"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="817,140,765,136,766,131,818,135"/>
+<area shape="rect" id="Node000007" href="$classmenu__handler.html#af1b665a4320c38333e0081864ce797ad" title="This function draws the servo released menu to the display." alt="" coords="538,163,780,192"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="817,167,781,170,780,165,817,161"/>
+<area shape="rect" id="Node000008" href="$classmenu__handler.html#abb48889d1582aa32c4ef201a3707c21d" title="This function draws the errors clear menu to the display." alt="" coords="535,216,783,246"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="906,173,785,207,737,218,736,213,784,202,905,168"/>
+<area shape="rect" id="Node000009" href="$classmenu__handler.html#a0d65822629745990561b91fc423d3aaa" title="This function draws the motors en/dis abled menu to the display." alt="" coords="533,269,785,299"/>
+<area shape="poly" id="edge11_Node000001_Node000009" title=" " alt="" coords="938,177,870,219,786,260,750,271,748,266,784,255,867,215,935,172"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="569,42,534,56,500,75,467,97,415,137,412,133,463,93,497,70,532,51,568,37"/>
+<area shape="rect" id="Node000004" href="$display__task_8cpp.html#a9f61f48e689e3ceb92895a85cd380e17" title="This is the task that handles driving the display with the menus and values." alt="" coords="146,136,256,166"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="288,154,256,154,256,148,288,148"/>
+<area shape="rect" id="Node000005" href="$main_8cpp.html#a630544a7f0a2cc40d8a7fefab7e2fe70" title="the main function for the program, creates all semaphores, tasks, and runs setup functions" alt="" coords="5,136,98,166"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="130,154,98,154,98,148,130,148"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="538,139,486,144,486,139,537,134"/>
+<area shape="poly" id="edge8_Node000007_Node000003" title=" " alt="" coords="522,166,485,163,486,157,522,161"/>
+<area shape="poly" id="edge10_Node000008_Node000003" title=" " alt="" coords="561,215,533,207,430,169,432,164,534,202,563,209"/>
+<area shape="poly" id="edge12_Node000009_Node000003" title=" " alt="" coords="549,267,532,260,495,239,461,214,409,168,413,164,464,210,498,234,534,255,551,262"/>
+</map>

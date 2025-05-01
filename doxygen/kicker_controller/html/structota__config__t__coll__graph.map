@@ -1,0 +1,5 @@
+<map id="ota_config_t" name="ota_config_t">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,321,248,448"/>
+<area shape="rect" id="Node000002" href="$structespnow__ota__status__s.html" title="Status packet." alt="" coords="33,5,220,254"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="130,254,130,305,124,305,124,254"/>
+</map>

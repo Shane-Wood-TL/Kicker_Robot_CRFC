@@ -1,0 +1,13 @@
+<map id="ps4::ps4" name="ps4::ps4">
+<area shape="rect" id="Node000001" title="Construct the ps4 object, which creates the required tasks for the usb host, and processing the usb d..." alt="" coords="5,59,87,88"/>
+<area shape="rect" id="Node000002" href="$classps4.html#a1b5ebe7b0b2164899555e4f4b495fbf7" title="HID Host Device callback." alt="" coords="135,5,375,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="86,58,134,44,165,37,166,42,135,49,88,63"/>
+<area shape="rect" id="Node000003" href="$classps4.html#ac862ec12615387da7a5820a29443cb2b" title="USB HID Host Device event." alt="" coords="145,59,365,88"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="87,71,129,71,129,76,87,76"/>
+<area shape="rect" id="Node000006" href="$classps4.html#a54ba84c2fddbdf97ae7ae24d99eff02c" title="Start USB Host install and handle common USB host library events while app pin not low." alt="" coords="182,112,328,142"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="88,84,135,98,168,106,166,111,134,103,86,89"/>
+<area shape="rect" id="Node000004" href="$classps4.html#a33c070f3c1106c8ffe493c73756cb388" title="USB HID Host interface callback." alt="" coords="423,59,677,88"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="366,71,408,71,408,76,366,76"/>
+<area shape="rect" id="Node000005" href="$classps4.html#ab98da929c3d1305de189ea698a2d6833" title="USB HID Host Generic Interface report callback handler." alt="" coords="725,59,1022,88"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="678,71,710,71,710,76,678,76"/>
+</map>

@@ -1,0 +1,17 @@
+<map id="espnow_ctrl_send" name="espnow_ctrl_send">
+<area shape="rect" id="Node000001" title="Send control data frame." alt="" coords="5,59,157,88"/>
+<area shape="rect" id="Node000002" href="$espnow_8c.html#ad1db406d2cb51ac8f967fbc95473afe5" title="Send ESP&#45;NOW data." alt="" coords="205,59,326,88"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="157,71,189,71,189,76,157,76"/>
+<area shape="rect" id="Node000003" href="$espnow_8c.html#a20960515d17cbc436c4598a4b8134c94" title="Get the security key info stored in flash If no security key info is stored in flash,..." alt="" coords="409,5,551,35"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="326,56,402,37,403,42,327,61"/>
+<area shape="rect" id="Node000005" href="$espnow__security_8c.html#a7530c208d25669a17e838a4d0c7f0ea5" title="The authenticated encryption function. Encryption with 128 bit AES&#45;CCM." alt="" coords="374,59,586,88"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="326,71,358,71,358,76,326,76"/>
+<area shape="rect" id="Node000006" href="$espnow_8c.html#a776b545b0faedcd1511a6d59a7213029" title="Set the security key info The security key info is used to derive key and stored to flash...." alt="" coords="410,112,551,142"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="327,86,403,105,402,110,326,91"/>
+<area shape="rect" id="Node000004" href="$espnow__storage_8c.html#a46b53eee49b7a85ab1aaa1b876408722" title="Load the information with given key." alt="" coords="634,5,805,35"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="552,18,619,18,619,23,552,23"/>
+<area shape="rect" id="Node000007" href="$espnow__security_8c.html#ad081d6044fc0cedbb0c06e2c68dad306" title="Set the security key info." alt="" coords="636,85,803,115"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="551,116,621,108,621,114,552,122"/>
+<area shape="rect" id="Node000008" href="$espnow__storage_8c.html#ade9d20917bbd54b5748ef1651342c881" title="Save the information with given key." alt="" coords="635,139,804,168"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="552,132,620,140,619,145,551,137"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="menu_handler::l2_pressed" name="menu_handler::l2_pressed">
+<area shape="rect" id="Node000001" title="This function draws the servo latched menu to the display." alt="" coords="5,5,217,35"/>
+<area shape="rect" id="Node000002" href="$classmenu__handler.html#af3008a9c0396d06b3b772a31096d31ac" title="This function draws the status menu to the display." alt="" coords="265,5,543,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="217,18,249,18,249,23,217,23"/>
+</map>

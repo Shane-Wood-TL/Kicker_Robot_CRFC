@@ -1,0 +1,41 @@
+<map id="espnow_console_commands_register" name="espnow_console_commands_register">
+<area shape="rect" id="Node000001" title="Register Common commands." alt="" coords="5,432,297,462"/>
+<area shape="rect" id="Node000002" href="$cmd__espnow_8c.html#a49ab8b4f30ba6620b8349e8dbcf6e7a7" title=" " alt="" coords="357,139,496,168"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="165,430,399,178,403,182,169,433"/>
+<area shape="rect" id="Node000008" href="$cmd__iperf_8c.html#aba7899961f37bd327bbcfbfbe6582b3d" title=" " alt="" coords="369,272,484,302"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="169,430,242,373,292,340,343,311,356,305,358,310,346,316,294,345,245,378,172,434"/>
+<area shape="rect" id="Node000011" href="$cmd__peripherals_8c.html#a32de1cde0b0101a969e28a296a893a0c" title=" " alt="" coords="345,325,508,355"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="186,429,344,364,362,358,364,363,346,369,188,434"/>
+<area shape="rect" id="Node000012" href="$cmd__sdcard_8c.html#aee0a19b9ec59752b8124fcb5d3b45d23" title="Register sdcard command." alt="" coords="361,379,492,408"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="231,429,345,406,346,412,232,434"/>
+<area shape="rect" id="Node000013" href="$cmd__system_8c.html#a5cea85be00cb1ee5b57616da2fec81dd" title=" " alt="" coords="360,432,493,462"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="297,444,344,444,344,450,297,450"/>
+<area shape="rect" id="Node000014" href="$cmd__wifi_8c.html#acc3b783818c73878210baf4064425629" title=" " alt="" coords="373,485,480,515"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="232,460,358,484,357,490,231,465"/>
+<area shape="rect" id="Node000018" href="$cmd__wifi__sniffer_8c.html#aeca2ef6acde5704f187f7f3734ca0a51" title=" " alt="" coords="347,539,506,568"/>
+<area shape="poly" id="edge17_Node000001_Node000018" title=" " alt="" coords="188,460,346,524,364,531,362,536,344,529,186,465"/>
+<area shape="rect" id="Node000019" href="$sdcard_8c.html#ae3e13ea01aad71d69c7e3c4656de1803" title="Initialize sdcard, Using SDMMC peripheral." alt="" coords="377,592,476,622"/>
+<area shape="poly" id="edge18_Node000001_Node000019" title=" " alt="" coords="172,460,245,516,294,549,346,578,363,585,361,590,343,583,292,553,242,520,169,464"/>
+<area shape="rect" id="Node000020" href="$sdcard_8c.html#a1ee82a88b28b169594e94eada1cf1233" title="Check if sdcard is mounted." alt="" coords="355,645,498,675"/>
+<area shape="poly" id="edge19_Node000001_Node000020" title=" " alt="" coords="166,461,237,541,288,589,346,631,355,636,353,641,343,636,285,593,233,545,162,464"/>
+<area shape="rect" id="Node000003" href="$cmd__espnow_8c.html#a663e227ca7f408c5e70f3a543066c1f3" title="Register command command." alt="" coords="575,5,728,35"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="440,136,488,91,520,66,555,44,567,39,570,43,557,49,523,70,492,95,444,140"/>
+<area shape="rect" id="Node000004" href="$cmd__espnow_8c.html#a133f010c7f704fae3fd7c7844ab8adb4" title=" " alt="" coords="586,59,717,88"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="461,136,555,98,576,91,578,96,557,103,463,141"/>
+<area shape="rect" id="Node000005" href="$cmd__espnow_8c.html#a4116f70abed28605f9edde3cb2b49df3" title=" " alt="" coords="599,112,704,142"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="496,143,583,132,584,138,497,148"/>
+<area shape="rect" id="Node000006" href="$cmd__espnow_8c.html#a250a2960cac20a0a927ea9ee538d0ed1" title=" " alt="" coords="566,165,737,195"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="497,159,551,166,551,171,496,164"/>
+<area shape="rect" id="Node000007" href="$cmd__espnow_8c.html#a952bdf39df32da2582cc93259df66b21" title=" " alt="" coords="593,219,710,248"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="463,166,557,204,579,212,577,217,555,209,461,171"/>
+<area shape="rect" id="Node000009" href="$cmd__iperf_8c.html#a59752ecd5d3a975453892e77911181f3" title=" " alt="" coords="556,272,747,302"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="484,284,541,284,541,290,484,290"/>
+<area shape="rect" id="Node000010" href="$cmd__iperf_8c.html#a3e3a4b00f06201a66ee042ac3363f9de" title=" " alt="" coords="562,325,741,355"/>
+<area shape="poly" id="edge9_Node000008_Node000010" title=" " alt="" coords="484,298,572,319,571,324,483,303"/>
+<area shape="rect" id="Node000015" href="$cmd__wifi_8c.html#a53edfa7e48af95ba07348e7c1421feea" title=" " alt="" coords="584,432,719,462"/>
+<area shape="poly" id="edge14_Node000014_Node000015" title=" " alt="" coords="480,485,570,463,572,468,481,490"/>
+<area shape="rect" id="Node000016" href="$cmd__wifi_8c.html#a829e61400c74b6e8b03ebbc968fb6ae9" title=" " alt="" coords="578,485,725,515"/>
+<area shape="poly" id="edge15_Node000014_Node000016" title=" " alt="" coords="480,498,563,498,563,503,480,503"/>
+<area shape="rect" id="Node000017" href="$cmd__wifi_8c.html#af11c2a0aaba22bf6cce6d38be617ed89" title="Register wifi scan command." alt="" coords="576,539,727,568"/>
+<area shape="poly" id="edge16_Node000014_Node000017" title=" " alt="" coords="481,510,572,532,570,537,480,515"/>
+</map>

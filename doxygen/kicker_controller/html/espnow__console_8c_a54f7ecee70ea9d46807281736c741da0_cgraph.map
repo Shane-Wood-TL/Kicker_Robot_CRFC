@@ -1,0 +1,5 @@
+<map id="espnow_console_deinit" name="espnow_console_deinit">
+<area shape="rect" id="Node000001" title="De&#45;initialize console module Call this once when done using console module functions." alt="" coords="5,5,196,35"/>
+<area shape="rect" id="Node000002" href="$espnow_8c.html#a5e8b13ca7f586bed41ed5779b84f61f4" title="Set configuration when receiving the corresponding ESP&#45;NOW data type Include: Set to enable/disable h..." alt="" coords="244,5,509,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="196,18,228,18,228,23,196,23"/>
+</map>

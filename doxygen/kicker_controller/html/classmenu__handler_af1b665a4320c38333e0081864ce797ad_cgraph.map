@@ -1,0 +1,5 @@
+<map id="menu_handler::servo_released" name="menu_handler::servo_released">
+<area shape="rect" id="Node000001" title="This function draws the servo released menu to the display." alt="" coords="5,5,248,35"/>
+<area shape="rect" id="Node000002" href="$classmenu__handler.html#af3008a9c0396d06b3b772a31096d31ac" title="This function draws the status menu to the display." alt="" coords="296,5,574,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="248,18,280,18,280,23,248,23"/>
+</map>

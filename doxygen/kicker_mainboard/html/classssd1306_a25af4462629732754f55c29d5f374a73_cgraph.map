@@ -1,0 +1,5 @@
+<map id="ssd1306::write_letter_SSD1306" name="ssd1306::write_letter_SSD1306">
+<area shape="rect" id="Node000001" title="Writes a letter to the display buffer." alt="" coords="5,5,253,35"/>
+<area shape="rect" id="Node000002" href="$classssd1306.html#a387d658f291cf5a82d75d07b47d81359" title="Draws a pixel on the display buffer." alt="" coords="301,5,548,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="253,18,285,18,285,23,253,23"/>
+</map>

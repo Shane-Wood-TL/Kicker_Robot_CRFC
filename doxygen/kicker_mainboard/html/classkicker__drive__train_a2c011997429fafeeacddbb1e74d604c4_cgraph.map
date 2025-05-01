@@ -1,0 +1,14 @@
+<map id="kicker_drive_train::motor_status_updater" name="kicker_drive_train::motor_status_updater">
+<area shape="rect" id="Node000001" title="change the status of the motors" alt="" coords="5,109,315,139"/>
+<area shape="rect" id="Node000002" href="$classkicker__drive__train.html#a7b21d38c1a81e3646f07602f41cab0bc" title="brake the motors by setting the velocity to 0" alt="" coords="367,5,620,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="201,106,362,51,413,37,414,42,363,56,203,111"/>
+<area shape="rect" id="Node000003" href="$classkicker__drive__train.html#a6ef0c24f1b0871021979a48fde1c9ff4" title="set the motors to their idle state" alt="" coords="672,32,936,62"/>
+<area shape="poly" id="edge5_Node000001_Node000003" title=" " alt="" coords="275,106,362,95,656,60,657,66,363,100,276,111"/>
+<area shape="rect" id="Node000004" href="$classkicker__drive__train.html#ac9c1b7680ef0506c28d674f26bda4ee7" title="run the calibration sequence with periodic messages over can bus to prevent the odrives from entering..." alt="" coords="379,109,608,139"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="315,122,363,122,363,127,315,127"/>
+<area shape="rect" id="Node000005" href="$classkicker__drive__train.html#ad5670ad9be6bd4d7055b8dfbfafe75db" title="clear the errors on the odrives" alt="" coords="373,163,614,192"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="258,137,382,157,381,162,257,142"/>
+<area shape="rect" id="Node000006" href="$classkicker__drive__train.html#aa08dd2966d8975334cf46f3e939f1751" title="set the motors to their active state" alt="" coords="363,216,624,246"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="196,137,272,169,363,202,392,209,391,214,362,207,270,174,194,142"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="620,28,657,32,656,37,620,34"/>
+</map>

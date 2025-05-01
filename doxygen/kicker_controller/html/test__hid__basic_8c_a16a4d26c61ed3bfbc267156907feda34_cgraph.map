@@ -1,0 +1,33 @@
+<map id="TEST_CASE" name="TEST_CASE">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,243,123,272"/>
+<area shape="rect" id="Node000002" href="$test__hid__basic_8c.html#aec5bf964c09bb34cd7d78d40c2b5b9ba" title=" " alt="" coords="179,112,379,142"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,240,238,148,241,152,91,245"/>
+<area shape="rect" id="Node000009" href="$test__hid__basic_8c.html#ab4c2163195a564d41e24ac0222aca0cd" title="Setups HID testing." alt="" coords="216,216,342,246"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="123,248,200,238,201,243,124,253"/>
+<area shape="rect" id="Node000011" href="$test__hid__basic_8c.html#a1fab9490d5bcc0dba0abc11d8e0f047d" title="Teardowns HID testing." alt="" coords="203,269,355,299"/>
+<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="124,262,188,270,187,275,123,267"/>
+<area shape="rect" id="Node000013" href="$test__hid__basic_8c.html#a5ff0486c0a747168339f221ffcc7e344" title="Creates MULTIPLE_TASKS_TASKS_NUM to get report descriptor and get protocol from HID device...." alt="" coords="171,323,387,352"/>
+<area shape="poly" id="edge13_Node000001_Node000013" title=" " alt="" coords="93,270,130,290,172,308,192,315,191,320,170,313,127,295,90,275"/>
+<area shape="rect" id="Node000003" href="$hid__host_8c.html#a645239dcac0a0881b4a8feae644b50fb" title="HID Device get parameters by handle." alt="" coords="791,165,1022,195"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="360,140,435,151,613,166,776,174,775,179,613,171,435,156,359,145"/>
+<area shape="rect" id="Node000004" href="$hid__host_8c.html#a364bcd9da089068e935bcd441dcdb393" title="USB HID Host open a device with specific device parameters." alt="" coords="470,5,654,35"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="304,109,362,76,434,44,458,37,459,42,436,49,364,81,306,114"/>
+<area shape="rect" id="Node000005" href="$hid__host_8c.html#a0111566ddcd5090911c05f2a21b69771" title="HID Host start awaiting event from a device by handle." alt="" coords="474,59,651,88"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="361,109,464,89,465,94,362,114"/>
+<area shape="rect" id="Node000006" href="$test__hid__basic_8c.html#a910057603e9aca69a6f9bfa8c9172acd" title=" " alt="" coords="435,112,689,142"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="380,124,419,124,419,130,380,130"/>
+<area shape="poly" id="edge7_Node000006_Node000003" title=" " alt="" coords="663,140,792,160,791,165,662,145"/>
+<area shape="rect" id="Node000007" href="$hid__host_8c.html#a11a0fba026148791db2f95529d5a74e5" title="USB HID Host close device." alt="" coords="814,59,999,88"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="662,109,798,88,799,93,663,114"/>
+<area shape="rect" id="Node000008" href="$hid__host_8c.html#aeb8242bd63abe09482931132c4279f30" title="HID Host get device raw input report data pointer by handle." alt="" coords="737,112,1076,142"/>
+<area shape="poly" id="edge8_Node000006_Node000008" title=" " alt="" coords="690,124,722,124,722,130,690,130"/>
+<area shape="rect" id="Node000010" href="$hid__host_8c.html#acbc45f16781e49ef923d3c5884be3f84" title="USB HID Host install USB Host HID Class driver." alt="" coords="496,216,629,246"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="342,228,480,228,480,234,342,234"/>
+<area shape="rect" id="Node000012" href="$hid__host_8c.html#a1f99ad56d875a6b92a550f4abf3ff34c" title="USB HID Host uninstall HID Class driver." alt="" coords="486,269,638,299"/>
+<area shape="poly" id="edge12_Node000011_Node000012" title=" " alt="" coords="355,282,471,282,471,287,355,287"/>
+<area shape="rect" id="Node000014" href="$test__hid__basic_8c.html#ae7a5450ecd6bf06bd20e3ea9f1f311d3" title=" " alt="" coords="495,323,629,352"/>
+<area shape="poly" id="edge14_Node000013_Node000014" title=" " alt="" coords="387,335,480,335,480,340,387,340"/>
+<area shape="poly" id="edge15_Node000014_Node000003" title=" " alt="" coords="629,325,688,308,741,284,791,256,871,202,874,207,793,261,743,289,690,313,630,330"/>
+<area shape="rect" id="Node000015" href="$hid__host_8c.html#a811bdd4f3b9ce2d0647834dde7a6ea83" title="HID Host Get Report Descriptor." alt="" coords="785,323,1028,352"/>
+<area shape="poly" id="edge16_Node000014_Node000015" title=" " alt="" coords="630,335,770,335,770,340,630,340"/>
+</map>

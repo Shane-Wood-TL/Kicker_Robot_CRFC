@@ -1,0 +1,9 @@
+<map id="menu_handler::dpad_up_pressed" name="menu_handler::dpad_up_pressed">
+<area shape="rect" id="Node000001" title="This function will switch which variable can be modified in the menus (if modifiable)" alt="" coords="533,5,795,35"/>
+<area shape="rect" id="Node000002" href="$classmenu__handler.html#a23740b6e7279e5a39ab4377d1e440813" title="This function will update the menu handler." alt="" coords="304,5,485,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="518,23,486,23,486,18,518,18"/>
+<area shape="rect" id="Node000003" href="$display__task_8cpp.html#a9f61f48e689e3ceb92895a85cd380e17" title="This is the task that handles driving the display with the menus and values." alt="" coords="146,5,256,35"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="288,23,256,23,256,18,288,18"/>
+<area shape="rect" id="Node000004" href="$main_8cpp.html#a630544a7f0a2cc40d8a7fefab7e2fe70" title="the main function for the program, creates all semaphores, tasks, and runs setup functions" alt="" coords="5,5,98,35"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="130,23,98,23,98,18,130,18"/>
+</map>

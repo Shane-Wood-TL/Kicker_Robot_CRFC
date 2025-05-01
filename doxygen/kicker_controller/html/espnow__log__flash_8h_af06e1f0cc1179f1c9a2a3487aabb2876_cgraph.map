@@ -1,0 +1,5 @@
+<map id="espnow_log_flash_write" name="espnow_log_flash_write">
+<area shape="rect" id="Node000001" title="Write memory log data in flash." alt="" coords="5,5,200,35"/>
+<area shape="rect" id="Node000002" href="$espnow__log__flash_8c.html#ac6a7180a73404d1accd3406774997fec" title="Get the size of log stored in flash." alt="" coords="248,5,437,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="200,18,232,18,232,23,200,23"/>
+</map>

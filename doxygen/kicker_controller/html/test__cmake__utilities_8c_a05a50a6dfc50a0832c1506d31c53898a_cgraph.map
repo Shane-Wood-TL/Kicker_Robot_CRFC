@@ -1,0 +1,15 @@
+<map id="TEST_CASE" name="TEST_CASE">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,139,123,168"/>
+<area shape="rect" id="Node000002" href="$test__component1_8c.html#ae9adfb2db41f13c4a70cb0e4a663b7db" title=" " alt="" coords="171,5,424,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="74,136,112,90,139,65,169,45,181,39,184,43,172,49,142,69,116,94,78,140"/>
+<area shape="rect" id="Node000003" href="$test__component1_8c.html#ad55066e2714d4bbb88af13c8f1425c18" title=" " alt="" coords="171,59,424,88"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="90,136,127,116,170,98,194,90,195,95,172,103,129,121,92,141"/>
+<area shape="rect" id="Node000004" href="$test__component1_8c.html#a053abd496f69287382a752d95e0a6378" title=" " alt="" coords="171,112,424,142"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="123,144,155,140,156,146,123,149"/>
+<area shape="rect" id="Node000005" href="$test__component2_8c.html#a99a8027be5460292d825dd56f1575a93" title=" " alt="" coords="171,165,424,195"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="123,158,156,161,155,167,123,163"/>
+<area shape="rect" id="Node000006" href="$test__component2_8c.html#a2e73146ad4de180f60c05cf8c6b24c19" title=" " alt="" coords="171,219,424,248"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="92,166,129,186,172,204,195,212,194,217,170,209,127,191,90,171"/>
+<area shape="rect" id="Node000007" href="$test__component2_8c.html#a0afe348be956b38e4804bd5a4c984d0d" title=" " alt="" coords="171,272,424,302"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="78,167,116,213,142,238,172,258,184,264,181,268,169,262,139,242,112,217,74,171"/>
+</map>

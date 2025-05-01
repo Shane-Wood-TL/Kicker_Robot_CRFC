@@ -1,0 +1,9 @@
+<map id="menu::draw_to_display" name="menu::draw_to_display">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,59,192,88"/>
+<area shape="rect" id="Node000002" href="$classmenu.html#ac0666103fe5e90c5964cb043564b856b" title="This function changes what value is selected in the menu (if modifiable)" alt="" coords="240,5,431,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="167,55,251,36,252,42,168,61"/>
+<area shape="rect" id="Node000003" href="$classmenu.html#ace9a681a44f014b790e060eb82ad109d" title="This function draws the menu to the display." alt="" coords="242,59,428,88"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="192,71,227,71,227,76,192,76"/>
+<area shape="rect" id="Node000004" href="$classmenu.html#a43fc0dce51cf325ab9b4ade948ae35e6" title="This is the constructor for the menu class." alt="" coords="281,112,390,142"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="168,86,266,109,265,114,167,92"/>
+</map>

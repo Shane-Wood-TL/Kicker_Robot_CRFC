@@ -232,18 +232,22 @@ void kicker_drive_train::ramped_settings_updater()
 
 
 void kicker_drive_train::drive_motors(bool boosted){
+    //create variables to hold the values to be sent to the motors
     float current_drive_speed = 0.0f;
     float current_turning_speed = 0.0f;
     if(!boosted){
+        //normal operation
         current_drive_speed = map(last_driving_speed, eight_bit_minimum, eight_bit_maximum, (-last_driving_speed_mult * motor_drive_speed_multiplier_value), (last_driving_speed_mult * motor_drive_speed_multiplier_value));
         
     }else{
+        //boosted operation
         current_drive_speed = map(last_driving_speed, eight_bit_minimum, eight_bit_maximum, ((-boost_amount-last_driving_speed_mult) * motor_drive_speed_multiplier_value), ((boost_amount+last_driving_speed_mult) * motor_drive_speed_multiplier_value));   
     }
 
-
+    //turning speed is always the same, regardless of boosted or not
     current_turning_speed = map(last_turning_speed, eight_bit_minimum, eight_bit_maximum, (-last_turning_speed_mult * motor_turn_speed_multiplier_value), (last_turning_speed_mult * motor_turn_speed_multiplier_value));
 
+    //apply deadzone to the drive and turning speeds
     if (abs(current_drive_speed) < (input_velocity_deadzone * last_driving_speed_mult))
     {
         current_drive_speed = 0;
@@ -253,22 +257,23 @@ void kicker_drive_train::drive_motors(bool boosted){
         current_turning_speed = 0;
     }
 
-
+    //combine the turn and drive speeds
     float current_left_motor_speed = -current_drive_speed + current_turning_speed;
     float current_right_motor_speed = current_drive_speed + current_turning_speed;  //right motor is inverted
 
+    // set the torque feedforward value to the same value for both motors
     float Input_Torque_FF = odrive_motor_torque;
     uint8_t vel_left_as_int[full_message_size] = {0};
     uint8_t vel_right_as_int[full_message_size] = {0};
 
-    
-    
+    //set up the message to be sent to the motors
     (void)memcpy(&vel_left_as_int[full_message_start_index], &current_left_motor_speed, sizeof(float));
     (void)memcpy(&vel_left_as_int[full_message_middle_index], &Input_Torque_FF, sizeof(float));
 
     (void)memcpy(&vel_right_as_int[full_message_start_index], &current_right_motor_speed, sizeof(float));
     (void)memcpy(&vel_right_as_int[full_message_middle_index], &Input_Torque_FF, sizeof(float));
 
+    //send the message to the motors
     left_drive->send_message(Set_Input_Vel, vel_left_as_int, eight_bytes, false);
     right_drive->send_message(Set_Input_Vel, vel_right_as_int, eight_bytes, false);
 }
@@ -308,7 +313,6 @@ void kicker_drive_train::break_motors(){
         xSemaphoreGive(ramped_values_updated);
     }
 
-
     static uint32_t delay_ms = timeout_clock;
     static uint32_t max_delay_ms = max_braking_time;
 
@@ -317,9 +321,6 @@ void kicker_drive_train::break_motors(){
     // prevent watchdog timeout
     for (uint32_t elapsed = 0; elapsed < max_delay_ms; elapsed += delay_ms)
     {
-        left_drive->send_message(Get_Error, NULL, zero_bytes, true);
-        right_drive->send_message(Get_Error, NULL, zero_bytes, true);
-
         left_drive->send_message(Get_Encoder_Estimates, NULL, zero_bytes, true);
         right_drive->send_message(Get_Encoder_Estimates, NULL, zero_bytes, true);
 

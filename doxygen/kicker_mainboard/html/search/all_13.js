@@ -1,0 +1,23 @@
+var searchData=
+[
+  ['value_0',['value',['../classchangeable__values.html#a68320b2b191c3fcdd4f22a14bcd544ab',1,'changeable_values']]],
+  ['values_1',['values',['../classmenu.html#abe666770a95628f87c2166bd3cf850b6',1,'menu']]],
+  ['values_5f0_2',['values_0',['../pinout_8h.html#a1ec0e3b3ba636cd3da2425835efaa615',1,'pinout.h']]],
+  ['values_5f1_3',['values_1',['../pinout_8h.html#a4f024300fb8208d91fa1aa7106f2204c',1,'pinout.h']]],
+  ['values_5f2_4',['values_2',['../pinout_8h.html#a9f6e63710763c60b7d33e0f5fb6622cd',1,'pinout.h']]],
+  ['values_5f3_5',['values_3',['../pinout_8h.html#ab08798681c2504ff75103c0d25606b83',1,'pinout.h']]],
+  ['values_5f4_6',['values_4',['../pinout_8h.html#ae017c02711c953a4bee671110ef5d989',1,'pinout.h']]],
+  ['values_5f5_7',['values_5',['../pinout_8h.html#a98913932db1f120f00627dc103f989a3',1,'pinout.h']]],
+  ['values_5f6_8',['values_6',['../pinout_8h.html#ab94eb2651a58d44e16731ffacb746112',1,'pinout.h']]],
+  ['values_5f7_9',['values_7',['../pinout_8h.html#a19c96dce817e7c0a2334d4100049fd9e',1,'pinout.h']]],
+  ['values_5f8_10',['values_8',['../pinout_8h.html#acef9de5ce95a07f12414cee0ec9aa94a',1,'pinout.h']]],
+  ['vel_5framp_5frate_5fid_11',['vel_ramp_rate_id',['../kicker__drive__train_8h.html#ad772c2337e346c8253a4a2082573c741',1,'kicker_drive_train.h']]],
+  ['velocity_5fgain_12',['velocity_gain',['../structesp__now__data__to__receive.html#aeec6da748f22b2f8d41e6ed58c015593',1,'esp_now_data_to_receive::velocity_gain'],['../esp__now__callback__setup_8h.html#a4f3bb79eb85cfb2cb880107b4ab789f6',1,'velocity_gain:&#160;main.cpp'],['../kicker__drive__train_8h.html#a4f3bb79eb85cfb2cb880107b4ab789f6',1,'velocity_gain:&#160;main.cpp'],['../kicker__drive__train__task_8h.html#a4f3bb79eb85cfb2cb880107b4ab789f6',1,'velocity_gain:&#160;main.cpp'],['../main_8cpp.html#a4f3bb79eb85cfb2cb880107b4ab789f6',1,'velocity_gain:&#160;main.cpp']]],
+  ['velocity_5fintegrator_5fgain_13',['velocity_integrator_gain',['../structesp__now__data__to__receive.html#a26748dda73cbee5f333ae87d7c91085f',1,'esp_now_data_to_receive::velocity_integrator_gain'],['../esp__now__callback__setup_8h.html#a0371664ba46a24cc21258af95e2b7c95',1,'velocity_integrator_gain:&#160;main.cpp'],['../kicker__drive__train_8h.html#a0371664ba46a24cc21258af95e2b7c95',1,'velocity_integrator_gain:&#160;main.cpp'],['../kicker__drive__train__task_8h.html#a0371664ba46a24cc21258af95e2b7c95',1,'velocity_integrator_gain:&#160;main.cpp'],['../main_8cpp.html#a0371664ba46a24cc21258af95e2b7c95',1,'velocity_integrator_gain:&#160;main.cpp']]],
+  ['velocity_5framp_5flimit_14',['velocity_ramp_limit',['../structesp__now__data__to__receive.html#a1a5cec7f172acf7d477c60bba6b565f8',1,'esp_now_data_to_receive::velocity_ramp_limit'],['../esp__now__callback__setup_8h.html#a105e0d316e69ea261ec78a19296110d7',1,'velocity_ramp_limit:&#160;main.cpp'],['../kicker__drive__train_8h.html#a105e0d316e69ea261ec78a19296110d7',1,'velocity_ramp_limit:&#160;main.cpp'],['../kicker__drive__train__task_8h.html#a105e0d316e69ea261ec78a19296110d7',1,'velocity_ramp_limit:&#160;main.cpp'],['../main_8cpp.html#a105e0d316e69ea261ec78a19296110d7',1,'velocity_ramp_limit:&#160;main.cpp']]],
+  ['vertical_5ffont_5frow_5f0_15',['vertical_font_row_0',['../menus_8h.html#a5d329881c6a13043bd7c16d64436c016',1,'menus.h']]],
+  ['vertical_5ffont_5frow_5f1_16',['vertical_font_row_1',['../menus_8h.html#ae86396ab2332867c5f2090ad2f2443dd',1,'menus.h']]],
+  ['vertical_5ffont_5frow_5f2_17',['vertical_font_row_2',['../menus_8h.html#a38a00a3da178b896da69000239703391',1,'menus.h']]],
+  ['vertical_5ffont_5frow_5f3_18',['vertical_font_row_3',['../menus_8h.html#a41224069e118a0dcf46de27db5c370a5',1,'menus.h']]],
+  ['verticalbar_19',['verticalBar',['../classfont.html#ab0547d8a9125ab7c95ff2ac853863e8c',1,'font']]]
+];

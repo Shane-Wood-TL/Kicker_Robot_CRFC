@@ -1,0 +1,61 @@
+<map id="app_main" name="app_main">
+<area shape="rect" id="Node000001" title="the main function for the program, creates all semaphores, tasks, and runs setup functions" alt="" coords="5,311,98,340"/>
+<area shape="rect" id="Node000002" href="$display__driver__task_8cpp.html#ad4b666a6c9c2ec527932313b8dee6e6a" title="The display driver task." alt="" coords="159,85,318,115"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="60,309,95,255,144,190,207,124,211,128,148,194,100,258,65,312"/>
+<area shape="rect" id="Node000008" href="$esp__now__setup_8cpp.html#a889303b81f10f5b0163bec7442a0bcdc" title="Sets up the ESP&#45;NOW communication, including setting up the callback functions." alt="" coords="171,204,306,234"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="65,308,99,276,144,243,156,237,159,242,147,248,102,280,68,312"/>
+<area shape="rect" id="Node000011" href="$i2c__setup_8cpp.html#a4f4aa63c7d4429490f91bfd80164f309" title="Sets up the I2C bus, with the set pins and port number." alt="" coords="193,257,284,287"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="97,310,178,287,179,292,99,315"/>
+<area shape="rect" id="Node000012" href="$kicker__drive__train__task_8cpp.html#a938e6bfee6576fa0854ce50fcaa54b7a" title="The task to drive the odrive motors, set speeds, modify ramped velocity parameters,..." alt="" coords="146,311,331,340"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="98,323,130,323,130,328,98,328"/>
+<area shape="rect" id="Node000025" href="$led__strip__setup_8cpp.html#ad61bd19de422f745c4f8706997898625" title="Sets up the led strip, including the RMT and led strip config." alt="" coords="193,364,284,394"/>
+<area shape="poly" id="edge26_Node000001_Node000025" title=" " alt="" coords="99,336,178,359,177,364,97,341"/>
+<area shape="rect" id="Node000027" href="$esp__now__task_8cpp.html#ab9edebb5dc10653223f27304bc558cfb" title="The task to transmit the battery voltage over esp&#45;now." alt="" coords="171,417,306,447"/>
+<area shape="poly" id="edge28_Node000001_Node000027" title=" " alt="" coords="68,339,102,371,147,403,159,409,156,414,144,408,99,375,65,343"/>
+<area shape="rect" id="Node000028" href="$servo__driver__task_8cpp.html#a8e1f9855aa8e67ae3bfce99c2a861bc5" title="The task to drive the servo motor." alt="" coords="165,471,312,500"/>
+<area shape="poly" id="edge29_Node000001_Node000028" title=" " alt="" coords="62,340,93,397,117,429,147,457,154,461,151,465,144,461,113,433,89,400,57,342"/>
+<area shape="rect" id="Node000003" href="$classssd1306.html#a23098da61ef8c67a1b1f530526dc4507" title="Clears the display buffer." alt="" coords="418,5,592,35"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="274,82,378,44,407,37,408,42,380,49,276,87"/>
+<area shape="rect" id="Node000004" href="$classmenu.html#ace9a681a44f014b790e060eb82ad109d" title="This function draws the menu to the display." alt="" coords="412,59,598,88"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="318,90,396,82,397,87,319,95"/>
+<area shape="rect" id="Node000005" href="$classssd1306.html#a8534651a9db59a3d8c5162b91457e322" title="Writes the buffer to the display." alt="" coords="379,112,631,142"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="319,105,364,110,363,115,318,111"/>
+<area shape="rect" id="Node000006" href="$classssd1306.html#ab1436aa90d5c6404a1246e8f740e80b4" title="Sends a command to the SSD1306." alt="" coords="730,59,1014,88"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="605,109,679,98,743,88,744,94,680,103,606,114"/>
+<area shape="rect" id="Node000007" href="$classssd1306.html#a81795f6478fb00df3bca485ba125fb02" title="Sends data to the SSD1306." alt="" coords="750,112,994,142"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="632,124,734,124,734,130,632,130"/>
+<area shape="rect" id="Node000009" href="$esp__now__callback__setup_8cpp.html#a0125c0c0903f463f26ed56c90a2ec006" title="Callback function for when a message is received." alt="" coords="455,179,555,208"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="306,210,439,197,440,202,306,215"/>
+<area shape="rect" id="Node000010" href="$esp__now__callback__setup_8cpp.html#a16fcfe50c95ced45f0ad21870f6e169a" title="Callback function for when a message is sent." alt="" coords="464,232,547,262"/>
+<area shape="poly" id="edge9_Node000008_Node000010" title=" " alt="" coords="306,223,448,238,448,244,306,229"/>
+<area shape="rect" id="Node000013" href="$classkicker__drive__train.html#af6663d5dc9de9ac8ca7f32f817cb8bd6" title="The main loop for the drive train, updates values, checks battery, and drives motors." alt="" coords="403,311,607,340"/>
+<area shape="poly" id="edge12_Node000012_Node000013" title=" " alt="" coords="331,323,387,323,387,328,331,328"/>
+<area shape="rect" id="Node000014" href="$classkicker__drive__train.html#a7b21d38c1a81e3646f07602f41cab0bc" title="brake the motors by setting the velocity to 0" alt="" coords="1117,245,1370,275"/>
+<area shape="poly" id="edge13_Node000013_Node000014" title=" " alt="" coords="561,308,596,292,630,272,644,254,651,235,660,217,678,202,711,187,746,175,818,163,891,162,964,169,1033,183,1096,200,1196,236,1194,241,1095,205,1032,188,963,175,891,167,818,168,747,181,713,192,681,206,664,221,656,238,649,257,633,275,599,297,563,313"/>
+<area shape="rect" id="Node000016" href="$classkicker__drive__train.html#a78a7597a4a1b0bc9492ef66c32b8a0c6" title="drive the motors based on set parameters and last joystick values" alt="" coords="748,216,996,246"/>
+<area shape="poly" id="edge15_Node000013_Node000016" title=" " alt="" coords="542,308,616,277,679,255,732,243,733,249,680,260,618,282,544,313"/>
+<area shape="rect" id="Node000017" href="$classkicker__drive__train.html#a429f74f99def00f7d234662909150be0" title="modify the speed multipliers" alt="" coords="679,269,1065,299"/>
+<area shape="poly" id="edge16_Node000013_Node000017" title=" " alt="" coords="608,311,719,299,720,304,608,317"/>
+<area shape="rect" id="Node000018" href="$classkicker__drive__train.html#a059b7bd8b12aa236032041c49c0312cd" title="update the speeds of the motors based on the joysticks" alt="" coords="712,323,1032,352"/>
+<area shape="poly" id="edge17_Node000013_Node000018" title=" " alt="" coords="608,326,697,329,696,334,608,332"/>
+<area shape="rect" id="Node000019" href="$classkicker__drive__train.html#a2c011997429fafeeacddbb1e74d604c4" title="change the status of the motors" alt="" coords="717,376,1027,406"/>
+<area shape="poly" id="edge18_Node000013_Node000019" title=" " alt="" coords="581,338,632,350,680,362,731,370,730,376,679,367,631,355,580,343"/>
+<area shape="rect" id="Node000023" href="$classkicker__drive__train.html#acae2e06df7e1d3c8af4f988fc1629b2f" title="update the battery voltage if the correct amount of time has passed" alt="" coords="704,429,1040,459"/>
+<area shape="poly" id="edge24_Node000013_Node000023" title=" " alt="" coords="609,338,633,350,649,367,657,384,665,401,681,415,691,421,688,425,678,420,661,404,653,386,645,370,630,354,607,343"/>
+<area shape="rect" id="Node000024" href="$classkicker__drive__train.html#a1aea7c500cba07d358770050e51fd6cb" title="update the ramped velocity parameters if they have been changed" alt="" coords="704,483,1040,512"/>
+<area shape="poly" id="edge25_Node000013_Node000024" title=" " alt="" coords="609,335,633,350,646,365,653,380,657,412,662,442,668,456,681,469,692,476,689,481,678,473,664,459,656,443,652,412,648,382,642,368,630,354,606,340"/>
+<area shape="rect" id="Node000015" href="$classkicker__drive__train.html#a6ef0c24f1b0871021979a48fde1c9ff4" title="set the motors to their idle state" alt="" coords="1422,272,1686,302"/>
+<area shape="poly" id="edge14_Node000014_Node000015" title=" " alt="" coords="1370,268,1407,272,1406,277,1370,274"/>
+<area shape="poly" id="edge19_Node000019_Node000014" title=" " alt="" coords="1026,379,1063,362,1079,346,1087,328,1094,310,1111,291,1133,279,1136,284,1114,296,1099,312,1092,331,1084,349,1066,366,1028,384"/>
+<area shape="poly" id="edge22_Node000019_Node000015" title=" " alt="" coords="1023,373,1064,362,1087,348,1112,335,1186,315,1262,301,1406,287,1407,292,1263,307,1187,320,1114,340,1090,353,1066,367,1024,378"/>
+<area shape="rect" id="Node000020" href="$classkicker__drive__train.html#ac9c1b7680ef0506c28d674f26bda4ee7" title="run the calibration sequence with periodic messages over can bus to prevent the odrives from entering..." alt="" coords="1129,349,1358,379"/>
+<area shape="poly" id="edge20_Node000019_Node000020" title=" " alt="" coords="1027,377,1113,371,1113,376,1027,382"/>
+<area shape="rect" id="Node000021" href="$classkicker__drive__train.html#ad5670ad9be6bd4d7055b8dfbfafe75db" title="clear the errors on the odrives" alt="" coords="1123,403,1364,432"/>
+<area shape="poly" id="edge21_Node000019_Node000021" title=" " alt="" coords="1027,399,1108,405,1107,410,1027,405"/>
+<area shape="rect" id="Node000022" href="$classkicker__drive__train.html#aa08dd2966d8975334cf46f3e939f1751" title="set the motors to their active state" alt="" coords="1113,456,1374,486"/>
+<area shape="poly" id="edge23_Node000019_Node000022" title=" " alt="" coords="1024,404,1066,415,1090,428,1114,442,1136,449,1134,454,1112,447,1087,433,1064,420,1023,409"/>
+<area shape="rect" id="Node000026" href="$classled__strip__driver.html#a55d9fff12f864b0acfdac864fca5232b" title="set the color for a set of leds in the strip" alt="" coords="403,364,607,394"/>
+<area shape="poly" id="edge27_Node000025_Node000026" title=" " alt="" coords="284,376,388,376,388,382,284,382"/>
+<area shape="rect" id="Node000029" href="$classservo.html#ab55e39bebe95e8bb62aea015a0dcb7c1" title="set the angle of the servo motor" alt="" coords="434,471,576,500"/>
+<area shape="poly" id="edge30_Node000028_Node000029" title=" " alt="" coords="313,483,418,483,418,488,313,488"/>
+</map>

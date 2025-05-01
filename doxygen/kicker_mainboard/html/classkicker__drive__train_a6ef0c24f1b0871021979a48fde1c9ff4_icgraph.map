@@ -1,0 +1,15 @@
+<map id="kicker_drive_train::disable_motors" name="kicker_drive_train::disable_motors">
+<area shape="rect" id="Node000001" title="set the motors to their idle state" alt="" coords="1289,32,1553,62"/>
+<area shape="rect" id="Node000002" href="$classkicker__drive__train.html#a7b21d38c1a81e3646f07602f41cab0bc" title="brake the motors by setting the velocity to 0" alt="" coords="989,57,1241,87"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1274,62,1242,64,1241,59,1273,56"/>
+<area shape="rect" id="Node000003" href="$classkicker__drive__train.html#a2c011997429fafeeacddbb1e74d604c4" title="change the status of the motors" alt="" coords="631,5,941,35"/>
+<area shape="poly" id="edge7_Node000001_Node000003" title=" " alt="" coords="1273,43,941,29,941,24,1273,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="1001,57,884,38,885,33,1002,52"/>
+<area shape="rect" id="Node000004" href="$classkicker__drive__train.html#af6663d5dc9de9ac8ca7f32f817cb8bd6" title="The main loop for the drive train, updates values, checks battery, and drives motors." alt="" coords="379,32,583,62"/>
+<area shape="poly" id="edge6_Node000002_Node000004" title=" " alt="" coords="973,69,584,54,584,48,973,64"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="616,38,584,41,583,35,616,32"/>
+<area shape="rect" id="Node000005" href="$kicker__drive__train__task_8cpp.html#a938e6bfee6576fa0854ce50fcaa54b7a" title="The task to drive the odrive motors, set speeds, modify ramped velocity parameters,..." alt="" coords="146,32,331,62"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="364,50,332,50,332,44,364,44"/>
+<area shape="rect" id="Node000006" href="$main_8cpp.html#a630544a7f0a2cc40d8a7fefab7e2fe70" title="the main function for the program, creates all semaphores, tasks, and runs setup functions" alt="" coords="5,32,98,62"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="130,50,98,50,98,44,130,44"/>
+</map>

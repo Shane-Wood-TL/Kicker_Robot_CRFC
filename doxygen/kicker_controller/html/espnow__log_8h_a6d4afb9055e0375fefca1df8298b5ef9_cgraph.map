@@ -1,0 +1,5 @@
+<map id="espnow_log_init" name="espnow_log_init">
+<area shape="rect" id="Node000001" title="Initialize log debug." alt="" coords="5,5,144,35"/>
+<area shape="rect" id="Node000002" href="$espnow__log__flash_8c.html#a8f2cce758ed84ea78771e12972d3e929" title="Initialize espnow log flash Find and get log flash partition which size is not smaller than LOG_FLASH..." alt="" coords="192,5,373,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="144,18,176,18,176,23,144,23"/>
+</map>

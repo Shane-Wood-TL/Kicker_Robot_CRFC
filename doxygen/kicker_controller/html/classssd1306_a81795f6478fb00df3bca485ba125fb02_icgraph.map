@@ -1,0 +1,13 @@
+<map id="ssd1306::send_data_SSD1306" name="ssd1306::send_data_SSD1306">
+<area shape="rect" id="Node000001" title="Sends data to the SSD1306." alt="" coords="645,32,890,62"/>
+<area shape="rect" id="Node000002" href="$classssd1306.html#a1aae212504a93232231113bfe2e864a5" title=" " alt="" coords="369,5,573,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="630,37,573,32,574,27,630,32"/>
+<area shape="rect" id="Node000004" href="$classssd1306.html#a8534651a9db59a3d8c5162b91457e322" title="Writes the buffer to the display." alt="" coords="345,59,597,88"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="630,62,598,65,597,59,630,57"/>
+<area shape="rect" id="Node000003" href="$classssd1306.html#a2518946b016e3c7f651eacaa1416864f" title="Constructor for the SSD1306 class." alt="" coords="146,5,297,35"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="353,23,298,23,298,18,353,18"/>
+<area shape="rect" id="Node000005" href="$display__task_8cpp.html#a9f61f48e689e3ceb92895a85cd380e17" title="This is the task that handles driving the display with the menus and values." alt="" coords="166,59,276,88"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="329,76,277,76,277,71,329,71"/>
+<area shape="rect" id="Node000006" href="$main_8cpp.html#a630544a7f0a2cc40d8a7fefab7e2fe70" title="the main function for the program, creates all semaphores, tasks, and runs setup functions" alt="" coords="5,59,98,88"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="150,76,98,76,98,71,150,71"/>
+</map>

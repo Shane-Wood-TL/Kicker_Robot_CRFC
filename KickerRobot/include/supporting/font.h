@@ -1347,16 +1347,16 @@ skinparam classAttributeIconSize 0
 hide circle
 
 class font {
-    - *font_map[font_map_size] : const uint16_t 
-    - const uint16_t zero[font_height] : const uint16_t 
-    - const uint16_t one[font_height] : const uint16_t 
-    - const uint16_t two[font_height] : const uint16_t 
-    - const uint16_t three[font_height] : const uint16_t 
-    - const uint16_t four[font_height] : const uint16_t 
-    - const uint16_t five[font_height] : const uint16_t 
-    - const uint16_t six[font_height] : const uint16_t 
-    - const uint16_t seven[font_height] : const uint16_t 
-    - const uint16_t eight[font_height] : const uint16_t 
+    - font_map[font_map_size] : const uint16_t* 
+    - zero[font_height] : const uint16_t 
+    - one[font_height] : const uint16_t 
+    - two[font_height] : const uint16_t 
+    - three[font_height] : const uint16_t 
+    - four[font_height] : const uint16_t 
+    - five[font_height] : const uint16_t 
+    - six[font_height] : const uint16_t 
+    - seven[font_height] : const uint16_t 
+    - eight[font_height] : const uint16_t 
            and 59 more...
     
     + font()

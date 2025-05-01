@@ -1,0 +1,5 @@
+<map id="menu::decrease_selected_value" name="menu::decrease_selected_value">
+<area shape="rect" id="Node000001" title="This function decreases the selected value in the menu (if modifiable)" alt="" coords="306,5,558,35"/>
+<area shape="rect" id="Node000002" href="$classmenu.html#a7e091ecf3ad5a16b628d94deecf7f0e8" title=" " alt="" coords="5,5,258,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="290,23,258,23,258,18,290,18"/>
+</map>

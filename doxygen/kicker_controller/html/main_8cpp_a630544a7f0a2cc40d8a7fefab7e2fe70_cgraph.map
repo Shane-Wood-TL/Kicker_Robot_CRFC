@@ -1,0 +1,58 @@
+<map id="app_main" name="app_main">
+<area shape="rect" id="Node000001" title="the main function for the program, creates all semaphores, tasks, and runs setup functions" alt="" coords="5,616,98,646"/>
+<area shape="rect" id="Node000002" href="$display__task_8cpp.html#a9f61f48e689e3ceb92895a85cd380e17" title="This is the task that handles driving the display with the menus and values." alt="" coords="174,323,284,352"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="60,614,208,364,213,367,64,617"/>
+<area shape="rect" id="Node000020" href="$esp__now__setup_8cpp.html#a889303b81f10f5b0163bec7442a0bcdc" title="Sets up the ESP&#45;NOW communication, including setting up the callback functions." alt="" coords="162,536,296,566"/>
+<area shape="poly" id="edge24_Node000001_Node000020" title=" " alt="" coords="75,613,145,575,159,569,161,574,147,580,78,618"/>
+<area shape="rect" id="Node000023" href="$i2c__setup_8cpp.html#a4f4aa63c7d4429490f91bfd80164f309" title="Sets up the I2C bus, with the set pins and port number." alt="" coords="184,589,274,619"/>
+<area shape="poly" id="edge27_Node000001_Node000023" title=" " alt="" coords="98,621,168,610,169,616,99,627"/>
+<area shape="rect" id="Node000024" href="$ps4__data__processor__task_8cpp.html#af9a507d2ac984bfa7c03a8684e08ffa4" title="This is the task that processes the ps4 controller data, but does not deal with usb directly." alt="" coords="146,643,312,672"/>
+<area shape="poly" id="edge28_Node000001_Node000024" title=" " alt="" coords="99,635,130,640,130,645,98,640"/>
+<area shape="rect" id="Node000025" href="$ps4__task_8cpp.html#ae9e84c36416275bb31be0c38c34690ce" title="This is the task that handles the usb for the ps4 controller." alt="" coords="186,696,272,726"/>
+<area shape="poly" id="edge29_Node000001_Node000025" title=" " alt="" coords="78,644,147,682,172,692,170,697,145,687,75,649"/>
+<area shape="rect" id="Node000026" href="$send__data__task_8cpp.html#ab9edebb5dc10653223f27304bc558cfb" title="This is the task that sends data to the kicker mainboard." alt="" coords="162,749,296,779"/>
+<area shape="poly" id="edge30_Node000001_Node000026" title=" " alt="" coords="64,645,98,690,121,714,147,735,155,740,152,744,144,740,117,718,94,693,60,648"/>
+<area shape="rect" id="Node000003" href="$classssd1306.html#a23098da61ef8c67a1b1f530526dc4507" title="Clears the display buffer." alt="" coords="399,216,573,246"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="249,320,297,287,359,255,383,247,385,252,361,260,300,292,252,324"/>
+<area shape="rect" id="Node000004" href="$classmenu.html#ace9a681a44f014b790e060eb82ad109d" title="This function draws the menu to the display." alt="" coords="393,269,579,299"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="284,324,396,300,397,305,285,329"/>
+<area shape="rect" id="Node000005" href="$classmenu__handler.html#a23740b6e7279e5a39ab4377d1e440813" title="This function will update the menu handler." alt="" coords="396,323,577,352"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="284,335,380,335,380,340,284,340"/>
+<area shape="rect" id="Node000017" href="$classssd1306.html#a8534651a9db59a3d8c5162b91457e322" title="Writes the buffer to the display." alt="" coords="360,483,612,512"/>
+<area shape="poly" id="edge21_Node000002_Node000017" title=" " alt="" coords="256,351,449,472,446,476,253,355"/>
+<area shape="rect" id="Node000006" href="$classmenu__handler.html#a5359c304e788501a02e8aaf6d289266f" title="This function draws the motor calibration menu to the display." alt="" coords="684,5,920,35"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="576,329,595,321,610,309,632,278,640,247,639,215,634,183,629,150,628,117,636,84,658,52,670,42,673,46,662,55,641,86,633,118,634,150,639,182,645,215,645,248,637,280,614,313,598,326,578,334"/>
+<area shape="rect" id="Node000007" href="$classmenu__handler.html#af3008a9c0396d06b3b772a31096d31ac" title="This function draws the status menu to the display." alt="" coords="992,376,1270,406"/>
+<area shape="poly" id="edge11_Node000005_Node000007" title=" " alt="" coords="576,329,595,321,610,309,629,283,636,257,635,230,631,202,627,174,628,146,637,120,659,95,683,82,717,74,800,69,883,77,918,85,945,95,982,121,1015,152,1043,188,1067,226,1103,301,1124,360,1119,362,1098,303,1062,229,1039,191,1011,156,979,125,942,100,917,90,883,82,800,74,718,79,685,87,662,100,642,123,633,147,633,174,636,201,641,229,641,258,634,286,614,313,597,325,578,334"/>
+<area shape="rect" id="Node000008" href="$classmenu__handler.html#a1761326e4755be032ead895f0128a241" title="This function will switch which variable can be modified in the menus (if modifiable)" alt="" coords="661,109,943,139"/>
+<area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="576,328,595,320,611,309,625,290,632,271,633,231,635,189,642,169,658,149,662,146,665,150,662,153,647,171,640,190,639,231,638,272,630,293,614,313,597,325,578,333"/>
+<area shape="rect" id="Node000009" href="$classmenu__handler.html#a217a2b1671785e4d03511d7a62901e0a" title="This function will decrease the value of the selected variable if modifiable)" alt="" coords="670,163,934,192"/>
+<area shape="poly" id="edge8_Node000005_Node000009" title=" " alt="" coords="576,327,611,309,622,297,629,284,634,257,639,229,646,215,659,202,664,198,667,203,662,206,650,218,644,231,639,258,634,286,627,300,614,313,579,331"/>
+<area shape="rect" id="Node000010" href="$classmenu__handler.html#a4515106db4f1601ab9dd85d12482de3c" title="This function will increase the value of the selected variable if modifiable)" alt="" coords="665,216,939,246"/>
+<area shape="poly" id="edge9_Node000005_Node000010" title=" " alt="" coords="576,323,611,309,626,296,634,283,643,268,659,255,670,250,673,254,662,260,647,272,639,285,630,300,614,313,578,328"/>
+<area shape="rect" id="Node000011" href="$classmenu__handler.html#af2c07a9bc76fa5db69a736029600b2ce" title="This function will switch which variable can be modified in the menus (if modifiable)" alt="" coords="671,269,933,299"/>
+<area shape="poly" id="edge10_Node000005_Node000011" title=" " alt="" coords="577,320,694,300,695,305,578,325"/>
+<area shape="rect" id="Node000012" href="$classmenu__handler.html#a501ff5ac964f8ed7775397311071c34f" title="This function draws the servo latched menu to the display." alt="" coords="696,323,908,352"/>
+<area shape="poly" id="edge12_Node000005_Node000012" title=" " alt="" coords="577,335,681,335,681,340,577,340"/>
+<area shape="rect" id="Node000013" href="$classmenu__handler.html#af947e2fc4fecee6f2240e9d25db90961" title="This function cycles throught the status, motor speed, and ramped velocity menu menus." alt="" coords="677,376,927,406"/>
+<area shape="poly" id="edge14_Node000005_Node000013" title=" " alt="" coords="578,350,695,370,694,375,577,355"/>
+<area shape="rect" id="Node000014" href="$classmenu__handler.html#af1b665a4320c38333e0081864ce797ad" title="This function draws the servo released menu to the display." alt="" coords="681,429,923,459"/>
+<area shape="poly" id="edge15_Node000005_Node000014" title=" " alt="" coords="516,350,581,383,661,415,688,423,687,428,659,420,579,388,514,355"/>
+<area shape="rect" id="Node000015" href="$classmenu__handler.html#abb48889d1582aa32c4ef201a3707c21d" title="This function draws the errors clear menu to the display." alt="" coords="678,483,926,512"/>
+<area shape="poly" id="edge17_Node000005_Node000015" title=" " alt="" coords="504,351,568,409,613,442,661,468,678,475,676,480,659,473,610,446,565,413,500,355"/>
+<area shape="rect" id="Node000016" href="$classmenu__handler.html#a0d65822629745990561b91fc423d3aaa" title="This function draws the motors en/dis abled menu to the display." alt="" coords="676,536,928,566"/>
+<area shape="poly" id="edge19_Node000005_Node000016" title=" " alt="" coords="504,351,614,469,636,499,646,511,662,522,673,527,670,532,659,526,642,514,632,502,610,473,500,354"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="912,33,945,51,983,85,1016,125,1044,167,1068,211,1104,295,1124,360,1119,361,1099,297,1063,214,1040,170,1012,128,979,89,942,56,909,38"/>
+<area shape="poly" id="edge13_Node000012_Node000007" title=" " alt="" coords="899,350,1021,370,1020,376,898,356"/>
+<area shape="poly" id="edge16_Node000014_Node000007" title=" " alt="" coords="898,426,1020,406,1021,411,899,431"/>
+<area shape="poly" id="edge18_Node000015_Node000007" title=" " alt="" coords="899,479,943,468,1019,440,1085,411,1087,415,1021,445,944,473,901,485"/>
+<area shape="poly" id="edge20_Node000016_Node000007" title=" " alt="" coords="910,533,943,522,989,498,1032,470,1101,414,1104,418,1035,474,991,503,945,527,912,538"/>
+<area shape="rect" id="Node000018" href="$classssd1306.html#ab1436aa90d5c6404a1246e8f740e80b4" title="Sends a command to the SSD1306." alt="" coords="660,589,944,619"/>
+<area shape="poly" id="edge22_Node000017_Node000018" title=" " alt="" coords="589,511,614,522,630,535,639,550,647,563,662,575,673,581,670,585,659,580,643,567,634,552,626,539,611,526,587,515"/>
+<area shape="rect" id="Node000019" href="$classssd1306.html#a81795f6478fb00df3bca485ba125fb02" title="Sends data to the SSD1306." alt="" coords="680,643,924,672"/>
+<area shape="poly" id="edge23_Node000017_Node000019" title=" " alt="" coords="596,511,614,522,627,535,634,549,639,577,644,604,650,617,662,629,668,633,665,637,659,633,646,620,639,606,634,578,629,551,622,538,611,526,593,515"/>
+<area shape="rect" id="Node000021" href="$esp__now__callback__setup_8cpp.html#a8fc4e863eb9b21ccd56a12c7bfa20e59" title="Callback function for when a message is received." alt="" coords="436,536,536,566"/>
+<area shape="poly" id="edge25_Node000020_Node000021" title=" " alt="" coords="296,548,420,548,420,554,296,554"/>
+<area shape="rect" id="Node000022" href="$esp__now__callback__setup_8cpp.html#a16fcfe50c95ced45f0ad21870f6e169a" title="Callback function for when a message is sent." alt="" coords="444,589,528,619"/>
+<area shape="poly" id="edge26_Node000020_Node000022" title=" " alt="" coords="297,562,430,590,429,595,296,567"/>
+</map>

@@ -1,0 +1,11 @@
+<map id="kicker_drive_train::calibrating" name="kicker_drive_train::calibrating">
+<area shape="rect" id="Node000001" title="run the calibration sequence with periodic messages over can bus to prevent the odrives from entering..." alt="" coords="989,5,1218,35"/>
+<area shape="rect" id="Node000002" href="$classkicker__drive__train.html#a2c011997429fafeeacddbb1e74d604c4" title="change the status of the motors" alt="" coords="631,5,941,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="973,23,941,23,941,18,973,18"/>
+<area shape="rect" id="Node000003" href="$classkicker__drive__train.html#af6663d5dc9de9ac8ca7f32f817cb8bd6" title="The main loop for the drive train, updates values, checks battery, and drives motors." alt="" coords="379,5,583,35"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="616,23,584,23,584,18,616,18"/>
+<area shape="rect" id="Node000004" href="$kicker__drive__train__task_8cpp.html#a938e6bfee6576fa0854ce50fcaa54b7a" title="The task to drive the odrive motors, set speeds, modify ramped velocity parameters,..." alt="" coords="146,5,331,35"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="364,23,332,23,332,18,364,18"/>
+<area shape="rect" id="Node000005" href="$main_8cpp.html#a630544a7f0a2cc40d8a7fefab7e2fe70" title="the main function for the program, creates all semaphores, tasks, and runs setup functions" alt="" coords="5,5,98,35"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="130,23,98,23,98,18,130,18"/>
+</map>

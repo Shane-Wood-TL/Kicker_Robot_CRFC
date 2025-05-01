@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['ramped_5fmutex_0',['ramped_mutex',['../esp__now__callback__setup_8h.html#a9273ec3440011d192e692ec35c53ca27',1,'ramped_mutex:&#160;main.cpp'],['../kicker__drive__train_8h.html#a9273ec3440011d192e692ec35c53ca27',1,'ramped_mutex:&#160;main.cpp'],['../kicker__drive__train__task_8h.html#a9273ec3440011d192e692ec35c53ca27',1,'ramped_mutex:&#160;main.cpp'],['../main_8cpp.html#a9273ec3440011d192e692ec35c53ca27',1,'ramped_mutex:&#160;main.cpp']]],
+  ['ramped_5fsettings_5fupdater_1',['ramped_settings_updater',['../classkicker__drive__train.html#a1aea7c500cba07d358770050e51fd6cb',1,'kicker_drive_train']]],
+  ['ramped_5fvalues_5fupdated_2',['ramped_values_updated',['../esp__now__callback__setup_8h.html#a2683cfee0dd0d1f68ff8d11ffd725e46',1,'ramped_values_updated:&#160;main.cpp'],['../kicker__drive__train_8h.html#a2683cfee0dd0d1f68ff8d11ffd725e46',1,'ramped_values_updated:&#160;main.cpp'],['../kicker__drive__train__task_8h.html#a2683cfee0dd0d1f68ff8d11ffd725e46',1,'ramped_values_updated:&#160;main.cpp'],['../main_8cpp.html#a2683cfee0dd0d1f68ff8d11ffd725e46',1,'ramped_values_updated:&#160;main.cpp']]],
+  ['ramped_5fvalues_5fupdated_5fbool_3',['ramped_values_updated_bool',['../esp__now__callback__setup_8h.html#aea4f5cc007b109c8482fb3b3ab3be0ad',1,'ramped_values_updated_bool:&#160;main.cpp'],['../kicker__drive__train_8h.html#aea4f5cc007b109c8482fb3b3ab3be0ad',1,'ramped_values_updated_bool:&#160;main.cpp'],['../kicker__drive__train__task_8h.html#aea4f5cc007b109c8482fb3b3ab3be0ad',1,'ramped_values_updated_bool:&#160;main.cpp'],['../main_8cpp.html#aea4f5cc007b109c8482fb3b3ab3be0ad',1,'ramped_values_updated_bool:&#160;main.cpp']]],
+  ['reboot_4',['Reboot',['../odrive__commands_8h.html#adced863001968e664efa2cc3ba781a3b',1,'odrive_commands.h']]],
+  ['receive_5fmessage_5',['receive_message',['../classo_drive.html#aa484e8a0703f3459aa6cb8b9415ea80c',1,'oDrive']]],
+  ['released_6',['RELEASED',['../all__includes_8h.html#ae0bac8a6b045cf445615cafcb865df2eaa38d18fe73a7fc82c112b6917d0b5cd0',1,'all_includes.h']]],
+  ['right_5fdrive_7',['right_drive',['../classkicker__drive__train.html#aba8f5128c3de35b12e29e29419c67cda',1,'kicker_drive_train']]],
+  ['right_5fdrive_5fvelocity_5festimate_8',['right_drive_velocity_estimate',['../o_drive_8h.html#a2b503f7e282fb063b45ccf46d612153a',1,'right_drive_velocity_estimate:&#160;main.cpp'],['../kicker__drive__train_8h.html#a2b503f7e282fb063b45ccf46d612153a',1,'right_drive_velocity_estimate:&#160;main.cpp'],['../main_8cpp.html#a2b503f7e282fb063b45ccf46d612153a',1,'right_drive_velocity_estimate:&#160;main.cpp']]],
+  ['right_5fdrive_5fvelocity_5festimate_5fmutex_9',['right_drive_velocity_estimate_mutex',['../o_drive_8h.html#a15094f2ca1d40c88c78fb26f9c61e2ee',1,'right_drive_velocity_estimate_mutex:&#160;main.cpp'],['../kicker__drive__train_8h.html#a15094f2ca1d40c88c78fb26f9c61e2ee',1,'right_drive_velocity_estimate_mutex:&#160;main.cpp'],['../main_8cpp.html#a15094f2ca1d40c88c78fb26f9c61e2ee',1,'right_drive_velocity_estimate_mutex:&#160;main.cpp']]],
+  ['right_5fmotor_5fspeed_10',['right_motor_speed',['../kicker__drive__train__task_8h.html#a157c00404394fb3ecd370d22c2869f4f',1,'kicker_drive_train_task.h']]],
+  ['right_5fmotor_5fspeed_5fmult_11',['right_motor_speed_mult',['../kicker__drive__train__task_8h.html#a289439cb0be741c1f05b2333330d7fa5',1,'kicker_drive_train_task.h']]],
+  ['rmt_5fchannel_5fmemory_5fsize_12',['rmt_channel_memory_size',['../led__strip__driver_8h.html#ac0a25d37a269099d9c5ba71e63bc09d7',1,'led_strip_driver.h']]],
+  ['rmt_5fconfig_13',['rmt_config',['../classled__strip__driver.html#ac2894163c7c029f4573a4f1cb12565d9',1,'led_strip_driver']]],
+  ['rmt_5fcounter_5fclock_5ffrequency_14',['rmt_counter_clock_frequency',['../led__strip__driver_8h.html#adc0399c9c22890336927d4f9745ed264',1,'led_strip_driver.h']]],
+  ['rxsdo_15',['RxSdo',['../odrive__commands_8h.html#aa294279492163e596765fc38262765ee',1,'odrive_commands.h']]]
+];

@@ -1,0 +1,5 @@
+var searchData=
+[
+  ['esp_5fnow_5fdata_5fto_5freceive_0',['esp_now_data_to_receive',['../structesp__now__data__to__receive.html',1,'']]],
+  ['esp_5fnow_5fdata_5fto_5fsend_1',['esp_now_data_to_send',['../structesp__now__data__to__send.html',1,'']]]
+];

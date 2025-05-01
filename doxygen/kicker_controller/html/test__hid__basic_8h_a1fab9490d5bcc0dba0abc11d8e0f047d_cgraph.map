@@ -1,0 +1,5 @@
+<map id="test_hid_teardown" name="test_hid_teardown">
+<area shape="rect" id="Node000001" title="Teardowns HID testing." alt="" coords="5,5,158,35"/>
+<area shape="rect" id="Node000002" href="$hid__host_8c.html#a1f99ad56d875a6b92a550f4abf3ff34c" title="USB HID Host uninstall HID Class driver." alt="" coords="206,5,357,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="158,18,190,18,190,23,158,23"/>
+</map>

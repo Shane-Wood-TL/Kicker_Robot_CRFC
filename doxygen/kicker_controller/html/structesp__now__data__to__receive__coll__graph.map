@@ -1,0 +1,3 @@
+<map id="esp_now_data_to_receive" name="esp_now_data_to_receive">
+<area shape="rect" id="Node000001" title="Contains the data that the controller is expecting from the robot." alt="" coords="5,5,204,84"/>
+</map>

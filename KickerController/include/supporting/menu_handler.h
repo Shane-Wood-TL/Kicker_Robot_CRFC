@@ -191,6 +191,8 @@ public:
 ```plantuml
 @startuml
 skinparam classAttributeIconSize 0
+skinparam wrapWidth 1000
+
 hide circle
 
 class menu_handler {

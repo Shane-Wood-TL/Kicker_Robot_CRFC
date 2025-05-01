@@ -1,0 +1,19 @@
+<map id="espnow_sec_initiator_scan" name="espnow_sec_initiator_scan">
+<area shape="rect" id="Node000001" title="Root scans other node info." alt="" coords="5,85,221,115"/>
+<area shape="rect" id="Node000002" href="$espnow_8c.html#ad1db406d2cb51ac8f967fbc95473afe5" title="Send ESP&#45;NOW data." alt="" coords="341,59,462,88"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="221,88,325,78,325,83,221,93"/>
+<area shape="rect" id="Node000009" href="$espnow_8c.html#a5e8b13ca7f586bed41ed5779b84f61f4" title="Set configuration when receiving the corresponding ESP&#45;NOW data type Include: Set to enable/disable h..." alt="" coords="269,112,534,142"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="221,107,253,110,253,116,221,113"/>
+<area shape="rect" id="Node000003" href="$espnow_8c.html#a20960515d17cbc436c4598a4b8134c94" title="Get the security key info stored in flash If no security key info is stored in flash,..." alt="" coords="617,5,759,35"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="462,60,601,34,602,39,463,65"/>
+<area shape="rect" id="Node000005" href="$espnow__security_8c.html#a7530c208d25669a17e838a4d0c7f0ea5" title="The authenticated encryption function. Encryption with 128 bit AES&#45;CCM." alt="" coords="582,59,794,88"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="463,71,566,71,566,76,463,76"/>
+<area shape="rect" id="Node000006" href="$espnow_8c.html#a776b545b0faedcd1511a6d59a7213029" title="Set the security key info The security key info is used to derive key and stored to flash...." alt="" coords="618,112,759,142"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="463,82,603,108,602,114,462,87"/>
+<area shape="rect" id="Node000004" href="$espnow__storage_8c.html#a46b53eee49b7a85ab1aaa1b876408722" title="Load the information with given key." alt="" coords="842,5,1013,35"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="760,18,827,18,827,23,760,23"/>
+<area shape="rect" id="Node000007" href="$espnow__security_8c.html#ad081d6044fc0cedbb0c06e2c68dad306" title="Set the security key info." alt="" coords="844,85,1011,115"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="759,116,829,108,829,114,760,122"/>
+<area shape="rect" id="Node000008" href="$espnow__storage_8c.html#ade9d20917bbd54b5748ef1651342c881" title="Save the information with given key." alt="" coords="843,139,1012,168"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="760,132,828,140,827,145,759,137"/>
+</map>

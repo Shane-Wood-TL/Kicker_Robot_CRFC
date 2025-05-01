@@ -1,0 +1,9 @@
+<map id="menu::menu" name="menu::menu">
+<area shape="rect" id="Node000001" title="This is the constructor for the menu class." alt="" coords="306,59,415,88"/>
+<area shape="rect" id="Node000002" href="$classmenu.html#a7e091ecf3ad5a16b628d94deecf7f0e8" title=" " alt="" coords="5,5,258,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="290,58,257,49,207,38,208,33,258,44,291,52"/>
+<area shape="rect" id="Node000003" href="$classmenu.html#a581ddb789b3d1840c715107a764b3c75" title=" " alt="" coords="38,59,225,88"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="290,76,225,76,225,71,290,71"/>
+<area shape="rect" id="Node000004" href="$classmenu.html#a3a5d9075755694b34ee8b3b59bf765a1" title=" " alt="" coords="8,112,255,142"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="291,95,258,103,208,114,207,109,257,98,290,89"/>
+</map>

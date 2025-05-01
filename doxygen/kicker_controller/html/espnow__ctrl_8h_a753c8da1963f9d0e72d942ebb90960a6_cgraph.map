@@ -1,0 +1,5 @@
+<map id="espnow_ctrl_responder_clear_bindlist" name="espnow_ctrl_responder_clear_bindlist">
+<area shape="rect" id="Node000001" title="Remove all bound devices from bindlist." alt="" coords="5,5,298,35"/>
+<area shape="rect" id="Node000002" href="$espnow__storage_8c.html#ade9d20917bbd54b5748ef1651342c881" title="Save the information with given key." alt="" coords="346,5,515,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="298,18,330,18,330,23,298,23"/>
+</map>

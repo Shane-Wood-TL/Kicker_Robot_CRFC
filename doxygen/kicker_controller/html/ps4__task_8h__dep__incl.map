@@ -1,0 +1,7 @@
+<map id="include/tasks/ps4_task.h" name="include/tasks/ps4_task.h">
+<area shape="rect" id="Node000001" title="This is the file that contains the ps4 task." alt="" coords="62,5,258,35"/>
+<area shape="rect" id="Node000002" href="$main_8cpp.html" title="This is the file that contains the main function and all other tasks for the robot controller." alt="" coords="5,83,131,113"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="133,47,87,85,84,80,129,43"/>
+<area shape="rect" id="Node000003" href="$ps4__task_8cpp.html" title="This is the file that contains the ps4 task." alt="" coords="154,83,350,113"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="191,43,236,80,233,85,187,47"/>
+</map>

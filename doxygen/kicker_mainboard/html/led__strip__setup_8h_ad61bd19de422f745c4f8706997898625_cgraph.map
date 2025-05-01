@@ -1,0 +1,5 @@
+<map id="led_setup" name="led_setup">
+<area shape="rect" id="Node000001" title="Sets up the led strip, including the RMT and led strip config." alt="" coords="5,5,97,35"/>
+<area shape="rect" id="Node000002" href="$classled__strip__driver.html#a55d9fff12f864b0acfdac864fca5232b" title="set the color for a set of leds in the strip" alt="" coords="145,5,349,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="97,18,129,18,129,23,97,23"/>
+</map>

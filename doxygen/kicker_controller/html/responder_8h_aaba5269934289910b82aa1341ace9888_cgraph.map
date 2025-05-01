@@ -1,0 +1,72 @@
+<map id="app_espnow_responder" name="app_espnow_responder">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,592,200,622"/>
+<area shape="rect" id="Node000002" href="$espnow__commands_8c.html#a0bb86e9397ef9f6da395e1a03b34a139" title="Register Common commands." alt="" coords="248,245,539,275"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="113,590,169,515,246,418,365,285,369,288,250,422,173,519,117,593"/>
+<area shape="rect" id="Node000022" href="$espnow__console_8c.html#aa6f31005efa0f0074f02968b96f8bd7a" title="Initialize console module." alt="" coords="307,485,480,515"/>
+<area shape="poly" id="edge21_Node000001_Node000022" title=" " alt="" coords="125,589,179,556,247,524,291,512,293,517,249,529,181,561,128,594"/>
+<area shape="rect" id="Node000024" href="$espnow_8c.html#a20960515d17cbc436c4598a4b8134c94" title="Get the security key info stored in flash If no security key info is stored in flash,..." alt="" coords="322,539,464,568"/>
+<area shape="poly" id="edge23_Node000001_Node000024" title=" " alt="" coords="187,589,247,578,306,567,307,572,248,583,188,594"/>
+<area shape="rect" id="Node000026" href="$espnow__log_8c.html#a6d4afb9055e0375fefca1df8298b5ef9" title="Initialize log debug." alt="" coords="324,592,462,622"/>
+<area shape="poly" id="edge25_Node000001_Node000026" title=" " alt="" coords="200,604,308,604,308,610,200,610"/>
+<area shape="rect" id="Node000028" href="$espnow__ota__responder_8c.html#ab046328511e23a2687f41b7c3b7cc407" title="Start upgrading." alt="" coords="279,432,508,462"/>
+<area shape="poly" id="edge27_Node000001_Node000028" title=" " alt="" coords="113,590,166,531,204,498,246,471,263,464,265,469,249,476,207,502,170,535,117,593"/>
+<area shape="rect" id="Node000029" href="$espnow__security__responder_8c.html#a550e5f438d39bba5dc7c34e48c6f1c65" title="Start security process." alt="" coords="278,645,509,675"/>
+<area shape="poly" id="edge29_Node000001_Node000029" title=" " alt="" coords="188,620,248,631,294,639,293,645,247,636,187,625"/>
+<area shape="rect" id="Node000030" href="$espnow_8c.html#a9664730b8b7e142959c5c0f9c55e8def" title="Set the security key info The security key info is used to derive key and stored to flash...." alt="" coords="305,752,482,782"/>
+<area shape="poly" id="edge30_Node000001_Node000030" title=" " alt="" coords="117,620,170,679,207,711,249,738,291,753,289,758,246,743,204,715,166,683,113,624"/>
+<area shape="rect" id="Node000033" href="$espnow_8c.html#a776b545b0faedcd1511a6d59a7213029" title="Set the security key info The security key info is used to derive key and stored to flash...." alt="" coords="323,699,464,728"/>
+<area shape="poly" id="edge33_Node000001_Node000033" title=" " alt="" coords="128,620,181,653,249,684,308,700,307,705,247,689,179,658,125,625"/>
+<area shape="rect" id="Node000034" href="$espnow__timesync_8c.html#a2111aa57c26ce6218f9f0cfb6bf235af" title="Initialize time synchronization." alt="" coords="299,805,488,835"/>
+<area shape="poly" id="edge36_Node000001_Node000034" title=" " alt="" coords="113,621,132,657,161,704,201,752,224,773,249,791,285,807,283,812,246,796,220,777,197,755,157,707,127,659,108,623"/>
+<area shape="rect" id="Node000003" href="$cmd__espnow_8c.html#a49ab8b4f30ba6620b8349e8dbcf6e7a7" title=" " alt="" coords="650,325,789,355"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="447,273,588,311,635,321,634,327,586,316,446,278"/>
+<area shape="rect" id="Node000009" href="$cmd__iperf_8c.html#aba7899961f37bd327bbcfbfbe6582b3d" title=" " alt="" coords="662,379,777,408"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="418,273,492,318,539,343,588,364,648,381,647,386,586,369,536,348,489,323,415,278"/>
+<area shape="rect" id="Node000012" href="$cmd__peripherals_8c.html#a32de1cde0b0101a969e28a296a893a0c" title=" " alt="" coords="638,432,801,462"/>
+<area shape="poly" id="edge11_Node000002_Node000012" title=" " alt="" coords="410,273,481,344,532,384,588,418,624,431,622,436,586,423,529,389,477,348,406,277"/>
+<area shape="rect" id="Node000013" href="$cmd__sdcard_8c.html#aee0a19b9ec59752b8124fcb5d3b45d23" title="Register sdcard command." alt="" coords="654,5,785,35"/>
+<area shape="poly" id="edge12_Node000002_Node000013" title=" " alt="" coords="401,243,428,203,469,148,522,92,553,66,586,44,611,33,638,25,640,30,613,38,588,49,556,70,526,96,473,152,432,206,406,246"/>
+<area shape="rect" id="Node000014" href="$cmd__system_8c.html#a5cea85be00cb1ee5b57616da2fec81dd" title=" " alt="" coords="653,59,786,88"/>
+<area shape="poly" id="edge13_Node000002_Node000014" title=" " alt="" coords="406,243,477,172,529,132,586,98,637,81,638,86,588,103,532,136,481,176,410,247"/>
+<area shape="rect" id="Node000015" href="$cmd__wifi_8c.html#acc3b783818c73878210baf4064425629" title=" " alt="" coords="666,112,773,142"/>
+<area shape="poly" id="edge14_Node000002_Node000015" title=" " alt="" coords="415,243,489,197,536,172,586,151,650,134,651,139,588,156,539,177,492,202,418,247"/>
+<area shape="rect" id="Node000019" href="$cmd__wifi__sniffer_8c.html#aeca2ef6acde5704f187f7f3734ca0a51" title=" " alt="" coords="640,165,799,195"/>
+<area shape="poly" id="edge18_Node000002_Node000019" title=" " alt="" coords="446,242,586,204,624,196,625,201,588,209,447,247"/>
+<area shape="rect" id="Node000020" href="$sdcard_8c.html#ae3e13ea01aad71d69c7e3c4656de1803" title="Initialize sdcard, Using SDMMC peripheral." alt="" coords="670,219,769,248"/>
+<area shape="poly" id="edge19_Node000002_Node000020" title=" " alt="" coords="539,246,654,236,655,241,540,251"/>
+<area shape="rect" id="Node000021" href="$sdcard_8c.html#a1ee82a88b28b169594e94eada1cf1233" title="Check if sdcard is mounted." alt="" coords="648,272,791,302"/>
+<area shape="poly" id="edge20_Node000002_Node000021" title=" " alt="" coords="540,269,633,277,632,282,539,275"/>
+<area shape="rect" id="Node000004" href="$cmd__espnow_8c.html#a663e227ca7f408c5e70f3a543066c1f3" title="Register command command." alt="" coords="919,405,1073,435"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="791,347,853,364,878,378,901,391,919,398,917,403,899,396,875,382,851,369,789,353"/>
+<area shape="rect" id="Node000005" href="$cmd__espnow_8c.html#a133f010c7f704fae3fd7c7844ab8adb4" title=" " alt="" coords="930,192,1062,222"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="789,334,821,326,851,311,867,293,874,273,881,252,899,231,914,222,917,226,902,236,886,255,879,275,872,296,854,316,823,331,790,340"/>
+<area shape="rect" id="Node000006" href="$cmd__espnow_8c.html#a4116f70abed28605f9edde3cb2b49df3" title=" " alt="" coords="943,245,1049,275"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="789,328,851,311,875,298,899,284,928,274,929,279,901,289,878,303,853,316,791,333"/>
+<area shape="rect" id="Node000007" href="$cmd__espnow_8c.html#a250a2960cac20a0a927ea9ee538d0ed1" title=" " alt="" coords="911,299,1081,328"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="789,331,895,321,895,326,790,336"/>
+<area shape="rect" id="Node000008" href="$cmd__espnow_8c.html#a952bdf39df32da2582cc93259df66b21" title=" " alt="" coords="937,352,1055,382"/>
+<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="790,344,922,357,922,362,789,350"/>
+<area shape="rect" id="Node000010" href="$cmd__iperf_8c.html#a59752ecd5d3a975453892e77911181f3" title=" " alt="" coords="900,459,1092,488"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="778,398,853,418,878,431,901,444,919,451,917,456,899,449,875,436,851,423,776,404"/>
+<area shape="rect" id="Node000011" href="$cmd__iperf_8c.html#a3e3a4b00f06201a66ee042ac3363f9de" title=" " alt="" coords="906,512,1086,542"/>
+<area shape="poly" id="edge10_Node000009_Node000011" title=" " alt="" coords="778,392,817,400,854,418,872,438,879,459,886,479,902,498,908,502,905,507,899,502,881,482,874,461,867,441,851,422,815,405,777,397"/>
+<area shape="rect" id="Node000016" href="$cmd__wifi_8c.html#a53edfa7e48af95ba07348e7c1421feea" title=" " alt="" coords="929,139,1063,168"/>
+<area shape="poly" id="edge15_Node000015_Node000016" title=" " alt="" coords="774,129,914,143,913,148,774,135"/>
+<area shape="rect" id="Node000017" href="$cmd__wifi_8c.html#a829e61400c74b6e8b03ebbc968fb6ae9" title=" " alt="" coords="922,32,1070,62"/>
+<area shape="poly" id="edge16_Node000015_Node000017" title=" " alt="" coords="773,117,812,109,851,98,875,85,899,71,917,64,919,69,901,76,878,89,853,103,813,115,774,123"/>
+<area shape="rect" id="Node000018" href="$cmd__wifi_8c.html#af11c2a0aaba22bf6cce6d38be617ed89" title="Register wifi scan command." alt="" coords="921,85,1071,115"/>
+<area shape="poly" id="edge17_Node000015_Node000018" title=" " alt="" coords="774,119,905,106,906,112,774,124"/>
+<area shape="rect" id="Node000023" href="$espnow_8c.html#a5e8b13ca7f586bed41ed5779b84f61f4" title="Set configuration when receiving the corresponding ESP&#45;NOW data type Include: Set to enable/disable h..." alt="" coords="587,485,852,515"/>
+<area shape="poly" id="edge22_Node000022_Node000023" title=" " alt="" coords="480,498,571,498,571,503,480,503"/>
+<area shape="rect" id="Node000025" href="$espnow__storage_8c.html#a46b53eee49b7a85ab1aaa1b876408722" title="Load the information with given key." alt="" coords="634,539,805,568"/>
+<area shape="poly" id="edge24_Node000024_Node000025" title=" " alt="" coords="465,551,619,551,619,556,465,556"/>
+<area shape="rect" id="Node000027" href="$espnow__log__flash_8c.html#a8f2cce758ed84ea78771e12972d3e929" title="Initialize espnow log flash Find and get log flash partition which size is not smaller than LOG_FLASH..." alt="" coords="629,592,810,622"/>
+<area shape="poly" id="edge26_Node000026_Node000027" title=" " alt="" coords="463,604,614,604,614,610,463,610"/>
+<area shape="poly" id="edge28_Node000028_Node000023" title=" " alt="" coords="489,460,610,480,609,485,488,465"/>
+<area shape="rect" id="Node000031" href="$espnow__security_8c.html#ad081d6044fc0cedbb0c06e2c68dad306" title="Set the security key info." alt="" coords="636,699,803,728"/>
+<area shape="poly" id="edge31_Node000030_Node000031" title=" " alt="" coords="481,750,621,727,622,732,482,755"/>
+<area shape="rect" id="Node000032" href="$espnow__storage_8c.html#ade9d20917bbd54b5748ef1651342c881" title="Save the information with given key." alt="" coords="635,752,804,782"/>
+<area shape="poly" id="edge32_Node000030_Node000032" title=" " alt="" coords="482,764,619,764,619,770,482,770"/>
+<area shape="poly" id="edge34_Node000033_Node000031" title=" " alt="" coords="464,711,621,711,621,716,464,716"/>
+<area shape="poly" id="edge35_Node000033_Node000032" title=" " alt="" coords="465,722,621,748,620,753,464,728"/>
+</map>

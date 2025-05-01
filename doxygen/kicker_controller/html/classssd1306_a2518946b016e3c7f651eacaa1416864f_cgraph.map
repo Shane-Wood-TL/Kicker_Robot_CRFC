@@ -1,0 +1,14 @@
+<map id="ssd1306::ssd1306" name="ssd1306::ssd1306">
+<area shape="rect" id="Node000001" title="Constructor for the SSD1306 class." alt="" coords="5,59,157,88"/>
+<area shape="rect" id="Node000002" href="$classssd1306.html#a23098da61ef8c67a1b1f530526dc4507" title="Clears the display buffer." alt="" coords="220,5,394,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="146,55,225,37,226,42,148,61"/>
+<area shape="rect" id="Node000003" href="$classssd1306.html#a1aae212504a93232231113bfe2e864a5" title=" " alt="" coords="205,112,409,142"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="148,86,226,105,225,110,146,92"/>
+<area shape="rect" id="Node000006" href="$classssd1306.html#a5196c8d2e984359da2cc876c8d5f58db" title="Initializes the SSD1306." alt="" coords="212,59,402,88"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="157,71,196,71,196,76,157,76"/>
+<area shape="rect" id="Node000004" href="$classssd1306.html#ab1436aa90d5c6404a1246e8f740e80b4" title="Sends a command to the SSD1306." alt="" coords="457,59,740,88"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="392,109,498,89,499,94,393,114"/>
+<area shape="rect" id="Node000005" href="$classssd1306.html#a81795f6478fb00df3bca485ba125fb02" title="Sends data to the SSD1306." alt="" coords="476,112,721,142"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="409,124,461,124,461,130,409,130"/>
+<area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="402,71,441,71,441,76,402,76"/>
+</map>

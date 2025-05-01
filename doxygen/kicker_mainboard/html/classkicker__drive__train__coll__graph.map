@@ -1,0 +1,5 @@
+<map id="kicker_drive_train" name="kicker_drive_train">
+<area shape="rect" id="Node000001" title="This class is for controlling the kicker drive train (2 odrives)" alt="" coords="159,291,818,929"/>
+<area shape="rect" id="Node000002" href="$classo_drive.html" title="This is the class to control an odrive motor controller." alt="" coords="5,5,971,205"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="491,205,491,275,486,275,486,205"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="oDrive::update_battery_voltage" name="oDrive::update_battery_voltage">
+<area shape="rect" id="Node000001" title="the function that is called to update the display&#39;s battery voltage" alt="" coords="489,5,732,35"/>
+<area shape="rect" id="Node000002" href="$classo_drive.html#aa484e8a0703f3459aa6cb8b9415ea80c" title="the function that handles when a message needs to be received from the Odrive" alt="" coords="239,5,441,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="473,23,442,23,442,18,473,18"/>
+<area shape="rect" id="Node000003" href="$classo_drive.html#a4853976dc551c59e848dd2a832158d4a" title="send a command to the Odrive" alt="" coords="5,5,191,35"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="223,23,191,23,191,18,223,18"/>
+</map>

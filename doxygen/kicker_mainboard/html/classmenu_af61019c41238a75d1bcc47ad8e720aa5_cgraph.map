@@ -1,0 +1,5 @@
+<map id="menu::draw_to_display" name="menu::draw_to_display">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,192,35"/>
+<area shape="rect" id="Node000002" href="$classmenu.html#ac0666103fe5e90c5964cb043564b856b" title="This function changes what value is selected in the menu (if modifiable)" alt="" coords="240,5,431,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="192,18,224,18,224,23,192,23"/>
+</map>

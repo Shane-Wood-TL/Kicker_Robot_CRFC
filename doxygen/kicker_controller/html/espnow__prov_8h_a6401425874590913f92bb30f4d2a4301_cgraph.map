@@ -1,0 +1,5 @@
+<map id="espnow_prov_responder_start" name="espnow_prov_responder_start">
+<area shape="rect" id="Node000001" title="Responder starts to send provision beacon, receives initiator request and send WiFi configuration." alt="" coords="5,5,243,35"/>
+<area shape="rect" id="Node000002" href="$espnow_8c.html#a5e8b13ca7f586bed41ed5779b84f61f4" title="Set configuration when receiving the corresponding ESP&#45;NOW data type Include: Set to enable/disable h..." alt="" coords="291,5,556,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="243,18,275,18,275,23,243,23"/>
+</map>

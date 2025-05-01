@@ -1,0 +1,5 @@
+<map id="ps4::hid_host_interface_callback" name="ps4::hid_host_interface_callback">
+<area shape="rect" id="Node000001" title="USB HID Host interface callback." alt="" coords="5,5,260,35"/>
+<area shape="rect" id="Node000002" href="$classps4.html#ab98da929c3d1305de189ea698a2d6833" title="USB HID Host Generic Interface report callback handler." alt="" coords="308,5,604,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="260,18,292,18,292,23,260,23"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="espnow_erase_dec_key" name="espnow_erase_dec_key">
+<area shape="rect" id="Node000001" title="Erase the security key info stored in flash." alt="" coords="5,5,201,35"/>
+<area shape="rect" id="Node000002" href="$espnow__storage_8c.html#a3d1ea736c80e909b0acb98c34bb4c6a7" title="Erase the information with given key." alt="" coords="249,5,437,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="201,18,233,18,233,23,201,23"/>
+</map>

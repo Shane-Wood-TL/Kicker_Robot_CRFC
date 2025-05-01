@@ -1,0 +1,9 @@
+<map id="hid_host_test_interface_callback" name="hid_host_test_interface_callback">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,59,260,88"/>
+<area shape="rect" id="Node000002" href="$hid__host_8c.html#a11a0fba026148791db2f95529d5a74e5" title="USB HID Host close device." alt="" coords="384,5,570,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="233,55,368,34,369,39,234,61"/>
+<area shape="rect" id="Node000003" href="$hid__host_8c.html#a645239dcac0a0881b4a8feae644b50fb" title="HID Device get parameters by handle." alt="" coords="361,59,592,88"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="260,71,346,71,346,76,260,76"/>
+<area shape="rect" id="Node000004" href="$hid__host_8c.html#aeb8242bd63abe09482931132c4279f30" title="HID Host get device raw input report data pointer by handle." alt="" coords="308,112,646,142"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="234,86,362,106,361,112,233,92"/>
+</map>

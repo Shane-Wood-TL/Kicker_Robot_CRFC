@@ -1,0 +1,5 @@
+<map id="espnow_prov_initiator_scan" name="espnow_prov_initiator_scan">
+<area shape="rect" id="Node000001" title="Initiator scans provision beacon." alt="" coords="5,5,227,35"/>
+<area shape="rect" id="Node000002" href="$espnow_8c.html#a5e8b13ca7f586bed41ed5779b84f61f4" title="Set configuration when receiving the corresponding ESP&#45;NOW data type Include: Set to enable/disable h..." alt="" coords="275,5,540,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="227,18,259,18,259,23,227,23"/>
+</map>

@@ -1,0 +1,16 @@
+<map id="ssd1306::send_command_SSD1306" name="ssd1306::send_command_SSD1306">
+<area shape="rect" id="Node000001" title="Sends a command to the SSD1306." alt="" coords="653,59,937,88"/>
+<area shape="rect" id="Node000002" href="$classssd1306.html#a1aae212504a93232231113bfe2e864a5" title=" " alt="" coords="377,5,581,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="687,58,571,38,572,33,688,53"/>
+<area shape="rect" id="Node000004" href="$classssd1306.html#a5196c8d2e984359da2cc876c8d5f58db" title="Initializes the SSD1306." alt="" coords="384,59,574,88"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="638,76,575,76,575,71,638,71"/>
+<area shape="rect" id="Node000005" href="$classssd1306.html#a8534651a9db59a3d8c5162b91457e322" title="Writes the buffer to the display." alt="" coords="353,112,605,142"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="688,94,572,114,571,109,687,89"/>
+<area shape="rect" id="Node000003" href="$classssd1306.html#a2518946b016e3c7f651eacaa1416864f" title="Constructor for the SSD1306 class." alt="" coords="150,32,301,62"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="362,35,302,42,301,36,361,30"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="369,65,301,57,302,52,369,59"/>
+<area shape="rect" id="Node000006" href="$display__driver__task_8cpp.html#ad4b666a6c9c2ec527932313b8dee6e6a" title="The display driver task." alt="" coords="146,112,305,142"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="338,130,305,130,305,124,338,124"/>
+<area shape="rect" id="Node000007" href="$main_8cpp.html#a630544a7f0a2cc40d8a7fefab7e2fe70" title="the main function for the program, creates all semaphores, tasks, and runs setup functions" alt="" coords="5,112,98,142"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="130,130,98,130,98,124,130,124"/>
+</map>

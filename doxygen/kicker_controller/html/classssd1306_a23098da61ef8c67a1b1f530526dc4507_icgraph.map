@@ -1,0 +1,9 @@
+<map id="ssd1306::clear_buffer" name="ssd1306::clear_buffer">
+<area shape="rect" id="Node000001" title="Clears the display buffer." alt="" coords="345,32,519,62"/>
+<area shape="rect" id="Node000002" href="$display__task_8cpp.html#a9f61f48e689e3ceb92895a85cd380e17" title="This is the task that handles driving the display with the menus and values." alt="" coords="166,5,276,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="329,36,277,30,277,24,330,31"/>
+<area shape="rect" id="Node000004" href="$classssd1306.html#a2518946b016e3c7f651eacaa1416864f" title="Constructor for the SSD1306 class." alt="" coords="146,59,297,88"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="330,62,298,67,297,61,329,57"/>
+<area shape="rect" id="Node000003" href="$main_8cpp.html#a630544a7f0a2cc40d8a7fefab7e2fe70" title="the main function for the program, creates all semaphores, tasks, and runs setup functions" alt="" coords="5,5,98,35"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="150,23,98,23,98,18,150,18"/>
+</map>

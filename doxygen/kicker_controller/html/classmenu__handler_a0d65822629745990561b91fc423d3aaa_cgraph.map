@@ -1,0 +1,5 @@
+<map id="menu_handler::triangle_pressed" name="menu_handler::triangle_pressed">
+<area shape="rect" id="Node000001" title="This function draws the motors en/dis abled menu to the display." alt="" coords="5,5,257,35"/>
+<area shape="rect" id="Node000002" href="$classmenu__handler.html#af3008a9c0396d06b3b772a31096d31ac" title="This function draws the status menu to the display." alt="" coords="305,5,583,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="257,18,289,18,289,23,257,23"/>
+</map>

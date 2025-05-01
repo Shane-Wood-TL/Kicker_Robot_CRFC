@@ -1,0 +1,9 @@
+<map id="led_strip_driver::set_color" name="led_strip_driver::set_color">
+<area shape="rect" id="Node000001" title="set the color for a set of leds in the strip" alt="" coords="443,32,647,62"/>
+<area shape="rect" id="Node000002" href="$led__strip__setup_8cpp.html#ad61bd19de422f745c4f8706997898625" title="Sets up the led strip, including the RMT and led strip config." alt="" coords="225,5,316,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="427,38,316,27,317,22,428,33"/>
+<area shape="rect" id="Node000004" href="$classled__strip__driver.html#a36172fff3386c5cefd109582dff4a200" title="Constructor for the led_strip_driver class." alt="" coords="146,59,395,88"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="428,61,396,64,395,59,427,56"/>
+<area shape="rect" id="Node000003" href="$main_8cpp.html#a630544a7f0a2cc40d8a7fefab7e2fe70" title="the main function for the program, creates all semaphores, tasks, and runs setup functions" alt="" coords="5,5,98,35"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="209,23,98,23,98,18,209,18"/>
+</map>

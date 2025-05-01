@@ -1,0 +1,27 @@
+<map id="app_main" name="app_main">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,219,98,248"/>
+<area shape="rect" id="Node000002" href="$espnow_8c.html#a82456d56cc86371962135c5ff82fd954" title="Initialize ESP&#45;NOW function." alt="" coords="206,139,314,168"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="92,216,204,172,206,177,93,221"/>
+<area shape="rect" id="Node000011" href="$espnow__ota__responder_8c.html#ab046328511e23a2687f41b7c3b7cc407" title="Start upgrading." alt="" coords="146,219,374,248"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="98,231,130,231,130,236,98,236"/>
+<area shape="rect" id="Node000013" href="$espnow__storage_8c.html#afcdac79eafab05bba3191708b3d6c672" title="Intialise ESP Storage." alt="" coords="175,272,344,302"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="99,244,146,258,177,265,175,270,145,263,97,250"/>
+<area shape="rect" id="Node000003" href="$espnow_8c.html#ab9e96f875511fcc24184f7b863ff8747" title="When used for unicast, add the target device." alt="" coords="478,32,632,62"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="285,136,346,103,421,71,462,60,463,65,423,76,348,108,288,141"/>
+<area shape="rect" id="Node000004" href="$espnow_8c.html#ae2e7d37b72ff59a530a9447bea4aa106" title=" " alt="" coords="484,85,626,115"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="314,141,468,113,469,118,315,146"/>
+<area shape="rect" id="Node000009" href="$espnow__security_8c.html#accbf76d2b120ee4e43003ad1472c2b05" title="Initialize the specified security info." alt="" coords="484,139,625,168"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="314,151,469,151,469,156,314,156"/>
+<area shape="rect" id="Node000010" href="$espnow_8c.html#ae3d39a3c355f8c0a8297f76a28f7eaee" title=" " alt="" coords="481,192,628,222"/>
+<area shape="poly" id="edge9_Node000002_Node000010" title=" " alt="" coords="315,161,466,188,465,193,314,166"/>
+<area shape="rect" id="Node000005" href="$espnow_8h.html#af0be4b97c8dad6c432c969e960110c1e" title="Set group ID addresses." alt="" coords="753,5,916,35"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="626,87,686,71,710,58,734,44,752,38,754,43,736,49,713,63,688,76,627,93"/>
+<area shape="rect" id="Node000006" href="$espnow__group_8c.html#a875855b479ddb660719afebdc90b8b4d" title="Delete group ID addresses." alt="" coords="755,59,914,88"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="626,91,740,80,740,85,627,96"/>
+<area shape="rect" id="Node000007" href="$espnow__group_8c.html#aa7b993563fd6da0fb75573573733daa3" title="Get the number of group ID addresses." alt="" coords="735,112,934,142"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="627,104,720,113,720,119,626,110"/>
+<area shape="rect" id="Node000008" href="$espnow__group_8c.html#af826ca7f397223b5075b39529f9ba115" title="Check whether the specified group address is my group." alt="" coords="745,165,924,195"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="627,108,688,124,713,138,736,151,754,158,752,163,734,156,710,142,686,129,626,113"/>
+<area shape="rect" id="Node000012" href="$espnow_8c.html#a5e8b13ca7f586bed41ed5779b84f61f4" title="Set configuration when receiving the corresponding ESP&#45;NOW data type Include: Set to enable/disable h..." alt="" coords="422,245,687,275"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="375,241,407,244,406,249,374,247"/>
+</map>

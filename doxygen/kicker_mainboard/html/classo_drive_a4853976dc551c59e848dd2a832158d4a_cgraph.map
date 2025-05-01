@@ -1,0 +1,12 @@
+<map id="oDrive::send_message" name="oDrive::send_message">
+<area shape="rect" id="Node000001" title="send a command to the Odrive" alt="" coords="5,33,191,63"/>
+<area shape="rect" id="Node000002" href="$classo_drive.html#a55578b8304755ca7927f330b18958dca" title="the function that is called when something has gone wrong, and no message is received when Get_Bus_Vo..." alt="" coords="522,5,751,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="191,41,507,24,507,30,191,46"/>
+<area shape="rect" id="Node000003" href="$classo_drive.html#aa484e8a0703f3459aa6cb8b9415ea80c" title="the function that handles when a message needs to be received from the Odrive" alt="" coords="239,59,441,88"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="191,55,223,59,223,64,191,61"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="426,55,535,36,536,41,427,61"/>
+<area shape="rect" id="Node000004" href="$classo_drive.html#a61ff4f913fe19d2a83d78db6b11ab5f4" title="the function that is called to update the display&#39;s battery voltage" alt="" coords="515,59,758,88"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="442,71,500,71,500,76,442,76"/>
+<area shape="rect" id="Node000005" href="$classo_drive.html#af01746212d3a6f79099c715d5b5ae33f" title="Read the motor velocity from an odrive." alt="" coords="489,112,784,142"/>
+<area shape="poly" id="edge5_Node000003_Node000005" title=" " alt="" coords="427,86,536,106,535,111,426,92"/>
+</map>

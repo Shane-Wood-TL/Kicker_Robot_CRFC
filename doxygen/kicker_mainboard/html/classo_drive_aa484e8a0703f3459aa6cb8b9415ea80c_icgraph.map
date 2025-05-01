@@ -1,0 +1,5 @@
+<map id="oDrive::receive_message" name="oDrive::receive_message">
+<area shape="rect" id="Node000001" title="the function that handles when a message needs to be received from the Odrive" alt="" coords="239,5,441,35"/>
+<area shape="rect" id="Node000002" href="$classo_drive.html#a4853976dc551c59e848dd2a832158d4a" title="send a command to the Odrive" alt="" coords="5,5,191,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="223,23,191,23,191,18,223,18"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="test_multiple_tasks_access" name="test_multiple_tasks_access">
+<area shape="rect" id="Node000001" title="Creates MULTIPLE_TASKS_TASKS_NUM to get report descriptor and get protocol from HID device...." alt="" coords="5,32,222,62"/>
+<area shape="rect" id="Node000002" href="$test__hid__basic_8c.html#ae7a5450ecd6bf06bd20e3ea9f1f311d3" title=" " alt="" coords="270,32,404,62"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="222,44,254,44,254,50,222,50"/>
+<area shape="rect" id="Node000003" href="$hid__host_8c.html#a645239dcac0a0881b4a8feae644b50fb" title="HID Device get parameters by handle." alt="" coords="458,5,689,35"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="404,37,442,32,442,38,405,42"/>
+<area shape="rect" id="Node000004" href="$hid__host_8c.html#a811bdd4f3b9ce2d0647834dde7a6ea83" title="HID Host Get Report Descriptor." alt="" coords="452,59,694,88"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="405,52,437,55,436,61,404,57"/>
+</map>

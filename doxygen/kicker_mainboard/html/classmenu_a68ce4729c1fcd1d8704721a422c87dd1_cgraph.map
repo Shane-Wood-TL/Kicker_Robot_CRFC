@@ -1,0 +1,7 @@
+<map id="menu::increase_selected_value" name="menu::increase_selected_value">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,32,253,62"/>
+<area shape="rect" id="Node000002" href="$classmenu.html#a125867fd9fccd69d7851afe0294466e7" title="This function increases the selected value in the menu (if modifiable)" alt="" coords="301,5,548,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="253,33,285,30,285,35,253,38"/>
+<area shape="rect" id="Node000003" href="$classmenu.html#a43fc0dce51cf325ab9b4ade948ae35e6" title="This is the constructor for the menu class." alt="" coords="370,59,479,88"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="253,55,354,65,354,70,253,61"/>
+</map>

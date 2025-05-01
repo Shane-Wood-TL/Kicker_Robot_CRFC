@@ -1,0 +1,13 @@
+<map id="display_driver_task" name="display_driver_task">
+<area shape="rect" id="Node000001" title="The display driver task." alt="" coords="5,59,165,88"/>
+<area shape="rect" id="Node000002" href="$classssd1306.html#a23098da61ef8c67a1b1f530526dc4507" title="Clears the display buffer." alt="" coords="252,5,426,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,55,250,36,251,41,160,61"/>
+<area shape="rect" id="Node000003" href="$classmenu.html#ace9a681a44f014b790e060eb82ad109d" title="This function draws the menu to the display." alt="" coords="246,59,432,88"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="165,71,230,71,230,76,165,76"/>
+<area shape="rect" id="Node000004" href="$classssd1306.html#a8534651a9db59a3d8c5162b91457e322" title="Writes the buffer to the display." alt="" coords="213,112,465,142"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="160,86,251,106,250,111,159,92"/>
+<area shape="rect" id="Node000005" href="$classssd1306.html#ab1436aa90d5c6404a1246e8f740e80b4" title="Sends a command to the SSD1306." alt="" coords="513,85,796,115"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="465,114,497,111,498,116,466,119"/>
+<area shape="rect" id="Node000006" href="$classssd1306.html#a81795f6478fb00df3bca485ba125fb02" title="Sends data to the SSD1306." alt="" coords="532,139,777,168"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="466,135,517,139,517,145,465,140"/>
+</map>

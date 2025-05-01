@@ -1,0 +1,5 @@
+<map id="hid_host_driver_config_t" name="hid_host_driver_config_t">
+<area shape="rect" id="Node000001" title="HID configuration structure." alt="" coords="5,151,240,326"/>
+<area shape="rect" id="Node000002" href="$structhid__interface.html" title="HID Interface structure in device to interact with. After HID device opening keeps the interface conf..." alt="" coords="72,5,174,84"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="126,84,126,134,120,134,120,84"/>
+</map>

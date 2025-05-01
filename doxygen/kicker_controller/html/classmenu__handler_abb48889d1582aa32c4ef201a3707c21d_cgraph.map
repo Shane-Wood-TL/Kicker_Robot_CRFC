@@ -1,0 +1,5 @@
+<map id="menu_handler::square_pressed" name="menu_handler::square_pressed">
+<area shape="rect" id="Node000001" title="This function draws the errors clear menu to the display." alt="" coords="5,5,253,35"/>
+<area shape="rect" id="Node000002" href="$classmenu__handler.html#af3008a9c0396d06b3b772a31096d31ac" title="This function draws the status menu to the display." alt="" coords="301,5,579,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="253,18,285,18,285,23,253,23"/>
+</map>

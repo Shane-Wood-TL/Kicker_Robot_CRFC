@@ -1,0 +1,19 @@
+<map id="espnow_init" name="espnow_init">
+<area shape="rect" id="Node000001" title="Initialize ESP&#45;NOW function." alt="" coords="5,112,113,142"/>
+<area shape="rect" id="Node000002" href="$espnow_8c.html#ab9e96f875511fcc24184f7b863ff8747" title="When used for unicast, add the target device." alt="" coords="161,32,315,62"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="85,109,160,71,174,65,176,70,162,76,88,114"/>
+<area shape="rect" id="Node000003" href="$espnow_8c.html#ae2e7d37b72ff59a530a9447bea4aa106" title=" " alt="" coords="167,85,309,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="113,116,151,110,151,116,114,121"/>
+<area shape="rect" id="Node000008" href="$espnow__security_8c.html#accbf76d2b120ee4e43003ad1472c2b05" title="Initialize the specified security info." alt="" coords="167,139,308,168"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="114,132,152,138,152,143,113,137"/>
+<area shape="rect" id="Node000009" href="$espnow_8c.html#ae3d39a3c355f8c0a8297f76a28f7eaee" title=" " alt="" coords="164,192,312,222"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="88,140,162,178,176,184,174,189,160,183,85,145"/>
+<area shape="rect" id="Node000004" href="$espnow_8h.html#af0be4b97c8dad6c432c969e960110c1e" title="Set group ID addresses." alt="" coords="380,5,544,35"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="286,82,314,71,338,58,362,44,380,38,382,43,364,49,340,62,316,76,288,87"/>
+<area shape="rect" id="Node000005" href="$espnow__group_8c.html#a875855b479ddb660719afebdc90b8b4d" title="Delete group ID addresses." alt="" coords="383,59,541,88"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="309,89,368,82,368,87,310,94"/>
+<area shape="rect" id="Node000006" href="$espnow__group_8c.html#aa7b993563fd6da0fb75573573733daa3" title="Get the number of group ID addresses." alt="" coords="363,112,561,142"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="310,106,348,111,347,116,309,111"/>
+<area shape="rect" id="Node000007" href="$espnow__group_8c.html#af826ca7f397223b5075b39529f9ba115" title="Check whether the specified group address is my group." alt="" coords="373,165,551,195"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="288,113,316,124,340,138,364,151,382,158,380,163,362,156,338,143,314,129,286,118"/>
+</map>

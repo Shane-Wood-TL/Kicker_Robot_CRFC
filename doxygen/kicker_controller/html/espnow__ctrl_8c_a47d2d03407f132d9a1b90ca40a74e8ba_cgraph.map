@@ -1,0 +1,5 @@
+<map id="espnow_ctrl_recv" name="espnow_ctrl_recv">
+<area shape="rect" id="Node000001" title="The responder registers raw control data callback function." alt="" coords="5,5,152,35"/>
+<area shape="rect" id="Node000002" href="$espnow_8c.html#a5e8b13ca7f586bed41ed5779b84f61f4" title="Set configuration when receiving the corresponding ESP&#45;NOW data type Include: Set to enable/disable h..." alt="" coords="200,5,465,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="152,18,184,18,184,23,152,23"/>
+</map>

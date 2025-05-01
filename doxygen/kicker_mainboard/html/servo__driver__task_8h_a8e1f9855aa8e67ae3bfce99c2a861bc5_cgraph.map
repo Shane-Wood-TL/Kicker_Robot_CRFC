@@ -1,0 +1,5 @@
+<map id="servo_driver_task" name="servo_driver_task">
+<area shape="rect" id="Node000001" title="The task to drive the servo motor." alt="" coords="5,5,153,35"/>
+<area shape="rect" id="Node000002" href="$classservo.html#ab55e39bebe95e8bb62aea015a0dcb7c1" title="set the angle of the servo motor" alt="" coords="201,5,343,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="153,18,186,18,186,23,153,23"/>
+</map>

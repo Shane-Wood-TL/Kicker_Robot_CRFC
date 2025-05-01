@@ -97,8 +97,7 @@ T changeable_values<T>::get_value() { //return the value of the variable value
 skinparam classAttributeIconSize 0
 hide circle
 
-template <T>
-class changeable_values {
+class changeable_values <T>{
     - value : T*
     - min_value : T
     - max_value : T

@@ -1,0 +1,5 @@
+<map id="ssd1306::init_SSD1306" name="ssd1306::init_SSD1306">
+<area shape="rect" id="Node000001" title="Initializes the SSD1306." alt="" coords="205,5,395,35"/>
+<area shape="rect" id="Node000002" href="$classssd1306.html#a2518946b016e3c7f651eacaa1416864f" title="Constructor for the SSD1306 class." alt="" coords="5,5,157,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="189,23,157,23,157,18,189,18"/>
+</map>

@@ -1,0 +1,30 @@
+<map id="menu_handler::update" name="menu_handler::update">
+<area shape="rect" id="Node000001" title="This function will update the menu handler." alt="" coords="5,269,187,299"/>
+<area shape="rect" id="Node000002" href="$classmenu__handler.html#a5359c304e788501a02e8aaf6d289266f" title="This function draws the motor calibration menu to the display." alt="" coords="258,5,494,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="99,268,115,225,141,166,181,104,205,76,233,51,253,39,256,44,236,56,209,79,185,107,146,168,119,227,104,270"/>
+<area shape="rect" id="Node000003" href="$classmenu__handler.html#af3008a9c0396d06b3b772a31096d31ac" title="This function draws the status menu to the display." alt="" coords="565,376,843,406"/>
+<area shape="poly" id="edge7_Node000001_Node000003" title=" " alt="" coords="101,268,117,230,145,181,183,133,207,112,233,95,310,63,344,54,377,51,409,53,443,61,479,75,518,95,556,121,588,152,616,188,640,226,676,301,697,360,692,362,671,303,635,229,612,191,584,156,552,125,516,100,477,80,441,67,408,59,377,56,345,59,311,68,236,100,210,116,187,136,149,184,122,233,105,270"/>
+<area shape="rect" id="Node000004" href="$classmenu__handler.html#a1761326e4755be032ead895f0128a241" title="This function will switch which variable can be modified in the menus (if modifiable)" alt="" coords="235,109,517,139"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="106,267,156,208,192,176,233,149,246,142,249,147,236,153,196,180,160,212,110,271"/>
+<area shape="rect" id="Node000005" href="$classmenu__handler.html#a217a2b1671785e4d03511d7a62901e0a" title="This function will decrease the value of the selected variable if modifiable)" alt="" coords="244,163,508,192"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="117,266,169,233,234,202,256,194,258,199,236,207,171,238,120,271"/>
+<area shape="rect" id="Node000006" href="$classmenu__handler.html#a4515106db4f1601ab9dd85d12482de3c" title="This function will increase the value of the selected variable if modifiable)" alt="" coords="239,216,513,246"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="176,266,234,255,278,247,279,252,235,260,177,271"/>
+<area shape="rect" id="Node000007" href="$classmenu__handler.html#af2c07a9bc76fa5db69a736029600b2ce" title="This function will switch which variable can be modified in the menus (if modifiable)" alt="" coords="245,269,506,299"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="187,282,230,282,230,287,187,287"/>
+<area shape="rect" id="Node000008" href="$classmenu__handler.html#a501ff5ac964f8ed7775397311071c34f" title="This function draws the servo latched menu to the display." alt="" coords="270,323,482,352"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="177,297,235,308,279,317,278,322,234,313,176,302"/>
+<area shape="rect" id="Node000009" href="$classmenu__handler.html#af947e2fc4fecee6f2240e9d25db90961" title="This function cycles throught the status, motor speed, and ramped velocity menu menus." alt="" coords="251,376,501,406"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="120,297,171,330,236,362,258,369,256,374,234,367,169,335,117,302"/>
+<area shape="rect" id="Node000010" href="$classmenu__handler.html#af1b665a4320c38333e0081864ce797ad" title="This function draws the servo released menu to the display." alt="" coords="255,429,497,459"/>
+<area shape="poly" id="edge11_Node000001_Node000010" title=" " alt="" coords="110,298,160,356,196,389,236,415,249,421,246,426,233,420,192,393,156,360,106,301"/>
+<area shape="rect" id="Node000011" href="$classmenu__handler.html#abb48889d1582aa32c4ef201a3707c21d" title="This function draws the errors clear menu to the display." alt="" coords="252,483,500,512"/>
+<area shape="poly" id="edge13_Node000001_Node000011" title=" " alt="" coords="106,298,124,334,151,381,189,429,212,450,236,469,245,474,242,478,233,473,208,454,185,433,147,384,119,336,101,300"/>
+<area shape="rect" id="Node000012" href="$classmenu__handler.html#a0d65822629745990561b91fc423d3aaa" title="This function draws the motors en/dis abled menu to the display." alt="" coords="250,536,502,566"/>
+<area shape="poly" id="edge15_Node000001_Node000012" title=" " alt="" coords="104,299,118,344,144,405,183,469,208,498,236,522,243,526,240,531,233,526,204,501,179,472,139,407,113,346,99,300"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="485,33,519,51,556,85,589,125,617,167,641,211,677,295,698,360,693,361,672,297,637,214,613,170,585,128,552,89,515,56,483,38"/>
+<area shape="poly" id="edge9_Node000008_Node000003" title=" " alt="" coords="472,350,594,370,593,376,471,356"/>
+<area shape="poly" id="edge12_Node000010_Node000003" title=" " alt="" coords="471,426,593,406,594,411,472,431"/>
+<area shape="poly" id="edge14_Node000011_Node000003" title=" " alt="" coords="473,479,516,468,592,440,658,411,660,415,594,445,518,473,474,485"/>
+<area shape="poly" id="edge16_Node000012_Node000003" title=" " alt="" coords="483,533,516,522,562,498,605,470,674,414,677,418,608,474,565,503,518,527,485,538"/>
+</map>

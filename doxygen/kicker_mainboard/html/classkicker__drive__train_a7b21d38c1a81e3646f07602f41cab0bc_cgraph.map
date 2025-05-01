@@ -1,0 +1,5 @@
+<map id="kicker_drive_train::break_motors" name="kicker_drive_train::break_motors">
+<area shape="rect" id="Node000001" title="brake the motors by setting the velocity to 0" alt="" coords="5,5,258,35"/>
+<area shape="rect" id="Node000002" href="$classkicker__drive__train.html#a6ef0c24f1b0871021979a48fde1c9ff4" title="set the motors to their idle state" alt="" coords="306,5,570,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="258,18,290,18,290,23,258,23"/>
+</map>

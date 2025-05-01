@@ -1,0 +1,18 @@
+<map id="include/supporting/menus.h" name="include/supporting/menus.h">
+<area shape="rect" id="Node000001" title="This is the file that contains the class for menus." alt="" coords="402,5,619,35"/>
+<area shape="rect" id="Node000002" href="$menu__handler_8h.html" title="This is the file that contains the class for switching between menus." alt="" coords="288,83,559,113"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="484,48,441,84,438,80,481,44"/>
+<area shape="rect" id="Node000003" href="$display__task_8h.html" title="This is the file that contains the display task." alt="" coords="29,161,250,190"/>
+<area shape="poly" id="edge7_Node000001_Node000003" title=" " alt="" coords="416,41,346,60,277,85,209,124,158,162,155,158,206,120,274,81,345,55,415,36"/>
+<area shape="rect" id="Node000004" href="$main_8cpp.html" title="This is the file that contains the main function and all other tasks for the robot controller." alt="" coords="250,238,376,268"/>
+<area shape="poly" id="edge8_Node000001_Node000004" title=" " alt="" coords="543,43,577,73,607,111,618,131,623,152,621,173,611,192,595,205,572,216,511,233,442,244,376,250,376,245,441,238,510,227,570,211,592,200,607,189,616,171,618,153,613,133,603,114,573,77,539,47"/>
+<area shape="rect" id="Node000007" href="$menus_8cpp.html" title="source file for the class that handles the creation of menus" alt="" coords="672,83,890,113"/>
+<area shape="poly" id="edge9_Node000001_Node000007" title=" " alt="" coords="576,37,731,80,729,85,575,42"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="357,120,193,163,192,158,355,114"/>
+<area shape="poly" id="edge5_Node000002_Node000004" title=" " alt="" coords="363,122,336,139,315,162,308,181,306,201,311,237,306,238,301,201,303,180,311,159,332,135,360,117"/>
+<area shape="rect" id="Node000006" href="$menu__handler_8cpp.html" title="This is the file that contains the class for switching between menus." alt="" coords="325,161,596,190"/>
+<area shape="poly" id="edge6_Node000002_Node000006" title=" " alt="" coords="440,126,456,159,451,161,435,128"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="187,195,281,235,279,240,185,199"/>
+<area shape="rect" id="Node000005" href="$display__task_8cpp.html" title="This is the file that contains the display task." alt="" coords="5,238,226,268"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="133,206,123,239,117,237,128,205"/>
+</map>

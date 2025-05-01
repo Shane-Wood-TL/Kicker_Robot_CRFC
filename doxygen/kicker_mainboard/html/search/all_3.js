@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['dash_0',['dash',['../classfont.html#a781429972e9b781edf8d4c3ad561e7d3',1,'font']]],
+  ['decimal_1',['decimal',['../classfont.html#a23a68408067f30d16490be75e4742458',1,'font']]],
+  ['decrease_5fselected_5fvalue_2',['decrease_selected_value',['../classmenu.html#ade2df9b94ce9c44363c9331e345d1512',1,'menu::decrease_selected_value()'],['../classmenu.html#a7e091ecf3ad5a16b628d94deecf7f0e8',1,'menu::decrease_selected_value()'],['../classmenu.html#a299bc7cb474f1806b2228ec03b9686e0',1,'menu::decrease_selected_value()']]],
+  ['decrease_5fvalue_3',['decrease_value',['../classchangeable__values.html#a3556b6d6a2b2005f6e97cd6e966e0618',1,'changeable_values']]],
+  ['detached_4',['DETACHED',['../all__includes_8h.html#ae0bac8a6b045cf445615cafcb865df2eafc1f6d5ee72893448a8678579e0a64fa',1,'all_includes.h']]],
+  ['direction_5',['direction',['../classservo.html#a2539862a9eb51ac0d6e39ca198b319c3',1,'servo']]],
+  ['disable_5fmotors_6',['disable_motors',['../classkicker__drive__train.html#a6ef0c24f1b0871021979a48fde1c9ff4',1,'kicker_drive_train']]],
+  ['disabled_7',['DISABLED',['../all__includes_8h.html#a9435c2ec3939be2b458c4d618830f101a40f39385238042f6ec0cbac821a19fc4',1,'all_includes.h']]],
+  ['disconnected_8',['DISCONNECTED',['../all__includes_8h.html#afe176902dc906f16a5eaf51708970ac1acdaad1112073e3e2ea032424c38c34e1',1,'all_includes.h']]],
+  ['display_9',['display',['../classmenu.html#a4f6d8508b801a947ee1e666512a311de',1,'menu']]],
+  ['display_5fdiver_5fpriority_10',['display_diver_priority',['../main_8cpp.html#aa848dd51b284607b29813746d4399da1',1,'main.cpp']]],
+  ['display_5fdriver_5fstack_5fsize_11',['display_driver_stack_size',['../main_8cpp.html#acb0542ce4d697437e94db1798f68b5a8',1,'main.cpp']]],
+  ['display_5fdriver_5ftask_12',['display_driver_task',['../display__driver__task_8h.html#ad4b666a6c9c2ec527932313b8dee6e6a',1,'display_driver_task(void *pv):&#160;display_driver_task.cpp'],['../display__driver__task_8cpp.html#ad4b666a6c9c2ec527932313b8dee6e6a',1,'display_driver_task(void *pv):&#160;display_driver_task.cpp']]],
+  ['display_5fdriver_5ftask_2ecpp_13',['display_driver_task.cpp',['../display__driver__task_8cpp.html',1,'']]],
+  ['display_5fdriver_5ftask_2eh_14',['display_driver_task.h',['../display__driver__task_8h.html',1,'']]],
+  ['display_5fdriver_5fwait_5ftime_15',['display_driver_wait_time',['../display__driver__task_8h.html#ac637c78ecac45fcf1458bae61a0b3d2d',1,'display_driver_task.h']]],
+  ['displaybatteryqueue_16',['displayBatteryQueue',['../o_drive_8h.html#a68b9af90650eb09b49cd08f737917e84',1,'oDrive.h']]],
+  ['divide_5fby_5ftwo_17',['divide_by_two',['../menus_8h.html#a1e10c818d70ba0cf088422d35fab02f5',1,'menus.h']]],
+  ['draw_5fpixel_5fssd1306_18',['draw_pixel_SSD1306',['../classssd1306.html#a387d658f291cf5a82d75d07b47d81359',1,'ssd1306']]],
+  ['draw_5fto_5fdisplay_19',['draw_to_display',['../classmenu.html#ace9a681a44f014b790e060eb82ad109d',1,'menu::draw_to_display()'],['../classmenu.html#a581ddb789b3d1840c715107a764b3c75',1,'menu::draw_to_display()'],['../classmenu.html#a897023e49aadbc6258e917aa9191ded4',1,'menu::draw_to_display()'],['../classmenu.html#afd65e54c643e09624c03967f89bdf5eb',1,'menu::draw_to_display()'],['../classmenu.html#af61019c41238a75d1bcc47ad8e720aa5',1,'menu::draw_to_display()']]],
+  ['drive_5fmotors_20',['drive_motors',['../classkicker__drive__train.html#a78a7597a4a1b0bc9492ef66c32b8a0c6',1,'kicker_drive_train']]],
+  ['driving_5fspeed_21',['driving_speed',['../structesp__now__data__to__receive.html#a16477c1cb4fb5f95f34578eb020fec58',1,'esp_now_data_to_receive::driving_speed'],['../esp__now__callback__setup_8h.html#ab087726e110b665e07202ba55a0e9ae1',1,'driving_speed:&#160;main.cpp'],['../kicker__drive__train_8h.html#ab087726e110b665e07202ba55a0e9ae1',1,'driving_speed:&#160;main.cpp'],['../main_8cpp.html#ab087726e110b665e07202ba55a0e9ae1',1,'driving_speed:&#160;main.cpp']]],
+  ['driving_5fspeed_5fmult_22',['driving_speed_mult',['../esp__now__callback__setup_8h.html#a86dfb4523fe3f908dfff58f54a980fbd',1,'driving_speed_mult:&#160;main.cpp'],['../kicker__drive__train_8h.html#a86dfb4523fe3f908dfff58f54a980fbd',1,'driving_speed_mult:&#160;main.cpp'],['../main_8cpp.html#a86dfb4523fe3f908dfff58f54a980fbd',1,'driving_speed_mult:&#160;main.cpp']]]
+];

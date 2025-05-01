@@ -1,0 +1,5 @@
+<map id="test_hid_setup" name="test_hid_setup">
+<area shape="rect" id="Node000001" title="Setups HID testing." alt="" coords="5,5,131,35"/>
+<area shape="rect" id="Node000002" href="$hid__host_8c.html#acbc45f16781e49ef923d3c5884be3f84" title="USB HID Host install USB Host HID Class driver." alt="" coords="179,5,312,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="131,18,163,18,163,23,131,23"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="ps4::hid_host_device_event" name="ps4::hid_host_device_event">
+<area shape="rect" id="Node000001" title="USB HID Host Device event." alt="" coords="5,5,226,35"/>
+<area shape="rect" id="Node000002" href="$classps4.html#a33c070f3c1106c8ffe493c73756cb388" title="USB HID Host interface callback." alt="" coords="274,5,528,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="226,18,258,18,258,23,226,23"/>
+<area shape="rect" id="Node000003" href="$classps4.html#ab98da929c3d1305de189ea698a2d6833" title="USB HID Host Generic Interface report callback handler." alt="" coords="576,5,872,35"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="528,18,560,18,560,23,528,23"/>
+</map>

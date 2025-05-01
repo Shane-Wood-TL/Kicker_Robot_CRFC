@@ -1,0 +1,5 @@
+<map id="TEST_CASE" name="TEST_CASE">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,123,35"/>
+<area shape="rect" id="Node000002" href="$hid__mock__device_8c.html#a1b22ec88f20446b38011fd15aca63386" title="HID Mock device start." alt="" coords="171,5,317,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="123,18,155,18,155,23,123,23"/>
+</map>

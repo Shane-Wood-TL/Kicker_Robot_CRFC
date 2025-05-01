@@ -1,0 +1,5 @@
+<map id="espnow_deinit" name="espnow_deinit">
+<area shape="rect" id="Node000001" title="De&#45;initialize ESP&#45;NOW function." alt="" coords="5,5,131,35"/>
+<area shape="rect" id="Node000002" href="$espnow__security_8c.html#a7533547df72bb171c49284628a178174" title="Clear the specified security info." alt="" coords="179,5,338,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="131,18,163,18,163,23,131,23"/>
+</map>

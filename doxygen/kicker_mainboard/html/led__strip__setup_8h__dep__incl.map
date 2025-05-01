@@ -1,0 +1,7 @@
+<map id="include/setup/led_strip_setup.h" name="include/setup/led_strip_setup.h">
+<area shape="rect" id="Node000001" title="Contains the code to set up RMT for LED strips." alt="" coords="51,5,293,35"/>
+<area shape="rect" id="Node000002" href="$main_8cpp.html" title="This is the file that contains the main function and all other tasks for the robot." alt="" coords="5,83,131,113"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="142,47,89,85,86,80,139,42"/>
+<area shape="rect" id="Node000003" href="$led__strip__setup_8cpp.html" title="source file that sets up the led strips" alt="" coords="155,83,397,113"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="205,42,258,80,255,85,202,47"/>
+</map>
